@@ -1,0 +1,23 @@
+.input-component {
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 5px;
+
+    input {
+        border: 1px solid transparent;
+        background: transparent;
+        color: white;
+        font-style: normal;
+        font-weight: 500;
+        &::placeholder{
+            color: white;
+            font-style: normal;
+            font-weight: 500;
+                
+        }
+    }
+
+}

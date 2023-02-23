@@ -1,0 +1,34 @@
+@media screen and (min-width: 761px) {
+  .pagination {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    .ant-pagination {
+      &-prev {
+        min-width: 20px;
+        height: 20px;
+      }
+      &-next {
+        min-width: 20px;
+        height: 20px;
+      }
+      &-item {
+        font-size: 10px;
+        min-width: 20px;
+        height: 20px;
+        &-link {
+          font-size: 13px;
+          min-width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .login {
+    &_content {
+      padding: 100px;
+      background-color: yellow;
+    }
+  }
+}

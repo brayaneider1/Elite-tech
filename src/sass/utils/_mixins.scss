@@ -1,0 +1,23 @@
+@mixin fontFace($name, $file, $weight: normal) {
+  $path: '../assets/fonts/' + $file;
+  @font-face {
+    font-family: $name;
+    src: url($path + '.woff') format(woff), url($path + '.ttf') format(truetype),
+      url($path + '.otf') format(opentype);
+    font-weight: $weight;
+  }
+}
+
+@mixin btn-round($color, $bg-color, $f-weigh, $f-size, $m-x) {
+  background: $bg-color !important;
+  color: $color !important;
+  font-weight: $f-weigh !important;
+  font-size: $f-size !important;
+  border-radius: 20px !important;
+  @if $m-x !=null {
+    padding: 5px $m-x !important;
+  } @else {
+    padding: 5px 40px !important;
+  }
+  border: 0px !important;
+}

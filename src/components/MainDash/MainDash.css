@@ -1,0 +1,39 @@
+.MainDash{
+    /* padding-top: 1rem; */
+    display: flex;
+    color: white;
+    font-weight: 400;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2vh;
+
+
+}
+
+.contain-items{
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.title{
+margin-bottom: 4rem;
+}
+
+
+.container-new{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 1200px) {
+    .MainDash{
+        justify-content:flex-start;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .MainDash{
+        align-items: center;
+    }
+}
