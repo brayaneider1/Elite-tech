@@ -3,22 +3,22 @@ exports.onCreatePage = async ({ page, actions }) => {
 
     deletePage(page)
 
-/* 
+
     if (page.path.match(/^\/app/)) {
-        page.matchPath = "/agente/*"
+        page.matchPath = "/producto/*"
 
         return createPage(page)
-    } */
+    }
 
     return createPage({
         ...page,
         matchPath: page.path.match(/^\/app/) ? '/app/*' : undefined,
-        path: page.path,
+        path: newRouter.transform || pathTransform,
         context: {
             ...page.context,
-            locale: 'ES',
-            lang: 'ES',
-            dateFormat: 'UTF-8',
+            locale: locales['lang'].locale,
+            lang: lang,
+            dateFormat: locales[lang].dateFormat,
         },
     })
 

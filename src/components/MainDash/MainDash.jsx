@@ -19,7 +19,7 @@ const MainDash = (props) => {
     <div className="MainDash">
       <HeaderC />
       <div className="contain-items">
-        <CardDark />
+        <CardDark />  
         <div className="container-new">
           {/*<pre>{JSON.stringify(products, null, 2)} </pre> */}
         </div>
@@ -29,11 +29,5 @@ const MainDash = (props) => {
 };
 
 export default MainDash
-
-
-
-
-
-
 
 

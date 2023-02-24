@@ -7,22 +7,28 @@ import {
   UilTimesCircle,
   UilInfoCircle
 } from "@iconscout/react-unicons";
-export const ProductCard = () => {
+export const ProductCard = ({product}) => {
+  console.log("🚀 ~ file: ProductCard.jsx:11 ~ ProductCard ~ props:", product)
+  const recortarString = (strg) => { 
+    let a = strg.replace("<p>", '');
+    let b = a.replace("</p>","");
+    return b;
+   }
   return (
     <div className="card h-100 shadow-sm relative">
       <a href="#">
-        <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg" className="card-img-top" alt="product.title" />
+        <img src={product.image.url} className="card-img-top" alt="product.title" />
       </a>
 
       <div className="label-top shadow-sm">
-        <a className="text-white mb-2" href="#">asus</a>
+        <a className="text-white mb-2" href="#">{product.name}</a>
       </div>
       <div className="card-body">
 
         <h5 className="card-title">
-          <a target="_blank" href="#">ASUS TUF FX505DT Gaming Laptop- 15.6", 120Hz Full HD, AMD Ryzen 5 R5-3550H Processor, GeForce GTX 1650 Graphics, 8GB DDR4, 256GB PCIe SSD, RGB Keyboard, Windows 10 64-bit - FX505DT-AH51</a>
+          <a target="_blank" href="#">{recortarString(product.description)}</a>
         </h5>
-        <span className="bg-success">1.245$</span>
+        <span className="bg-success">${product.price.formatted}</span>
 
         <div className='footer'>
           <a href="#" className="btn-warning bold-btn">add to cart</a>
