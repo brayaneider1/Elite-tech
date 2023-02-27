@@ -1,18 +1,12 @@
 import React from 'react'
+import Layout from '../components/Layout/Layout'
 
- const products = () => {
-    return (
-        <div style={{ color: "white" }}>
-            <div>products</div>
-            <div>products</div>
-            <div>products</div>
-            <div>products</div>
-            <div>products</div>
-            <div>products</div>
-            <div>products</div>
-
-        </div>
-    )
+const products = () => {
+  return (
+    <Layout>
+      
+    </Layout>
+  )
 }
 
 export default products
