@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout/Layout"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { Link } from "@gatsbyjs/reach-router"
+import { motion } from "framer-motion"
 
 export default function ProductPage({ data: { product } }) {
   console.log("🚀 ~ file: ProductPage.js:7 ~ ProductPage ~ data:", product)
@@ -20,15 +19,30 @@ export default function ProductPage({ data: { product } }) {
         <div class="productCard_block">
           <div class="productCard_block_image">
             <div class="productCard_leftSide clearfix">
-              <div class="sliderBlock">
-                <ul class="sliderBlock_items">
+              <motion.div
+                initial={{
+                  y: 0,
+                }}
+                animate={{ y: -60 }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 3,
+                }}
+                class="sliderBlock"
+              >
+                <ul
+                  
+                  class="sliderBlock_items"
+                >
                   <img
                     src="https://github.com/BlackStar1991/CardProduct/blob/master/app/img/goods/item1/phones1.png?raw=true"
                     alt="headphones"
                   />
                 </ul>
 
-                <div class="sliderBlock_controls">
+              </motion.div>
+                {/* <div class="sliderBlock_controls">
                   <div class="sliderBlock_controls__navigatin">
                     <div class="sliderBlock_controls__wrapper">
                       <div class="sliderBlock_controls__arrow sliderBlock_controls__arrowBackward">
@@ -39,8 +53,7 @@ export default function ProductPage({ data: { product } }) {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div> */}
             </div>
           </div>
 
