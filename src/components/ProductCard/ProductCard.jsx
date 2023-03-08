@@ -7,22 +7,30 @@ import {
   UilTimesCircle,
   UilInfoCircle
 } from "@iconscout/react-unicons";
-export const ProductCard = ({product}) => {
-  console.log("🚀 ~ file: ProductCard.jsx:11 ~ ProductCard ~ props:", product)
-  const recortarString = (strg) => { 
+import { motion } from 'framer-motion';
+import { Link } from '@gatsbyjs/reach-router';
+export const ProductCard = ({ product }) => {
+  const recortarString = (strg) => {
     let a = strg.replace("<p>", '');
-    let b = a.replace("</p>","");
+    let b = a.replace("</p>", "");
     return b;
-   }
+  }
+  const item = {
+    hidden: { opacity: 0, scale: 0 },
+    show: { opacity: 1, scale: 1 }
+  }
   return (
-    <div className="card h-100 shadow-sm relative">
-      <a href="#">
-        <img src={product.image.url} className="card-img-top" alt="product.title" />
-      </a>
 
-      <div className="label-top shadow-sm">
-        <a className="text-white mb-2" href="#">{product.name}</a>
-      </div>
+    <motion.div variants={item} className="card h-100 shadow-sm relative">
+      <Link to={`/products/${product.permalink}`}>
+        <a href="#">
+          <img src={product.image.url} className="card-img-top" alt="product.title" />
+        </a>
+
+        <div className="label-top shadow-sm">
+          <a className="text-white mb-2" href="#">{product.name}</a>
+        </div>
+      </Link>
       <div className="card-body">
 
         <h5 className="card-title">
@@ -35,6 +43,6 @@ export const ProductCard = ({product}) => {
           <i className="far fa-heart"></i>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -11,15 +11,10 @@ img {
     height: auto;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none !important;
-}
-
 a {
     text-decoration: none;
     color: black;
+
     &:hover,
     &:focus,
     &:active {
@@ -28,18 +23,9 @@ a {
     }
 }
 
-input,
-input:focus,
-input:active {
-    outline: none;
-}
 
-button,
-button:active,
-button:focus,
-button:hover {
-    outline: none;
-}
+
+
 
 button {
     padding: 0;
@@ -58,13 +44,16 @@ button {
     display: flex;
     justify-content: space-around;
     background-color: #fff;
+
     &_image {
         width: 50%;
+        background-color: #070f35;
     }
+
     &_info {
         width: 50%;
         padding: 25px;
-        background-color: #fff;
+        background-color: #070f35;
     }
 }
 
@@ -88,6 +77,7 @@ button {
     &__imageBlock {
         display: block;
         height: 100%;
+
         img {
             position: absolute;
             display: block;
@@ -125,22 +115,23 @@ button {
         z-index: 2;
         transition: opacity 1s;
     }
+
     &__showing {
         opacity: 1;
         z-index: 3;
     }
 
-    /* &:after {
+    &:after {
         content: "";
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
-        background: #000000;
+        background: #C5B77A;
         opacity: 0.2;
         z-index: 4;
-    } */
+    }
 }
 
 .sliderBlock_controls {
@@ -169,6 +160,7 @@ button {
 
         transition: 300ms all;
         background-color: #0d2660;
+
         /* border-radius: 50%; */
         &:hover {
             background-color: #6891fe;
@@ -204,6 +196,7 @@ button {
         float: right;
     }
 }
+
 //////////POSITION Controls
 
 .sliderBlock_positionControls {
@@ -225,6 +218,7 @@ button {
             margin-left: 31%;
         }
     }
+
     &__active {
         background-color: #536dfe;
     }
@@ -259,10 +253,12 @@ button {
         transition: transform 0.5s;
         transform-origin: center center;
     }
+
     &:hover &__button__rotate {
         transition: transform 0.5s;
         transform: rotate(1turn);
     }
+
     &:hover {
         color: #0d2660;
     }
@@ -277,14 +273,13 @@ button {
     text-transform: uppercase;
 }
 
-.block_specification__specificationShow {
-}
-.block_specification__informationShow {
-}
+.block_specification__specificationShow {}
+
+.block_specification__informationShow {}
 
 .block_model {
     display: inline-block;
-    color: #263238;
+    color: white;
     font-size: 12px;
     //line-height: 35px;
     opacity: 0.9;
@@ -300,10 +295,13 @@ button {
         margin: 0;
         padding: 0;
         font-size: 29px;
+        color: white;
     }
+
     &__addName {
         margin: 0;
         padding: 0;
+        color: white;
         font-size: 24px;
     }
 }
@@ -316,7 +314,7 @@ button {
         width: 271px;
         height: 41px;
         margin-top: 14px;
-        color: #646b6f;
+        color: white;
         font-size: 17px;
         line-height: 24px;
     }
@@ -329,30 +327,31 @@ button {
 
 .block_informationAboutDevice {
     position: relative;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
+
     .row {
+        margin-top: 2rem;
         &_price {
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         &-quantity {
             display: flex;
-            .block_quantity {
-            }
+
         }
     }
 }
 
 .block_descriptionInformation {
-    width: 304px;
-    height: 104px;
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 20px;
     font-size: 14px;
     font-weight: 400;
     line-height: 23px;
-    color: #263238;
+    color: white;
 }
 
 .block_descriptionCharacteristic {
@@ -374,6 +373,7 @@ button {
     0% {
         left: 100%;
     }
+
     100% {
         left: 0;
     }
@@ -388,6 +388,7 @@ button {
         border-collapse: collapse;
         border: 1px solid #000;
     }
+
     th {
         border: 1px solid #000;
         font-weight: bold;
@@ -413,6 +414,7 @@ label {
     margin: 0;
     padding: 0;
 }
+
 .block_rating__stars {
     border: none;
     float: left;
@@ -420,14 +422,17 @@ label {
     margin: 0;
     padding: 0;
 }
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+
+input[type="checkbox"]+label,
+input[type="radio"]+label {
     margin: 0;
 }
-.block_rating__stars > input {
+
+.block_rating__stars>input {
     display: none;
 }
-.block_rating__stars > label:before {
+
+.block_rating__stars>label:before {
     margin: 5px;
     font-size: 15px;
     font-family: FontAwesome;
@@ -435,29 +440,34 @@ input[type="radio"] + label {
     content: "\f005";
 }
 
-.block_rating__stars > .half:before {
+.block_rating__stars>.half:before {
     content: "\f089";
     position: absolute;
 }
 
-.block_rating__stars > label {
+.block_rating__stars>label {
     color: #c9c9c9;
     float: right;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
-.block_rating__stars > input:checked ~ label, /* show gold star when clicked */
-  .block_rating__stars:not(:checked) > label:hover, /* hover current star */
-  .block_rating__stars:not(:checked) > label:hover ~ label {
+.block_rating__stars>input:checked~label,
+/* show gold star when clicked */
+.block_rating__stars:not(:checked)>label:hover,
+/* hover current star */
+.block_rating__stars:not(:checked)>label:hover~label {
     color: #fccf47;
 }
+
 /* hover previous stars in list */
 
-.block_rating__stars > input:checked + label:hover, /* hover current star when changing rating */
-  .block_rating__stars > input:checked ~ label:hover,
-  .block_rating__stars > label:hover ~ input:checked ~ label, /* lighten current selection */
-  .block_rating__stars > input:checked ~ label:hover ~ label {
+.block_rating__stars>input:checked+label:hover,
+/* hover current star when changing rating */
+.block_rating__stars>input:checked~label:hover,
+.block_rating__stars>label:hover~input:checked~label,
+/* lighten current selection */
+.block_rating__stars>input:checked~label:hover~label {
     color: #ffed85;
 }
 
@@ -477,20 +487,21 @@ input[type="radio"] + label {
 //////// PRICE
 
 .block_price {
-    margin-top: 29px;
     width: 100%;
+
     &__currency {
         padding: 0;
         margin: 0;
         vertical-align: top;
-        color: #0d2660;
+        color: white;
         font-size: 26px;
         font-weight: 600;
     }
+
     &__shipping {
         padding: 0;
         margin: 0;
-        color: #a2a9ad;
+        color: white;
         font-size: 12px;
     }
 }
@@ -503,13 +514,14 @@ input[type="radio"] + label {
 }
 
 .block_goodColor {
-    margin-top: 29px;
+    display: flex;
     width: 100%;
-
+    align-items: center;
+    margin-left: 5rem;
     &__allColors {
         width: 100%;
-        margin-top: 14px;
     }
+
     &__radio {
         display: inline-block;
         width: 21px;
@@ -519,51 +531,73 @@ input[type="radio"] + label {
         cursor: pointer;
     }
 }
-.radio_button:checked + .block_goodColor__radio {
+
+.radio_button:checked+.block_goodColor__radio {
     width: 25px;
     height: 25px;
     box-shadow: 0 0 5px 3px rgba(83, 109, 254, 0.5);
-    border: 2px solid #fff;
+    border: 2px solid rgb(7, 15, 53);
 }
 
 .block_goodColor__black {
     background-color: #3c383a;
 }
+
 .block_goodColor__silver {
     background-color: silver;
 }
 
 .text_specification {
     padding: 0;
-    color: #37474f;
-    font-size: 13px;
+    color: white;
+    font-size: 15px;
 }
 
 .block_quantity {
-    position: relative;
-    height: 46px;
     margin-top: 45px;
-
     span {
         display: inline-block;
         float: left;
         margin-top: 15px;
         margin-right: 10px;
+        color: white;
     }
 
     &__chooseBlock {
-        vertical-align: top;
+        display: flex;
+        justify-content: space-between;
         height: 100%;
-
         margin: 0;
         padding: 0;
+        &__quantity{
+            display: flex;
+        }
+        &__button{
+            border: none;
+            background-color: #536dfe;
+            padding: 15px;
+            color: white;
+            border-radius: 10px;
+        }
+        .button_arrow {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            justify-content: center;
+            width: 5%;
+            align-items: center;
+            button{
+                border: none;
+            }
+        }
     }
+
     &__number {
         display: inline-block;
         float: left;
         width: 52px;
         height: 46px;
-        //padding: 16px 17px;
+        margin-right: 5px;
         border: 1px solid #ddd;
         font-size: 18px;
 
@@ -573,6 +607,7 @@ input[type="radio"] + label {
             line-height: 35px;
         }
     }
+
     &__button {
         display: inline-block;
         position: relative;
@@ -588,31 +623,14 @@ input[type="radio"] + label {
         &:hover,
         &:focus {
             background-color: transparent;
+
             &:before {
                 color: #6891fe;
             }
         }
     }
-    &__up {
-        &:before {
-            content: "\f106";
-            width: 11px;
-            height: 6px;
-            font-family: "FontAwesome";
-            color: #37474f;
-            font-size: 18px;
-        }
-    }
-    &__down {
-        &:before {
-            content: "\f107";
-            width: 11px;
-            height: 6px;
-            font-family: "FontAwesome";
-            color: #37474f;
-            font-size: 18px;
-        }
-    }
+
+
 }
 
 // ADD to CARD
@@ -629,6 +647,7 @@ input[type="radio"] + label {
     border: none;
     margin-left: 4rem;
     border-radius: 5px;
+
     &:hover {
         background-color: #0d2660;
     }

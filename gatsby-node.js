@@ -27,7 +27,6 @@ exports.createPages  = async ({page, actions, graphql }) => {
       }
     }
   `)
-  console.log("allChecProduct",allChecProduct);
 
   allChecProduct.nodes.forEach(({ id, permalink }) =>
     createPage({

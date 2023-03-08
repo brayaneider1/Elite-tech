@@ -6,6 +6,7 @@ import {
   UilShoppingCartAlt ,
   UilShoppingBasket ,
   UilUserCircle 
+  
 } from "@iconscout/react-unicons";
 
 // Analytics Cards imports
@@ -21,6 +22,10 @@ export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Inico",
+  },
+  {
+    icon: UilEstate,
+    heading: "Categorias",
   },
   {
     icon: UilHeart ,

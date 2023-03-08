@@ -2,7 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout/Layout"
 import { motion } from "framer-motion"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faArrowDown, faArrowDown91, faArrowDownAZ, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 export default function ProductPage({ data: { product } }) {
   console.log("🚀 ~ file: ProductPage.js:7 ~ ProductPage ~ data:", product)
   const {
@@ -13,14 +14,20 @@ export default function ProductPage({ data: { product } }) {
     price: { formatted_with_symbol },
   } = product
 
+  const recortarString = (strg) => {
+    let a = strg.replace("<p>", '');
+    let b = a.replace("</p>", "");
+    return b;
+  }
+
   return (
     <Layout>
-      <main class="main">
-        <div class="productCard_block">
-          <div class="productCard_block_image">
-            <div class="productCard_leftSide clearfix">
+      <main className="main">
+        <div className="productCard_block">
+          <div className="productCard_block_image">
+            <div className="productCard_leftSide clearfix">
               <motion.div
-                initial={{
+                /* initial={{
                   y: 0,
                 }}
                 animate={{ y: -60 }}
@@ -28,28 +35,28 @@ export default function ProductPage({ data: { product } }) {
                   repeat: Infinity,
                   repeatType: "reverse",
                   duration: 3,
-                }}
-                class="sliderBlock"
+                }} */
+                className="sliderBlock"
               >
                 <ul
-                  
-                  class="sliderBlock_items"
+
+                  className="sliderBlock_items"
                 >
                   <img
-                    src="https://github.com/BlackStar1991/CardProduct/blob/master/app/img/goods/item1/phones1.png?raw=true"
+                    src={url}
                     alt="headphones"
                   />
                 </ul>
 
               </motion.div>
-                {/* <div class="sliderBlock_controls">
-                  <div class="sliderBlock_controls__navigatin">
-                    <div class="sliderBlock_controls__wrapper">
-                      <div class="sliderBlock_controls__arrow sliderBlock_controls__arrowBackward">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+              {/* <div className="sliderBlock_controls">
+                  <div className="sliderBlock_controls__navigatin">
+                    <div className="sliderBlock_controls__wrapper">
+                      <div className="sliderBlock_controls__arrow sliderBlock_controls__arrowBackward">
+                        <i className="fa fa-angle-left" aria-hidden="true"></i>
                       </div>
-                      <div class="sliderBlock_controls__arrow sliderBlock_controls__arrowForward">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <div className="sliderBlock_controls__arrow sliderBlock_controls__arrowForward">
+                        <i className="fa fa-angle-right" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
@@ -57,43 +64,43 @@ export default function ProductPage({ data: { product } }) {
             </div>
           </div>
 
-          <div class="productCard_block_info">
-            <div class="productCard_rightSide">
-              <div class="block_specification">
-                <div class="block_specification__specificationShow">
+          <div className="productCard_block_info">
+            <div className="productCard_rightSide">
+              <div className="block_specification">
+                <div className="block_specification__specificationShow">
                   <i
-                    class="fa fa-cog block_specification__button block_specification__button__rotate"
+                    className="fa fa-cog block_specification__button block_specification__button__rotate"
                     aria-hidden="true"
                   ></i>
-                  <span class="block_specification__text">spec</span>
+                  <span className="block_specification__text">spec</span>
                 </div>
-                <div class="block_specification__informationShow hide">
+                <div className="block_specification__informationShow hide">
                   <i
-                    class="fa fa-info-circle block_specification__button block_specification__button__jump"
+                    className="fa fa-info-circle block_specification__button block_specification__button__jump"
                     aria-hidden="true"
                   ></i>
-                  <span class="block_specification__text">inform</span>
+                  <span className="block_specification__text">inform</span>
                 </div>
               </div>
 
-              <p class="block_model">
-                <span class="block_model__text">Model: </span>
-                <span class="block_model__number">505795</span>
+              <p className="block_model">
+                <span className="block_model__text">Model: </span>
+                <span className="block_model__number">505795</span>
               </p>
 
-              <div class="block_product">
-                <h2 class="block_name block_name__mainName">
-                  MOMENTUM<sup>&reg; </sup>
+              <div className="block_product">
+                <h2 className="block_name block_name__mainName">
+                  {name}<sup>&reg; </sup>
                 </h2>
-                <h2 class="block_name block_name__addName">Wireless Black</h2>
+                <h2 className="block_name block_name__addName">Wireless Black</h2>
 
-                <p class="block_product__advantagesProduct">
+                <p className="block_product__advantagesProduct">
                   Wireless headphones with integrated microphone
                 </p>
 
-                <div class="block_informationAboutDevice">
-                  <div class="block_descriptionCharacteristic block_descriptionCharacteristic__disActive">
-                    <table class="block_specificationInformation_table">
+                <div className="block_informationAboutDevice">
+                  {/* <div className="block_descriptionCharacteristic block_descriptionCharacteristic__disActive">
+                    <table className="block_specificationInformation_table">
                       <tr>
                         <th>Characteristic</th>
                         <th>Value</th>
@@ -138,76 +145,76 @@ export default function ProductPage({ data: { product } }) {
                         <td>260g (9.17 oz)</td>
                       </tr>
                     </table>
-                  </div>
+                  </div> */}
 
-                  <div class="block_descriptionInformation">
+                  <div className="block_descriptionInformation">
                     <span>
-                      Peak performance with active noise cancelation.
-                      Sennheiser's new MOMENTUM Wireless - Closed
-                      circumauralheadphone featuring
-                      <a class="block_product__link" href="#">
-                        Bluetooth<sup>&reg;</sup>
-                      </a>
-                      wireless technology and NoiseGard Hybrid active noise
-                      cancelation
+                      {recortarString(description)}
                     </span>
                   </div>
 
-                  <div class="row">
-                    <div class="row_price">
-                      <div class="block_price">
-                        <p class="block_price__currency">$499.95</p>
-                        <p class="block_price__shipping">
+                  <div className="row">
+                    <div className="row_price">
+                      <div className="block_price">
+                        <p className="block_price__currency">{formatted_with_symbol}</p>
+                        <p className="block_price__shipping">
                           Shipping and taxes extra
                         </p>
                       </div>
-                      <div class="block_goodColor">
-                        <span class="text_specification">
-                          Choose your colors:
+                      <div className="block_goodColor">
+                        <span className="text_specification">
+                          colores:
                         </span>
-                        <div class="block_goodColor__allColors">
+                        <div className="block_goodColor__allColors">
                           <input
                             type="radio"
                             name="colorOfItem"
-                            class="radio_button"
+                            className="radio_button"
                             id="radioColor"
                             checked
                           />
                           <label
                             for="radioColor"
-                            class="block_goodColor__radio block_goodColor__black"
+                            className="block_goodColor__radio block_goodColor__black"
                           ></label>
                           <input
                             type="radio"
                             name="colorOfItem"
-                            class="radio_button"
+                            className="radio_button"
                             id="radioColor2"
                           />
                           <label
                             for="radioColor2"
-                            class="block_goodColor__radio block_goodColor__silver"
+                            className="block_goodColor__radio block_goodColor__silver"
                           ></label>
                         </div>
                       </div>
                     </div>
 
-                    <div class="row_quantity">
-                      <div class="block_quantity">
-                        <div class="block_quantity__chooseBlock">
-                          <span class="text_specification">Quantity</span>
-                          <input
-                            class="block_quantity__number"
-                            name="quantityNumber"
-                            type="text"
-                            min="1"
-                            value="1"
-                          />
-                          <button class="block_quantity__button block_quantity__up"></button>
-                          <button class="block_quantity__button block_quantity__down"></button>
+                    <div className="row_quantity">
+                      <div className="block_quantity">
+                        <div className="block_quantity__chooseBlock">
+                          <div classNameName="block_quantity__chooseBlock__quantity">
+                            <span className="text_specification">Quantity</span>
+                            <input
+                              className="block_quantity__number"
+                              name="quantityNumber"
+                              type="text"
+                              min="1"
+                              value="1"
+                            />
+                            <div className="button_arrow">
+                              <button><FontAwesomeIcon icon={faArrowUp} color="gray" /> </button>
+                              <button><FontAwesomeIcon icon={faArrowDown} color="gray" /></button>
+                            </div>
+                          </div>
+                          <div style={{ display: "flex" }}>
+                            <button className="block_quantity__chooseBlock__button">
+                              Add to Cart
+                            </button>
+                          </div>
+
                         </div>
-                        <button class="button button_addToCard">
-                          Add to Cart
-                        </button>
                       </div>
                     </div>
                   </div>
