@@ -22,26 +22,36 @@ export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Inico",
+    link:""
+
   },
   {
     icon: UilEstate,
     heading: "Categorias",
+    link:""
+
   },
   {
     icon: UilHeart ,
     heading: "Favoritos",
+    link:""
+
   },
   {
     icon: UilShoppingCartAlt ,
     heading: "Carrito",
+    link:"cart/"
   },
   {
     icon: UilShoppingBasket ,
-    heading: 'Mis compras'
+    heading: 'Mis compras',
+    link:""
   },
   {
     icon: UilUserCircle ,
-    heading: 'Perfil'
+    heading: 'Perfil',
+    link:""
+
   },
 ];
 

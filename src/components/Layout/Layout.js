@@ -1,4 +1,5 @@
 import React from 'react'
+import { HeaderC } from '../Header/Header'
 import Sidebar from '../Sidebar'
 
 const Layout = ({children}) => {
@@ -7,6 +8,7 @@ const Layout = ({children}) => {
 
     <div className="AppGlass">
       <Sidebar />
+      {/* <HeaderC/> */}
       {/* <MainDash /> */}
       <div className="content-main">
         {children}

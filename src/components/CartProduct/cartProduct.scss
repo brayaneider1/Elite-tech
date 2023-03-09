@@ -1,0 +1,40 @@
+.cart-product {
+  display: flex;
+  justify-content: center;
+  &-container {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: 100px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 5px;
+  }
+  &-image {
+    width: 10%;
+    img {
+      border-radius: 5px;
+    }
+  }
+  &-data{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &-quantity{
+    display: flex;
+    margin-left: 0rem;
+    justify-content: center;
+    width: 25%;
+    input{
+        width: 30%;
+        margin: 0 10px;
+        text-align: center;
+    }
+    button{
+        border: none;
+    }
+  }
+}
