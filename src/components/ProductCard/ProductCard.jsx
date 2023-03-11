@@ -16,7 +16,7 @@ export const ProductCard = ({ product }) => {
   /* commerce.cart.delete().then((response) => console.log("item------------------->",response));
   commerce.cart.contents().then((items) => console.log("item------------------->",items)); */
   useEffect(() => {
-    commerce.cart.retrieve().then((cart) => console.log(cart));   
+    commerce.cart.retrieve().then();   
   }, [])
   
   const recortarString = (strg) => {
@@ -30,7 +30,6 @@ export const ProductCard = ({ product }) => {
   }
 
   const addToCard = ({ id, qt }) => {
-    console.log("aqui-------->",id);
     commerce.cart.add(id, 1).then((response) => console.log("aqui------------>", response));
   }
 
@@ -43,7 +42,7 @@ export const ProductCard = ({ product }) => {
         </div>
 
         <div className="label-top shadow-sm">
-          <a className="text-white mb-2" href="#">{product.name}</a>
+          <a className="text-white mb-2" href="#">{product.name}++</a>
         </div>
       </Link>
       <div className="card-body">

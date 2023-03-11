@@ -3,57 +3,57 @@ import {
   UilEstate,
   UilClipboardAlt,
   UilHeart,
-  UilShoppingCartAlt ,
-  UilShoppingBasket ,
-  UilUserCircle 
-  
-} from "@iconscout/react-unicons";
+  UilShoppingCartAlt,
+  UilShoppingBasket,
+  UilUserCircle,
+  UilApps,
+  UilAngleDoubleDown ,
+  UilBold 
+} from "@iconscout/react-unicons"
 
 // Analytics Cards imports
-import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
+import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons"
 
 // Recent Card Imports
-import img1 from "../imgs/img1.png";
-import img2 from "../imgs/img2.png";
-import img3 from "../imgs/img3.png";
+import img1 from "../imgs/img1.png"
+import img2 from "../imgs/img2.png"
+import img3 from "../imgs/img3.png"
 
 // Sidebar Data
 export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Inico",
-    link:""
-
+    link: "",
   },
   {
-    icon: UilEstate,
+    icon: UilApps,
+    iconOpened: UilBold,
     heading: "Categorias",
-    link:""
-
+    link: "",
+    subNav: true,
   },
   {
-    icon: UilHeart ,
+    icon: UilHeart,
     heading: "Favoritos",
-    link:""
-
+    link: "",
   },
   {
-    icon: UilShoppingCartAlt ,
+    icon: UilShoppingCartAlt,
     heading: "Carrito",
-    link:"cart/"
+    link: "cart/",
   },
   {
-    icon: UilShoppingBasket ,
-    heading: 'Mis compras',
-    link:""
+    icon: UilShoppingBasket,
+    heading: "Mis compras",
+    link: "",
   },
   {
-    icon: UilUserCircle ,
-    heading: 'Perfil',
-    link:""
-
+    icon: UilUserCircle,
+    heading: "Perfil",
+    link: "",
   },
-];
+]
 
 // Analytics Cards Data
 export const cardsData = [
@@ -106,7 +106,7 @@ export const cardsData = [
       },
     ],
   },
-];
+]
 
 // Recent Update Card Data
 export const UpdatesData = [
@@ -128,4 +128,4 @@ export const UpdatesData = [
     noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
     time: "2 hours ago",
   },
-];
+]

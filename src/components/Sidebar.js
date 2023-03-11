@@ -5,17 +5,27 @@ import { UilSignOutAlt } from "@iconscout/react-unicons"
 import { SidebarData } from "../Data/Data"
 import { UilBars } from "@iconscout/react-unicons"
 import { motion } from "framer-motion"
+import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "@gatsbyjs/reach-router"
+import SubMenu from "./SubMenu/SubMenu"
 
 const Sidebar = () => {
-  const [selected, setSelected] = useState(0)
-
   const [expanded, setExpaned] = useState(true)
+  const {
+    allChecCategory: { nodes },
+  } = useStaticQuery(graphql`
+    query CategoryQuery {
+      allChecCategory {
+        nodes {
+          name
+        }
+      }
+    }
+  `)
 
   useEffect(() => {
-  console.log(selected);
-  }, [selected])
-  
+    console.log("🚀 ~ file: Sidebar.jsx:11 ~ Sidebar ~ Data:", nodes)
+  }, [nodes])
 
   const sidebarVariants = {
     true: {
@@ -46,20 +56,7 @@ const Sidebar = () => {
 
         <div className="menu">
           {SidebarData.map((item, index) => {
-            return (
-              <Link
-                className={selected === index ? "menuItem active" : "menuItem"}
-                key={index}
-                to={item.link}
-                onClick={() =>{
-                  console.log(index);
-                  setSelected(index)
-                }}
-              >
-                <item.icon />
-                <span>{item.heading}</span>
-              </Link>
-            )
+            return <SubMenu item={item} nodes={nodes} index={index} />
           })}
           {/* signoutIcon */}
           <div className="menuItem">

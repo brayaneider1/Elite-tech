@@ -1,6 +1,7 @@
 import React from 'react'
 import { HeaderC } from '../Header/Header'
 import Sidebar from '../Sidebar'
+import SidebarDrop from '../SidebarDrop/SidebarDrop'
 
 const Layout = ({children}) => {
   return (
@@ -8,6 +9,7 @@ const Layout = ({children}) => {
 
     <div className="AppGlass">
       <Sidebar />
+      {/* <SidebarDrop/> */}
       {/* <HeaderC/> */}
       {/* <MainDash /> */}
       <div className="content-main">
