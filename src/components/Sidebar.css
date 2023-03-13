@@ -56,6 +56,9 @@
   border-radius: 0.7rem;
   font-size: 14px;
 }
+.menuItem:hover{
+  color: #05F29B;
+}
 
 .menuItem:hover {
   cursor: pointer;
@@ -84,14 +87,15 @@
 /* Tablets */
 @media screen and (max-width: 1200px) {
 
-  .menuItem>span {
+  /* .menuItem>span {
     display: none;
-  }
+  } */
 
-  .sidebar {
+  /* .sidebar {
     top: -12vh !important;
     background-color: transparent;
-  }
+    width: 90%;
+  } */
 }
 
 @media screen and (max-width: 768px) {

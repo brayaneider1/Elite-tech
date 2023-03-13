@@ -30,7 +30,6 @@ export const pageQuery = graphql`
 `
 
 const IndexPage = ({ data }) => {
-  console.log("data", data.allChecProduct.nodes)
   const container = {
     hidden: { opacity: 0 },
     show: {
