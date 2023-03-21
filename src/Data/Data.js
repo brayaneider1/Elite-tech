@@ -24,34 +24,39 @@ export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Inico",
-    link: "",
+    subNav: false,
+    link: false,
   },
   {
     icon: UilApps,
     iconOpened: UilBold,
     heading: "Categorias",
-    link: "",
+    link: false,
     subNav: true,
   },
   {
     icon: UilHeart,
     heading: "Favoritos",
-    link: "",
+    subNav: false,
+    link: false,
   },
   {
     icon: UilShoppingCartAlt,
     heading: "Carrito",
-    link: "cart/",
+    subNav: false,
+    link: "/app/cart/",
   },
   {
     icon: UilShoppingBasket,
     heading: "Mis compras",
-    link: "",
+    subNav: false,
+    link: false,
   },
   {
     icon: UilUserCircle,
+    subNav: false,
     heading: "Perfil",
-    link: "",
+    link: false,
   },
 ]
 

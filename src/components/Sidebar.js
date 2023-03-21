@@ -6,7 +6,6 @@ import { SidebarData } from "../Data/Data"
 import { UilBars } from "@iconscout/react-unicons"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
-import { Link } from "@gatsbyjs/reach-router"
 import SubMenu from "./SubMenu/SubMenu"
 
 const Sidebar = () => {
@@ -18,13 +17,14 @@ const Sidebar = () => {
       allChecCategory {
         nodes {
           name
+          id
         }
       }
     }
   `)
 
   useEffect(() => {
-    console.log("🚀 ~ file: Sidebar.jsx:11 ~ Sidebar ~ Data:", nodes)
+    console.log("🚀 ~ file: Sidebar.jsx:11 ~ Sidebar ~ Data:", nodes[0])
   }, [nodes])
 
   const sidebarVariants = {
@@ -55,8 +55,8 @@ const Sidebar = () => {
         </div>
 
         <div className="menu">
-          {SidebarData.map((item, index) => {
-            return <SubMenu item={item} nodes={nodes} index={index} />
+          {SidebarData.map((item, i) => {
+            return <SubMenu item={item} nodes={nodes} index={i} key={i} />
           })}
           {/* signoutIcon */}
           <div className="menuItem">

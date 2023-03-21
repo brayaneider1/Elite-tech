@@ -1,10 +1,5 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import MainDash from "../components/MainDash/MainDash"
-import RightSide from "../components/RigtSide/RightSide"
-import Sidebar from "../components/Sidebar"
-import { HeaderC } from "../components/Header/Header"
+import { graphql } from "gatsby"
 import { ProductCard } from "../components/ProductCard/ProductCard"
 import Layout from "../components/Layout/Layout"
 import { motion } from "framer-motion"
@@ -30,6 +25,7 @@ export const pageQuery = graphql`
 `
 
 const IndexPage = ({ data }) => {
+  console.log("🚀 ~ file: index.js:33 ~ IndexPage ~ data:", data)
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -43,16 +39,13 @@ const IndexPage = ({ data }) => {
   
   return (
     <Layout>
-      <motion.div style={{ display: "flex" }} variants={container}
+      <motion.div style={{ display: "flex",flexWrap:"wrap" }} variants={container}
         initial="hidden"
         animate="show">
-
         {data.allChecProduct.nodes.map((product, i) => (
             <ProductCard product={product} key={i} />
         ))}
-
       </motion.div>
-
     </Layout>
   )
 }

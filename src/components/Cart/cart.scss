@@ -1,30 +1,101 @@
 .cart {
   display: flex;
+  flex-direction: column;
   background-color: #070f35;
   width: 100%;
+  height: 100%;
+  &-title {
+    h2 {
+      color: white;
+      font-size: 30px;
+      padding: 1rem;
+    }
+  }
+  &-container {
+    display: flex;
+    &-product {
+      flex: 0.6;
+      height: 100%;
+      margin: 1rem 0;
+      padding: 1rem;
+      width: 100%;
+    }
+  }
   &-product {
     width: 100%;
   }
-  &-container-product {
-    flex: 0.6;
-    height: 100%;
-    margin: 2rem 0;
-    padding: 1rem;
-    width: 100%;
+  &-subtotal{
+    display: flex;
+    justify-content: flex-end;
+    a{
+      color: rgb(128, 128, 128);
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    span{
+      color: white;
+      font-size: 20px;
+    }
   }
   &-container-checkout {
-    flex: 0.4;
+    flex: 0.4 1;
     padding: 2rem;
+    justify-content: center;
     width: 100%;
+    display: flex;
     .data-container {
       background-color: #242f6945;
       border-radius: 10px;
       height: 100%;
+      width: 90%;
+      &-image{
+        display: flex;
+        justify-content: center;
+
+      }
+      &-status{
+        display: flex;
+        color: white;
+        padding: 10px;
+        justify-content: space-between;
+        gap: 20px;
+        div{
+          display: flex;
+          font-size: 15px;
+        }
+        p{
+          margin-right: 5px;
+
+        }
+        strong{
+
+        }
+      }
+      &-info{
+        display: flex;
+        color: white;
+        padding: 10px;
+        justify-content: space-between;
+        font-weight: 100;
+        gap: 20px;
+      }
       h2 {
         color: white;
         font-size: 22px;
         font-weight: 700;
-        padding: 30px 0 0 30px;
+        padding: 15px 0 5px 0;
+        text-align: center;
+      }
+      h3{
+        color: white;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      img{
+        width: 80px;
+        height: 80px;
       }
     }
   }

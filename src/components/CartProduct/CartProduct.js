@@ -1,17 +1,29 @@
 import React from "react"
 
-const CartProduct = ({item}) => {
-    const {id,product_name,image:{url},price:{formatted_with_symbol,formatted},}=item
-    console.log(item);
+const CartProduct = ({ item }) => {
+  const {
+    product_name,
+    image: { url },
+    price: { raw },
+    quantity,
+  } = item
+
+  const formatNumber = num => {
+    let priceT = raw * quantity
+    return new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "COP",
+    })
+      .format(priceT)
+      .replace(",00", "")
+      .replace("COP", "")
+  }
+
   return (
     <div className="cart-product">
       <div className="cart-product-container">
         <div className="cart-product-image">
-          <img
-            src={url}
-            className="img-fluid rounded-3"
-            alt="Cotton T-shirt"
-          />
+          <img src={url} className="img-fluid rounded-3" alt="Cotton T-shirt" />
         </div>
 
         <div className="cart-product-data">
@@ -34,7 +46,7 @@ const CartProduct = ({item}) => {
             id="form1"
             min="0"
             name="quantity"
-            value="2"
+            value={quantity}
             type="number"
             className="form-control form-control-sm"
           />
@@ -48,12 +60,12 @@ const CartProduct = ({item}) => {
         </div>
 
         <div className="cart-product-quantity">
-          <h5 className="mb-0">{formatted_with_symbol}</h5>
+          <h5 className="mb-0">${formatNumber(raw)}</h5>
         </div>
 
         <div className="cart-product-delete">
           <a href="#!" className="text-danger">
-            <i className="fas fa-trash fa-lg" style={{color:"#05F29B"}}></i>
+            <i className="fas fa-trash fa-lg" style={{ color: "#05F29B" }}></i>
           </a>
         </div>
       </div>

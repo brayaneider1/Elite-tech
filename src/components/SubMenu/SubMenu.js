@@ -1,17 +1,17 @@
-import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
+import { motion, AnimatePresence } from "framer-motion"
 import { UilAngleDown, UilAngleUp } from "@iconscout/react-unicons"
+import { Link, navigate } from "gatsby"
 const SubMenu = ({ item, index, nodes }) => {
+  console.log("🚀 ~ file: SubMenu.js:7 ~ SubMenu ~ item:", nodes)
   const [selected, setSelected] = useState(0)
   const [subnav, setSubnav] = useState(false)
-  useEffect(() => {
-    console.log("aqi==>", item)
-  }, [subnav])
 
-  const showSubnav = () => {
+  const showSubnav = e => {
+    e.preventDefault()
     setSubnav(!subnav)
+    console.log("aqi==>", subnav)
   }
   const menuAnimation = {
     hidden: {
@@ -27,13 +27,13 @@ const SubMenu = ({ item, index, nodes }) => {
         when: "beforeChildren",
       },
     },
-  };
+  }
   return (
     <>
       <Link
         className={selected === item.index ? "menuItem active" : "menuItem"}
-        to={item.link ? item.link : "/#"}
-        onClick={() => showSubnav()}
+        to={item.link ? item.link : "/"}
+        onClick={item.subNav ? e => showSubnav(e) : () => {}}
       >
         <item.icon />
         <span>{item.heading}</span>
@@ -42,56 +42,40 @@ const SubMenu = ({ item, index, nodes }) => {
             animate={
               subnav
                 ? {
-                  rotate: -90
-                }
+                    rotate: -90,
+                  }
                 : { rotate: 0 }
             }
           >
             <UilAngleDown />
-          </motion.div>)}
+          </motion.div>
+        )}
       </Link>
       <AnimatePresence>
-        {item.subNav === true && subnav && nodes.map((item, i) => (
-          <Link to="/cart/" key={i}>
+        {item.subNav === true &&
+          subnav &&
+          nodes.map((item, i) => (
             <DropdownLink
+              key={i}
               variants={menuAnimation}
               initial={"hidden"}
               animate={"show"}
               exit={"hidden"}
+              onClick={() => navigate(`/category/${item.id}`)}
             >
-              <SidebarLabel >{item.name}</SidebarLabel>
+              <SidebarLabel>{item.name}</SidebarLabel>
             </DropdownLink>
-          </Link>))
-        }
+          ))}
       </AnimatePresence>
     </>
   )
 }
-
-const SidebarLink = styled(motion.p)`
-  display: flex;
-  color: #e1e9fc;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  list-style: none;
-  height: 60px;
-  text-decoration: none;
-  font-size: 18px;
-
-  &:hover {
-    background: #252831;
-    border-left: 4px solid #632ce4;
-    cursor: pointer;
-  }
-`
 
 const SidebarLabel = styled(motion.span)`
   margin-left: 30px;
 `
 
 const DropdownLink = styled(motion.div)`
- 
   height: 60px;
   padding-left: 3rem;
   display: flex;
