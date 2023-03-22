@@ -7,7 +7,6 @@ import Notification from "../components/Notification/Notification"
 import { CardCategory } from "../components/CardCategory/CardCategory"
 import { HeaderC } from "../components/Header/Header"
 import { CardDark } from "../components/CardDark/CardDark"
-
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
 
@@ -69,7 +68,32 @@ const IndexPage = ({ data }) => {
     }, 1500)
   }
 
-  const items = [<CardDark />, <CardDark />, <CardDark />]
+  const createItems = (length, handleClick) => {
+    let deltaX = 0
+    let difference = 0
+    const swipeDelta = 20
+
+    return Array.from({ length }).map((item, i) => (
+      <div>
+        {i}
+        <CardDark slideNext={()=>handleClick(i)} />
+      </div>
+    ))
+  }
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  const slideNext = () => {
+    console.log("activeIndex", activeIndex)
+    return setActiveIndex(activeIndex + 1)
+  }
+  const [items] = useState(createItems(4, setActiveIndex))
+
+  useEffect(() => {
+    console.log(
+      "🚀 ~ file: index.js:93 ~ IndexPage ~ activeIndex:",
+      activeIndex
+    )
+  }, [activeIndex])
 
   return (
     <Layout>
@@ -77,7 +101,13 @@ const IndexPage = ({ data }) => {
       <HeaderC />
       <div className="container-ovf">
         <div className="best-seller">
-          <AliceCarousel mouseTracking items={items} />
+          <AliceCarousel
+            disableButtonsControls
+            disableDotsControls
+            activeIndex={activeIndex}
+            mouseTracking
+            items={items}
+          />
         </div>
         <div className="wrapper category">
           {data.allChecCategory.nodes.map(item => (
