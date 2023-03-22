@@ -4,14 +4,21 @@ import Commerce from "@chec/commerce.js"
 import img from "../../imgs/shopping-gdf9022597_1280.png"
 const Cart = () => {
   const [productInCart, setProductInCart] = useState([])
+  const [deleteProduct, setDeleteProduct] = useState(false)
   const commerce = new Commerce(
     "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
   )
   useEffect(() => {
     commerce.cart.contents().then(items => setProductInCart(items))
-  }, [])
+  }, [deleteProduct])
   console.log(productInCart)
+  const Delete = id => {
+    commerce.cart.remove(id).then(response => {
+      console.log(response)
+      setDeleteProduct(!deleteProduct)
+    })
 
+  }
   return (
     <section className="cart">
       <div className="cart-title">
@@ -20,7 +27,7 @@ const Cart = () => {
       <div className="cart-container">
         <div className="cart-container-product">
           {productInCart.map((item, i) => (
-            <CartProduct item={item} key={i} />
+            <CartProduct item={item} key={i} deleteProduct={Delete}/>
           ))}
           <div className="cart-subtotal">
             <a>Total: </a>

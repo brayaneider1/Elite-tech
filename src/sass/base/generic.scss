@@ -2,7 +2,6 @@
   backdrop-filter: blur(3px);
 }
 
-
 .customModal {
   max-width: 500px;
   border-radius: 20px;
@@ -150,39 +149,56 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.content-AppGlass{
+.content-AppGlass {
   display: flex;
   flex-direction: column;
 }
 
 .AppGlass {
-  overflow: hidden  !important;
+  overflow: hidden !important;
   display: flex;
   height: 100%;
   width: 100%;
   border-radius: 2rem;
   gap: 16px;
 
-
-  .content-main{
+  .content-main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    ul {
+      color: rgb(81, 9, 86);
+      position: fixed;
+      z-index: 99;
+      right: 0;
+      border-radius: 30px;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      padding: 5px;
+      background-color: white;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 7px;
+    }
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .AppGlass{
-    grid-template-columns: 10%  auto;
+  .AppGlass {
+    grid-template-columns: 10% auto;
     overflow-y: scroll;
-  } 
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .AppGlass{
+  .AppGlass {
     grid-template-columns: 1fr;
-  } 
+  }
 }
 
 .pagination {
@@ -224,43 +240,42 @@ input[type="number"] {
   }
 }
 
-
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #05f2c7 #ffffff00;
-  }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #05f2c7 #ffffff00;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff00;
-  }
+*::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #05f2c7;
-    border-radius: 10px;
-    border: 3px solid #ffffff37;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #05f2c7;
+  border-radius: 10px;
+  border: 3px solid #ffffff37;
+}
 
 :root {
-  --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
   --orange: #fca61f;
   --black: #242d49;
   --gray: #788097;
-  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
-  --pink: #FF919D;
+  --purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+  --pink: #ff919d;
   --glass: rgba(255, 255, 255, 0.54);
   --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
   --activeItem: #f799a354;
 }
 
-body{
+body {
   background: #030926;
 }
 .App {
@@ -271,5 +286,5 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }

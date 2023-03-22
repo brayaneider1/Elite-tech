@@ -1,23 +1,30 @@
+import Commerce from "@chec/commerce.js"
 import React from "react"
 
-const CartProduct = ({ item }) => {
+const CartProduct = ({ item,deleteProduct }) => {
+  const commerce = new Commerce(
+    "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
+  )
   const {
     product_name,
     image: { url },
     price: { raw },
     quantity,
+    id
   } = item
-
+  
   const formatNumber = num => {
     let priceT = raw * quantity
     return new Intl.NumberFormat("de-DE", {
       style: "currency",
       currency: "COP",
     })
-      .format(priceT)
-      .replace(",00", "")
-      .replace("COP", "")
+    .format(priceT)
+    .replace(",00", "")
+    .replace("COP", "")
   }
+  
+  
 
   return (
     <div className="cart-product">
@@ -37,7 +44,6 @@ const CartProduct = ({ item }) => {
         <div className="cart-product-quantity">
           <button
             className="btn-link px-2"
-            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
           >
             <i className="fas fa-minus"></i>
           </button>
@@ -46,14 +52,13 @@ const CartProduct = ({ item }) => {
             id="form1"
             min="0"
             name="quantity"
-            value={quantity}
+            defaultValue={quantity}
             type="number"
             className="form-control form-control-sm"
           />
 
           <button
             className="btn-link px-2"
-            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
           >
             <i className="fas fa-plus"></i>
           </button>
@@ -63,7 +68,7 @@ const CartProduct = ({ item }) => {
           <h5 className="mb-0">${formatNumber(raw)}</h5>
         </div>
 
-        <div className="cart-product-delete">
+        <div className="cart-product-delete" onClick={()=>deleteProduct(id)}>
           <a href="#!" className="text-danger">
             <i className="fas fa-trash fa-lg" style={{ color: "#05F29B" }}></i>
           </a>
