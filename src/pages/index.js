@@ -9,8 +9,7 @@ import { HeaderC } from "../components/Header/Header"
 import { CardDark } from "../components/CardDark/CardDark"
 
 import AliceCarousel from "react-alice-carousel"
-import 'react-alice-carousel/lib/alice-carousel.css';
-
+import "react-alice-carousel/lib/alice-carousel.css"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -77,7 +76,9 @@ const IndexPage = ({ data }) => {
       <Notification notifications={notifications} />
       <HeaderC />
       <div className="container-ovf">
-        <AliceCarousel mouseTracking items={items} />
+        <div className="best-seller">
+          <AliceCarousel mouseTracking items={items} />
+        </div>
         <div className="wrapper category">
           {data.allChecCategory.nodes.map(item => (
             <CardCategory data={item} />
