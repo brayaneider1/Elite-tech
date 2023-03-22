@@ -2,6 +2,12 @@
   backdrop-filter: blur(3px);
 }
 
+
+.container-ovf{
+  max-height: 85vh;
+  overflow: auto;
+}
+
 .customModal {
   max-width: 500px;
   border-radius: 20px;
