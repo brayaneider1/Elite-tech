@@ -2,8 +2,11 @@
   backdrop-filter: blur(3px);
 }
 
+.best-seller {
+  display: block;
+}
 
-.container-ovf{
+.container-ovf {
   max-height: 85vh;
   overflow: auto;
 }
@@ -173,24 +176,27 @@ input[type="number"] {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    ul {
-      color: rgb(81, 9, 86);
-      position: fixed;
-      z-index: 99;
-      right: 0;
-      border-radius: 30px;
-    }
-    li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      list-style: none;
-      padding: 5px;
-      background-color: white;
-      margin: 10px;
-      padding: 15px;
-      border-radius: 7px;
-    }
+  }
+}
+
+.notification {
+  ul {
+    color: rgb(81, 9, 86);
+    position: fixed;
+    z-index: 99;
+    right: 0;
+    border-radius: 30px;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 5px;
+    background-color: white;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 7px;
   }
 }
 
