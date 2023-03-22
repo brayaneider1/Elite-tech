@@ -4,6 +4,13 @@ import { ProductCard } from "../components/ProductCard/ProductCard"
 import Layout from "../components/Layout/Layout"
 import { AnimatePresence, motion } from "framer-motion"
 import Notification from "../components/Notification/Notification"
+import { CardCategory } from "../components/CardCategory/CardCategory"
+import { HeaderC } from "../components/Header/Header"
+import { CardDark } from "../components/CardDark/CardDark"
+
+import AliceCarousel from "react-alice-carousel"
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -19,6 +26,17 @@ export const pageQuery = graphql`
           formatted
         }
         id
+      }
+    }
+
+    allChecCategory {
+      nodes {
+        name
+        id
+        description
+        assets {
+          url
+        }
       }
     }
   }
@@ -37,9 +55,8 @@ const IndexPage = ({ data }) => {
   }
 
   useEffect(() => {
-    console.log(notifications);
+    console.log(notifications)
   }, [notifications])
-  
 
   const add = arr => {
     setNotifications([...notifications, arr])
@@ -53,24 +70,35 @@ const IndexPage = ({ data }) => {
     }, 1500)
   }
 
+  const items = [<CardDark />, <CardDark />, <CardDark />]
+
   return (
     <Layout>
       <Notification notifications={notifications} />
-      <motion.div
-        style={{ display: "flex", flexWrap: "wrap" }}
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {data.allChecProduct.nodes.map((product, i) => (
-          <ProductCard
-            product={product}
-            key={i}
-            addToCart={add}
-            notifications={notifications}
-          />
-        ))}
-      </motion.div>
+      <HeaderC />
+      <div className="container-ovf">
+        <AliceCarousel mouseTracking items={items} />
+        <div className="wrapper category">
+          {data.allChecCategory.nodes.map(item => (
+            <CardCategory data={item} />
+          ))}
+        </div>
+        <motion.div
+          style={{ display: "flex", flexWrap: "wrap" }}
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          {data.allChecProduct.nodes.map((product, i) => (
+            <ProductCard
+              product={product}
+              key={i}
+              addToCart={add}
+              notifications={notifications}
+            />
+          ))}
+        </motion.div>
+      </div>
     </Layout>
   )
 }
