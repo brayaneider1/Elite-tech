@@ -36,7 +36,7 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
   return (
     <motion.div variants={item} className="card h-100 shadow-sm relative">
       {/* <Link to={`product/${product?.id}/`}> */}
-      <div onClick={() => navigate(`product/${product?.id}/`)}>
+      <div onClick={() => navigate(`/product/${product?.id}/`)}>
         <img
           src={product?.image?.url ? product.image.url : product.url}
           className="card-img-top"

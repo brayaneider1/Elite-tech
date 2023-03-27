@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import "./Sidebar.css"
 import Logo from "../imgs/logo.png"
 import { UilSignOutAlt } from "@iconscout/react-unicons"
@@ -22,10 +22,6 @@ const Sidebar = () => {
       }
     }
   `)
-
-  useEffect(() => {
-    console.log("🚀 ~ file: Sidebar.jsx:11 ~ Sidebar ~ Data:", nodes[0])
-  }, [nodes])
 
   const sidebarVariants = {
     true: {

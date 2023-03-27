@@ -1,7 +1,8 @@
 import Commerce from "@chec/commerce.js"
-import React from "react"
+import React, { useState } from "react"
+import { formatNumber } from "../../common/utils/format"
 
-const CartProduct = ({ item,deleteProduct }) => {
+const CartProduct = ({ item, deleteProduct, setCart }) => {
   const commerce = new Commerce(
     "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
   )
@@ -10,21 +11,40 @@ const CartProduct = ({ item,deleteProduct }) => {
     image: { url },
     price: { raw },
     quantity,
-    id
+    id,
   } = item
-  
-  const formatNumber = num => {
-    let priceT = raw * quantity
+  const [qtUpdate, setQtUpdate] = useState(quantity)
+
+ /*  const formatNumber = num => {
+    let priceT = raw * qtUpdate
     return new Intl.NumberFormat("de-DE", {
       style: "currency",
       currency: "COP",
     })
-    .format(priceT)
-    .replace(",00", "")
-    .replace("COP", "")
+      .format(priceT)
+      .replace(",00", "")
+      .replace("COP", "")
+  } */
+
+  const upQuantity = () => {
+    console.log("aqui");
+    setQtUpdate(qtUpdate + 1)
+    commerce.cart.update(id, { quantity: qtUpdate + 1 }).then(response => {
+      console.log("🚀 ~ file: CartProduct.js:33 ~ commerce.cart.update ~ response:", response)
+      commerce.cart.retrieve().then(cart => {
+       
+      })
+    })
   }
-  
-  
+
+  const downQuantity = () => {
+    setQtUpdate(qtUpdate - 1)
+    commerce.cart.update(id, { quantity: quantity - 1 }).then(response => {
+      commerce.cart.retrieve().then(cart => {
+        
+      })
+    })
+  }
 
   return (
     <div className="cart-product">
@@ -42,9 +62,7 @@ const CartProduct = ({ item,deleteProduct }) => {
         </div>
 
         <div className="cart-product-quantity">
-          <button
-            className="btn-link px-2"
-          >
+          <button className="btn-link px-2" onClick={downQuantity}>
             <i className="fas fa-minus"></i>
           </button>
 
@@ -52,25 +70,23 @@ const CartProduct = ({ item,deleteProduct }) => {
             id="form1"
             min="0"
             name="quantity"
-            defaultValue={quantity}
+            Value={qtUpdate}
             type="number"
             className="form-control form-control-sm"
           />
 
-          <button
-            className="btn-link px-2"
-          >
+          <button className="btn-link px-2" onClick={upQuantity}>
             <i className="fas fa-plus"></i>
           </button>
         </div>
 
         <div className="cart-product-quantity">
-          <h5 className="mb-0">${formatNumber(raw)}</h5>
+          <h5 className="mb-0">${formatNumber(raw,qtUpdate)}</h5>
         </div>
 
-        <div className="cart-product-delete" onClick={()=>deleteProduct(id)}>
+        <div className="cart-product-delete" onClick={() => deleteProduct(id)}>
           <a href="#!" className="text-danger">
-            <i className="fas fa-trash fa-lg" style={{ color: "#05F29B" }}></i>
+            <i className="fas fa-trash fa-lg" style={{ color: "#02735E" }}></i>
           </a>
         </div>
       </div>
