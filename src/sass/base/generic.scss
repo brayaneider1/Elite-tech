@@ -175,10 +175,11 @@ input[type="number"] {
 
   .content-main {
     position: relative;
+    left: 224px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
+    width: 82%;
     .whatsapp{
       position: fixed;
       width: 70px;

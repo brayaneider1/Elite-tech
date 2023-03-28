@@ -7,9 +7,7 @@ const Layout = ({ children }) => {
     <div className="content-AppGlass">
       <div className="AppGlass">
         <Sidebar />
-        {/* <SidebarDrop/> */}
-        {/* <HeaderC/> */}
-        {/* <MainDash /> */}
+
         <div className="content-main">
           {children}
           <a href="https://wa.me/573175607784">

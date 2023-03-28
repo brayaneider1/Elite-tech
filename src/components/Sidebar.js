@@ -33,13 +33,13 @@ const Sidebar = () => {
   }
   return (
     <>
-      <div
+      {/* <div
         className="bars"
         style={expanded ? { left: "60%" } : { left: "5%" }}
         onClick={() => setExpaned(!expanded)}
       >
         <UilBars />
-      </div>
+      </div> */}
       <motion.div
         className="sidebar"
         variants={sidebarVariants}

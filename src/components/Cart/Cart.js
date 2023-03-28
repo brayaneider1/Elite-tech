@@ -22,7 +22,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container-ovf">
+    <div className="container-cart">
       <section className="cart">
         <div className="cart-title">
           <h2>Carrito De Compras</h2>
