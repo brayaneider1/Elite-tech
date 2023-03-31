@@ -37,7 +37,7 @@
     color: white;
     width: 30%;
     p {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
   &-quantity {
@@ -53,6 +53,9 @@
       width: 45px;
       margin: 0 10px;
       text-align: center;
+      background-color: transparent;
+      border: none;
+      color: white;
     }
     button {
       border: none;

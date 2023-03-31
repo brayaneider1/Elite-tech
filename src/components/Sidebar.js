@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import "./Sidebar.css"
 import Logo from "../imgs/logo.png"
 import { UilSignOutAlt } from "@iconscout/react-unicons"
@@ -23,10 +23,6 @@ const Sidebar = () => {
     }
   `)
 
-  useEffect(() => {
-    console.log("🚀 ~ file: Sidebar.jsx:11 ~ Sidebar ~ Data:", nodes[0])
-  }, [nodes])
-
   const sidebarVariants = {
     true: {
       left: "0",
@@ -37,13 +33,13 @@ const Sidebar = () => {
   }
   return (
     <>
-      <div
+      {/* <div
         className="bars"
         style={expanded ? { left: "60%" } : { left: "5%" }}
         onClick={() => setExpaned(!expanded)}
       >
         <UilBars />
-      </div>
+      </div> */}
       <motion.div
         className="sidebar"
         variants={sidebarVariants}

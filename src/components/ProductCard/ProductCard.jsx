@@ -4,10 +4,6 @@ import Commerce from "@chec/commerce.js"
 import { Link, navigate } from "gatsby"
 
 export const ProductCard = ({ product, addToCart, notifications }) => {
-  console.log(
-    "🚀 ~ file: ProductCard.jsx:7 ~ ProductCard ~ addToCart:",
-    addToCart
-  )
   const commerce = new Commerce(
     "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
   )
@@ -29,14 +25,13 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
     commerce.cart
       .add(id, 1)
       .then(response => console.log("aqui------------>", response))
-    let prod = { id:id, img: product.image.url }
+    let prod = { id: id, img: product.image.url }
     addToCart(prod)
   }
 
   return (
     <motion.div variants={item} className="card h-100 shadow-sm relative">
-      {/* <Link to={`product/${product?.id}/`}> */}
-      <div onClick={() => navigate(`product/${product?.id}/`)}>
+      <div onClick={() => navigate(`/product/${product?.id}/`)}>
         <img
           src={product?.image?.url ? product.image.url : product.url}
           className="card-img-top"
@@ -49,7 +44,7 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
           {product?.name ? product?.name : product?.filename}
         </a>
       </div>
-      {/* </Link> */}
+
       <div className="card-body">
         <h5 className="card-title">
           <p>{recortarString(product?.description)}</p>

@@ -98,8 +98,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Notification notifications={notifications} />
-      <HeaderC />
       <div className="container-ovf">
+      <HeaderC />
         <div className="best-seller">
           <AliceCarousel
             disableButtonsControls

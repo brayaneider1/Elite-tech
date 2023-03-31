@@ -97,6 +97,17 @@ const createPagesCategories = (createPage, graphql) => {
                 id
                 name
                 description
+                products {
+                  name
+                  id
+                  image {
+                    url
+                  }
+                  description
+                  price {
+                    formatted
+                  }
+                }
               }
             }
           }
