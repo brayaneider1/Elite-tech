@@ -103,7 +103,7 @@
     position: fixed;
     z-index: 9;
     background: #070F35;
-    width: 55%;
+    width: 200px;
     padding-right: 1rem;
     height: 120vh;
   }
@@ -125,7 +125,7 @@
     display: flex;
     position: fixed;
     top: 1rem;
-    left: 50%;
+    right: 10px;
     background: #ffffff;
     color: #070F35;
     cursor: pointer;
@@ -137,4 +137,8 @@
   .close {
     left: -60%;
   }
+}
+
+@media screen and (max-width: 660px) {
+
 }

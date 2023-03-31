@@ -8,8 +8,7 @@ import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import SubMenu from "./SubMenu/SubMenu"
 
-const Sidebar = () => {
-  const [expanded, setExpaned] = useState(true)
+const Sidebar = ({expanded, setExpaned}) => {
   const {
     allChecCategory: { nodes },
   } = useStaticQuery(graphql`
@@ -26,24 +25,25 @@ const Sidebar = () => {
   const sidebarVariants = {
     true: {
       left: "0",
+      transition: { duration: 0.4 }
     },
     false: {
       left: "-60%",
+      transition: { duration: 0.4 }
     },
   }
   return (
     <>
-      {/* <div
+      <div
         className="bars"
-        style={expanded ? { left: "60%" } : { left: "5%" }}
         onClick={() => setExpaned(!expanded)}
       >
         <UilBars />
-      </div> */}
+      </div>
       <motion.div
         className="sidebar"
         variants={sidebarVariants}
-        animate={window.innerWidth <= 768 ? `${expanded}` : ""}
+        animate={window.innerWidth <= 768 ? `${expanded}` : `${expanded}`}
       >
         {/* logo */}
         <div className="logo">
