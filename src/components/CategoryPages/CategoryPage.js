@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import Commerce from "@chec/commerce.js"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
 import { ProductCard } from "../ProductCard/ProductCard"
 import Layout from "../Layout/Layout"
 import Notification from "../Notification/Notification"
@@ -11,17 +10,6 @@ export default function CategoryPage({
   },
 }) {
   const [notifications, setNotifications] = useState([])
-  const [category, setCategory] = useState({})
-  const commerce = new Commerce(
-    "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
-  )
-  useEffect(() => {
-    commerce.products
-      .list({
-        category_id: [pageContext.id],
-      })
-      .then(product => setCategory(product))
-  }, [pageContext.id])
 
   const container = {
     hidden: { opacity: 0 },
@@ -45,7 +33,7 @@ export default function CategoryPage({
   }
   return (
     <Layout>
-      <Notification notifications={notifications}/>
+      <Notification notifications={notifications} />
       <div className="container-category">
         <h2>{pageContext?.name}</h2>
         <motion.div
@@ -55,7 +43,7 @@ export default function CategoryPage({
           initial="hidden"
           animate="show"
         >
-          {category?.data?.map((product, i) => (
+          {pageContext?.products?.map((product, i) => (
             <ProductCard
               product={product}
               key={i}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Commerce from "@chec/commerce.js"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons"
+import Layout from "../Layout/Layout"
 
 export default function ProductPage({
   pageResources: {
@@ -29,12 +30,13 @@ export default function ProductPage({
   }
 
   return (
-    <main className="main">
-      <div className="productCard_block">
-        <div className="productCard_block_image">
-          <div className="productCard_leftSide clearfix">
-            <motion.div
-              /* initial={{
+    <Layout>
+      <main className="main">
+        <div className="productCard_block">
+          <div className="productCard_block_image">
+            <div className="productCard_leftSide clearfix">
+              <motion.div
+                /* initial={{
               y: 0,
             }}
             animate={{ y: -60 }}
@@ -43,13 +45,13 @@ export default function ProductPage({
               repeatType: "reverse",
               duration: 3,
             }} */
-              className="sliderBlock"
-            >
-              <ul className="sliderBlock_items">
-                <img src={pageContext?.image?.url} alt="headphones" />
-              </ul>
-            </motion.div>
-            {/* <div className="sliderBlock_controls">
+                className="sliderBlock"
+              >
+                <ul className="sliderBlock_items">
+                  <img src={pageContext?.image?.url} alt="headphones" />
+                </ul>
+              </motion.div>
+              {/* <div className="sliderBlock_controls">
               <div className="sliderBlock_controls__navigatin">
                 <div className="sliderBlock_controls__wrapper">
                   <div className="sliderBlock_controls__arrow sliderBlock_controls__arrowBackward">
@@ -61,46 +63,48 @@ export default function ProductPage({
                 </div>
               </div>
             </div> */}
-          </div>
-        </div>
-
-        <div className="productCard_block_info">
-          <div className="productCard_rightSide">
-            <div className="block_specification">
-              <div className="block_specification__specificationShow">
-                <i
-                  className="fa fa-cog block_specification__button block_specification__button__rotate"
-                  aria-hidden="true"
-                ></i>
-                <span className="block_specification__text">spec</span>
-              </div>
-              <div className="block_specification__informationShow hide">
-                <i
-                  className="fa fa-info-circle block_specification__button block_specification__button__jump"
-                  aria-hidden="true"
-                ></i>
-                <span className="block_specification__text">inform</span>
-              </div>
             </div>
+          </div>
 
-            <p className="block_model">
-              <span className="block_model__text">Model: </span>
-              <span className="block_model__number">505795</span>
-            </p>
+          <div className="productCard_block_info">
+            <div className="productCard_rightSide">
+              <div className="block_specification">
+                <div className="block_specification__specificationShow">
+                  <i
+                    className="fa fa-cog block_specification__button block_specification__button__rotate"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="block_specification__text">spec</span>
+                </div>
+                <div className="block_specification__informationShow hide">
+                  <i
+                    className="fa fa-info-circle block_specification__button block_specification__button__jump"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="block_specification__text">inform</span>
+                </div>
+              </div>
 
-            <div className="block_product">
-              <h2 className="block_name block_name__mainName">
-                {pageContext?.name}
-                <sup>&reg; </sup>
-              </h2>
-              <h2 className="block_name block_name__addName">Wireless Black</h2>
-
-              <p className="block_product__advantagesProduct">
-                Wireless headphones with integrated microphone
+              <p className="block_model">
+                <span className="block_model__text">Model: </span>
+                <span className="block_model__number">505795</span>
               </p>
 
-              <div className="block_informationAboutDevice">
-                {/* <div className="block_descriptionCharacteristic block_descriptionCharacteristic__disActive">
+              <div className="block_product">
+                <h2 className="block_name block_name__mainName">
+                  {pageContext?.name}
+                  <sup>&reg; </sup>
+                </h2>
+                <h2 className="block_name block_name__addName">
+                  Wireless Black
+                </h2>
+
+                <p className="block_product__advantagesProduct">
+                  Wireless headphones with integrated microphone
+                </p>
+
+                <div className="block_informationAboutDevice">
+                  {/* <div className="block_descriptionCharacteristic block_descriptionCharacteristic__disActive">
                 <table className="block_specificationInformation_table">
                   <tr>
                     <th>Characteristic</th>
@@ -148,76 +152,80 @@ export default function ProductPage({
                 </table>
               </div> */}
 
-                <div className="block_descriptionInformation">
-                  <span> {recortarString(pageContext?.description)}</span>
-                </div>
-
-                <div className="row">
-                  <div className="row_price">
-                    <div className="block_price">
-                      <p className="block_price__currency">
-                        {pageContext?.price?.raw}
-                      </p>
-                      <p className="block_price__shipping">
-                        Shipping and taxes extra
-                      </p>
-                    </div>
-                    <div className="block_goodColor">
-                      <span className="text_specification">colores:</span>
-                      <div className="block_goodColor__allColors">
-                        <input
-                          type="radio"
-                          name="colorOfItem"
-                          className="radio_button"
-                          id="radioColor"
-                          checked
-                        />
-                        <label
-                          for="radioColor"
-                          className="block_goodColor__radio block_goodColor__black"
-                        ></label>
-                        <input
-                          type="radio"
-                          name="colorOfItem"
-                          className="radio_button"
-                          id="radioColor2"
-                        />
-                        <label
-                          for="radioColor2"
-                          className="block_goodColor__radio block_goodColor__silver"
-                        ></label>
-                      </div>
-                    </div>
+                  <div className="block_descriptionInformation">
+                    <span> {recortarString(pageContext?.description)}</span>
                   </div>
 
-                  <div className="row_quantity">
-                    <div className="block_quantity">
-                      <div className="block_quantity__chooseBlock">
-                        <div className="block_quantity__chooseBlock__quantity">
-                          <span className="text_specification">Quantity</span>
+                  <div className="row">
+                    <div className="row_price">
+                      <div className="block_price">
+                        <p className="block_price__currency">
+                          {pageContext?.price?.raw}
+                        </p>
+                        <p className="block_price__shipping">
+                          Shipping and taxes extra
+                        </p>
+                      </div>
+                      <div className="block_goodColor">
+                        <span className="text_specification">colores:</span>
+                        <div className="block_goodColor__allColors">
                           <input
-                            className="block_quantity__number"
-                            name="quantityNumber"
-                            type="text"
-                            min="1"
-                            value="1"
+                            type="radio"
+                            name="colorOfItem"
+                            className="radio_button"
+                            id="radioColor"
+                            checked
                           />
-                          <div className="button_arrow">
-                            <button>
-                              <FontAwesomeIcon icon={faArrowUp} color="gray" />{" "}
-                            </button>
-                            <button>
-                              <FontAwesomeIcon
-                                icon={faArrowDown}
-                                color="gray"
-                              />
+                          <label
+                            for="radioColor"
+                            className="block_goodColor__radio block_goodColor__black"
+                          ></label>
+                          <input
+                            type="radio"
+                            name="colorOfItem"
+                            className="radio_button"
+                            id="radioColor2"
+                          />
+                          <label
+                            for="radioColor2"
+                            className="block_goodColor__radio block_goodColor__silver"
+                          ></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="row_quantity">
+                      <div className="block_quantity">
+                        <div className="block_quantity__chooseBlock">
+                          <div className="block_quantity__chooseBlock__quantity">
+                            <span className="text_specification">Quantity</span>
+                            <input
+                              className="block_quantity__number"
+                              name="quantityNumber"
+                              type="text"
+                              min="1"
+                              value="1"
+                            />
+                            <div className="button_arrow">
+                              <button>
+                                <FontAwesomeIcon
+                                  icon={faArrowUp}
+                                  color="gray"
+                                />{" "}
+                              </button>
+                              <button>
+                                <FontAwesomeIcon
+                                  icon={faArrowDown}
+                                  color="gray"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <div style={{ display: "flex" }}>
+                            <button className="block_quantity__chooseBlock__button">
+                              Add to Cart
                             </button>
                           </div>
-                        </div>
-                        <div style={{ display: "flex" }}>
-                          <button className="block_quantity__chooseBlock__button">
-                            Add to Cart
-                          </button>
                         </div>
                       </div>
                     </div>
@@ -227,7 +235,7 @@ export default function ProductPage({
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </Layout>
   )
 }
