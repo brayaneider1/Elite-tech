@@ -108,6 +108,9 @@ const createPagesCategories = (createPage, graphql) => {
                     formatted
                   }
                 }
+                assets{
+                  url
+                }
               }
             }
           }
