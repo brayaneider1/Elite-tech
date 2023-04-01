@@ -65,7 +65,7 @@ function ExpandedCard({ param, setExpanded }) {
       <div style={{ alignSelf: "flex-end", cursor: "pointer", color: "white" }}>
         <UilTimes onClick={setExpanded} />
       </div>
-        <span>{param.title}</span>
+        <span>as{param.title}</span>
       <div className="chartContainer">
       </div>
       <span>Last 24 hours</span>

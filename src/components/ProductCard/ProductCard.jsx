@@ -30,7 +30,33 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
   }
 
   return (
-    <motion.div variants={item} className="card h-100 shadow-sm relative">
+    <motion.div variants={item} className="card">
+      <div
+        onClick={() => navigate(`/product/${product?.id}/`)}
+        className="imgBox cursor-pointer"
+      >
+        <img
+          src={product?.image?.url ? product.image.url : product.url}
+          alt={product?.name ? product?.name : product?.filename}
+          className="mouse"
+        />
+      </div>
+
+      <div className="contentBox">
+        <h3> {product?.name ? product?.name : product?.filename}</h3>
+        <h2 className="price">
+          ${product?.price?.formatted.replace(".00", "")}
+        </h2>
+        <a href="#" onClick={() => addCard(product)} className="buy">
+          Comprar
+        </a>
+      </div>
+    </motion.div>
+  )
+}
+
+{
+  /* <motion.div variants={item} className="card h-100 shadow-sm relative">
       <div onClick={() => navigate(`/product/${product?.id}/`)}>
         <img
           src={product?.image?.url ? product.image.url : product.url}
@@ -64,6 +90,5 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
           <i className="far fa-heart"></i>
         </div>
       </div>
-    </motion.div>
-  )
+    </motion.div> */
 }
