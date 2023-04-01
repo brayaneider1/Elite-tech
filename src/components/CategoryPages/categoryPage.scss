@@ -1,9 +1,127 @@
-.container-category{
+.container-category {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  h2 {
+    padding: 10px;
+    color: aliceblue;
+    font-size: 40px;
+  }
+
+  .card{
+    margin: 0 30px 0 0; 
+  }
+  &_content{
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+  }
+
+ 
+}
+
+/* To make the parallax effect easy to view I added a large top and bottom margin, delete these or tweak them to your liking */
+
+.bannerItem {
+  width: 100%;
+  margin-top: 55px; /* white above banner - delete it */
+}
+
+.banner-header {
+  margin: 0;
+  color: #fff;
+  padding-top: 0px;
+  font-size: 42px;
+  font-family: lato;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+
+.banner-text {
+  margin: 0;
+  color: #fff;
+  font-family: lato;
+  font-weight: 500;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-transform: capitalize;
+
+
+}
+
+.bannerItem {
+  position: relative;
+  background: #333;
+  text-align: center;
+  height: 200px !important;
+  /*   background-image: url("http://source.unsplash.com/1500x500/?adventure");
+ */
+  border-radius: 6px; /* rounded corners */
+  background-color: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.458) 0%,
+    #05f3c7(255, 255, 255, 0.4) 100%
+  );
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  image-repeat: none;
+  max-height: 0%;
+  margin-bottom: 20px;
+
+  .content {
+    background: #0f665643;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    h2{
-        padding: 10px;
-        color: aliceblue;
-        font-size: 40px;
-    }
+    border-radius: 6px;
+  }
+}
+
+
+
+/* button CSS */
+.btn.btn-outline {
+  margin-top: 10px;
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+  padding-left: 90px;
+  padding-right: 90px;
+  font-family: lato;
+  font-weight: 500;
+  border-radius: 0px;
+}
+.btn.btn-outline:hover {
+  background-color: black;
+  border-color: black;
+  color: #fff;
+}
+.btn.btn-outline.a {
+  background-color: black;
+  border-color: black;
+  color: #fff;
+}
+.btn.btn-outline:active {
+  font-weight: 300;
+  font-size: 20px;
+  color: #fff;
+}
+
+
+.content-lottie{
+    width: 50vw;
+    height: 50vw;
+    overflow: hidden;
+    margin: auto;
 }
