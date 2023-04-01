@@ -12,12 +12,7 @@ const CartCheckout = ({ setCheckout }) => {
   useEffect(() => {
     commerce.cart.retrieve().then(cart => {
       setCart(cart)
-      console.log(cart)
     })
-  }, [])
-
-  useEffect(() => {
-    /* commerce.cart.id().then((cartId) => console.log(cartId)); */
   }, [])
 
   return (
@@ -64,7 +59,7 @@ const CartCheckout = ({ setCheckout }) => {
         </div>
 
         <div className="data-container-button">
-          <button onClick={()=>setCheckout(true)}>Comprar</button>
+          <button onClick={() => setCheckout(true)}>Comprar</button>
         </div>
       </div>
     </div>

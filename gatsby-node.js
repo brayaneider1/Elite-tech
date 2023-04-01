@@ -67,7 +67,6 @@ const createPagesProducts = (createPage, graphql) => {
         }
       `).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           reject(result.errors)
         }
         const products = result.data?.allChecProduct.edges
@@ -114,7 +113,6 @@ const createPagesCategories = (createPage, graphql) => {
         }
       `).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           reject(result.errors)
         }
         const categories = result.data?.allChecCategory.edges

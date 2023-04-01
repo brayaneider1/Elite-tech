@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react"
+import env from "react-dotenv";
 import { graphql } from "gatsby"
-import { ProductCard } from "../components/ProductCard/ProductCard"
+import { motion } from "framer-motion"
+import AliceCarousel from "react-alice-carousel"
 import Layout from "../components/Layout/Layout"
-import { AnimatePresence, motion } from "framer-motion"
-import Notification from "../components/Notification/Notification"
-import { CardCategory } from "../components/CardCategory/CardCategory"
+import React, { useState, useEffect } from "react"
+import "react-alice-carousel/lib/alice-carousel.css"
 import { HeaderC } from "../components/Header/Header"
 import { CardDark } from "../components/CardDark/CardDark"
-import AliceCarousel from "react-alice-carousel"
-import "react-alice-carousel/lib/alice-carousel.css"
-
+import Notification from "../components/Notification/Notification"
+import { ProductCard } from "../components/ProductCard/ProductCard"
+import { CardCategory } from "../components/CardCategory/CardCategory"
 export const pageQuery = graphql`
   query MyQuery {
     allChecProduct {
@@ -51,10 +51,8 @@ const IndexPage = ({ data }) => {
       },
     },
   }
-
-  useEffect(() => {
-    console.log(notifications)
-  }, [notifications])
+  console.log("holi", process.env.MY_ENV_VARIABLE)
+  useEffect(() => {}, [notifications])
 
   const add = arr => {
     setNotifications([...notifications, arr])
@@ -74,32 +72,24 @@ const IndexPage = ({ data }) => {
     const swipeDelta = 20
 
     return Array.from({ length }).map((item, i) => (
-      <div>
+      <div key={i}>
         {i}
-        <CardDark slideNext={()=>handleClick(i)} />
+        <CardDark slideNext={() => handleClick(i)} />
       </div>
     ))
   }
 
   const [activeIndex, setActiveIndex] = useState(0)
   const slideNext = () => {
-    console.log("activeIndex", activeIndex)
     return setActiveIndex(activeIndex + 1)
   }
   const [items] = useState(createItems(4, setActiveIndex))
-
-  useEffect(() => {
-    console.log(
-      "🚀 ~ file: index.js:93 ~ IndexPage ~ activeIndex:",
-      activeIndex
-    )
-  }, [activeIndex])
 
   return (
     <Layout>
       <Notification notifications={notifications} />
       <div className="container-ovf">
-      <HeaderC />
+        <HeaderC />
         <div className="best-seller">
           <AliceCarousel
             disableButtonsControls
@@ -110,8 +100,8 @@ const IndexPage = ({ data }) => {
           />
         </div>
         <div className="wrapper category">
-          {data.allChecCategory.nodes.map(item => (
-            <CardCategory data={item} />
+          {data.allChecCategory.nodes.map((item,i) => (
+            <CardCategory data={item} key={i}/>
           ))}
         </div>
         <motion.div

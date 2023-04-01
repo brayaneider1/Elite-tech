@@ -1,7 +1,6 @@
 import React from "react"
 
 export const CardCategory = ({ data }) => {
-  console.log("🚀 ~ file: CardCategory.jsx:4 ~ CardCategory ~ data:", data)
   return (
     <div className="col" ontouchstart="this.classList.toggle('hover');">
       <div className="container">

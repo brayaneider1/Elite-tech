@@ -4,14 +4,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { UilAngleDown, UilAngleUp } from "@iconscout/react-unicons"
 import { Link, navigate } from "gatsby"
 const SubMenu = ({ item, index, nodes }) => {
-  console.log("🚀 ~ file: SubMenu.js:7 ~ SubMenu ~ item:", nodes)
   const [selected, setSelected] = useState(0)
   const [subnav, setSubnav] = useState(false)
 
   const showSubnav = e => {
     e.preventDefault()
     setSubnav(!subnav)
-    console.log("aqi==>", subnav)
   }
   const menuAnimation = {
     hidden: {

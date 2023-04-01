@@ -11,7 +11,6 @@ export default function ProductPage({
     json: { pageContext },
   },
 }) {
-  console.log("🚀 ~ file: ProductPage.js:9 ~ ProductPage ~ data:", pageContext)
   const [product, setProduct] = useState({})
   const commerce = new Commerce(
     "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
@@ -23,7 +22,6 @@ export default function ProductPage({
   }, [])
 
   const recortarString = strg => {
-    console.log(strg)
     let a = strg?.replace("<p>", "")
     let b = a?.replace("</p>", "")
     return b

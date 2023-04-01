@@ -2,10 +2,6 @@ import { AnimatePresence, motion } from "framer-motion"
 import React from "react"
 
 const Notification = ({ notifications }) => {
-  console.log(
-    "🚀 ~ file: Notification.js:5 ~ Notification ~ notifications:",
-    notifications
-  )
   return (
     <div className="notification">
       <ul>
