@@ -1,8 +1,9 @@
-import env from "react-dotenv";
+import env from "react-dotenv"
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 import AliceCarousel from "react-alice-carousel"
 import Layout from "../components/Layout/Layout"
+import { Auth0Provider } from "@auth0/auth0-react"
 import React, { useState, useEffect } from "react"
 import "react-alice-carousel/lib/alice-carousel.css"
 import { HeaderC } from "../components/Header/Header"
@@ -35,7 +36,7 @@ export const pageQuery = graphql`
         assets {
           url
         }
-        products{
+        products {
           name
         }
       }
@@ -45,6 +46,8 @@ export const pageQuery = graphql`
 
 const IndexPage = ({ data }) => {
   const [notifications, setNotifications] = useState([])
+  const domain=process.env.DOMAIN
+  const clientId=process.env.CLIENT_ID
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -54,7 +57,7 @@ const IndexPage = ({ data }) => {
       },
     },
   }
-  console.log("holi", process.env.MY_ENV_VARIABLE)
+  console.log("holi", process.env.CLIENT_ID)
   useEffect(() => {}, [notifications])
 
   const add = arr => {
@@ -89,41 +92,47 @@ const IndexPage = ({ data }) => {
   const [items] = useState(createItems(4, setActiveIndex))
 
   return (
-    <Layout>
-      <Notification notifications={notifications} />
-      <div className="container-ovf">
-        <HeaderC />
-        <div className="best-seller">
-          <AliceCarousel
-            disableButtonsControls
-            disableDotsControls
-            activeIndex={activeIndex}
-            mouseTracking
-            items={items}
-          />
-        </div>
-        <div className="wrapper category">
-          {data.allChecCategory.nodes.map((item,i) => (
-            <CardCategory data={item} key={i}/>
-          ))}
-        </div>
-        <motion.div
-          style={{ display: "flex", flexWrap: "wrap" }}
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {data.allChecProduct.nodes.map((product, i) => (
-            <ProductCard
-              product={product}
-              key={i}
-              addToCart={add}
-              notifications={notifications}
+    <Auth0Provider domain={domain}
+    clientId={clientId}
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}>
+      <Layout>
+        <Notification notifications={notifications} />
+        <div className="container-ovf">
+          <HeaderC />
+          <div className="best-seller">
+            <AliceCarousel
+              disableButtonsControls
+              disableDotsControls
+              activeIndex={activeIndex}
+              mouseTracking
+              items={items}
             />
-          ))}
-        </motion.div>
-      </div>
-    </Layout>
+          </div>
+          <div className="wrapper category">
+            {data.allChecCategory.nodes.map((item, i) => (
+              <CardCategory data={item} key={i} />
+            ))}
+          </div>
+          <motion.div
+            style={{ display: "flex", flexWrap: "wrap" }}
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            {data.allChecProduct.nodes.map((product, i) => (
+              <ProductCard
+                product={product}
+                key={i}
+                addToCart={add}
+                notifications={notifications}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </Layout>
+    </Auth0Provider>
   )
 }
 
