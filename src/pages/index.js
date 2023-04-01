@@ -35,6 +35,9 @@ export const pageQuery = graphql`
         assets {
           url
         }
+        products{
+          name
+        }
       }
     }
   }

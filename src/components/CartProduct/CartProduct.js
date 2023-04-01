@@ -48,7 +48,7 @@ const CartProduct = ({ item, deleteProduct, setCart }) => {
         </div>
 
         <div className="cart-product-data">
-          <p className="lead fw-normal mb-2">{product_name}</p>
+          <p className="lead fw-normal mb-2">sf{product_name}</p>
           <p>
             <span className="text-muted">Size: </span>M{" "}
             <span className="text-muted">Color: </span>Grey
