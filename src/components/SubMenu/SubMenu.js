@@ -80,10 +80,15 @@ const DropdownLink = styled(motion.div)`
   align-items: center;
   text-decoration: none;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 500;
   &:hover {
-    background: #632ce4;
+    background: #f0f8ff00;
     cursor: pointer;
+    color: #05f29b;
+  }
+  &:focus {
+    color: white;
   }
 `
 

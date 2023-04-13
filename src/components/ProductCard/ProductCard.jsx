@@ -36,7 +36,7 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
         className="imgBox cursor-pointer"
       >
         <img
-          src={product?.image?.url ? product.image.url : product.url}
+          src={product?.image?.url ? product.image.url : "https://cdn.pixabay.com/photo/2015/03/27/00/09/puzzle-693865_1280.jpg"}
           alt={product?.name ? product?.name : product?.filename}
           className="mouse"
         />
@@ -55,40 +55,4 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
   )
 }
 
-{
-  /* <motion.div variants={item} className="card h-100 shadow-sm relative">
-      <div onClick={() => navigate(`/product/${product?.id}/`)}>
-        <img
-          src={product?.image?.url ? product.image.url : product.url}
-          className="card-img-top"
-          alt="product.title"
-        />
-      </div>
 
-      <div className="label-top shadow-sm">
-        <a className="text-white mb-2" href="#">
-          {product?.name ? product?.name : product?.filename}
-        </a>
-      </div>
-
-      <div className="card-body">
-        <h5 className="card-title">
-          <p>{recortarString(product?.description)}</p>
-        </h5>
-        <span className="bg-success">
-          ${product?.price?.formatted.replace(".00", "")}
-        </span>
-
-        <div className="footer">
-          <a
-            href="#"
-            className="btn-warning bold-btn"
-            onClick={() => addCard(product)}
-          >
-            add to cart
-          </a>
-          <i className="far fa-heart"></i>
-        </div>
-      </div>
-    </motion.div> */
-}

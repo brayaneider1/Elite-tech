@@ -11,9 +11,30 @@ import { CardDark } from "../components/CardDark/CardDark"
 import Notification from "../components/Notification/Notification"
 import { ProductCard } from "../components/ProductCard/ProductCard"
 import { CardCategory } from "../components/CardCategory/CardCategory"
+import Slider from "react-slick"
+
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import { useRef } from "react"
+
 export const pageQuery = graphql`
   query MyQuery {
-    allChecProduct {
+    allProductsCreated:allChecProduct(sort: {created: ASC}) {
+      nodes {
+        name
+        image {
+          url
+        }
+        description
+        permalink
+        price {
+          formatted
+        }
+        id
+      }
+    }
+
+     allProductsSort:allChecProduct(sort: {sort_order: DESC}) {
       nodes {
         name
         image {
@@ -46,8 +67,8 @@ export const pageQuery = graphql`
 
 const IndexPage = ({ data }) => {
   const [notifications, setNotifications] = useState([])
-  const domain=process.env.DOMAIN
-  const clientId=process.env.CLIENT_ID
+  const domain = process.env.DOMAIN
+  const clientId = process.env.CLIENT_ID
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -57,6 +78,17 @@ const IndexPage = ({ data }) => {
       },
     },
   }
+  const customeSlider =useRef();
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay:true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
+
   console.log("holi", process.env.CLIENT_ID)
   useEffect(() => {}, [notifications])
 
@@ -72,56 +104,65 @@ const IndexPage = ({ data }) => {
     }, 1500)
   }
 
-  const createItems = (length, handleClick) => {
-    let deltaX = 0
-    let difference = 0
-    const swipeDelta = 20
 
-    return Array.from({ length }).map((item, i) => (
-      <div key={i}>
-        {i}
-        <CardDark slideNext={() => handleClick(i)} />
-      </div>
-    ))
+
+  const gotoNext = () => {
+    customeSlider.current.slickNext()
   }
 
-  const [activeIndex, setActiveIndex] = useState(0)
-  const slideNext = () => {
-    return setActiveIndex(activeIndex + 1)
-  }
-  const [items] = useState(createItems(4, setActiveIndex))
+  console.log(data)
 
   return (
-    <Auth0Provider domain={domain}
-    clientId={clientId}
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}>
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
       <Layout>
         <Notification notifications={notifications} />
         <div className="container-ovf">
           <HeaderC />
-          <div className="best-seller">
-            <AliceCarousel
-              disableButtonsControls
-              disableDotsControls
-              activeIndex={activeIndex}
-              mouseTracking
-              items={items}
-            />
+          <div
+            className="header_title"
+            style={{ width: "100%", textAlign: "center" }}
+          >
+            Más vendidos
           </div>
+          <div className="best-seller">
+            <Slider  {...settings} ref={customeSlider}>
+              {data.allProductsSort.nodes.map(product => (
+                <CardDark addToCart={add} product={product} slideNext={gotoNext} />
+              ))}
+            </Slider>
+          </div>
+          <div
+            className="header_title"
+            style={{ width: "100%", textAlign: "center" }}
+          >
+            Categorías
+          </div>
+
           <div className="wrapper category">
             {data.allChecCategory.nodes.map((item, i) => (
               <CardCategory data={item} key={i} />
             ))}
           </div>
+          <div
+            className="header_title"
+            style={{ width: "100%", textAlign: "center" }}
+          >
+            Ultimos agregados
+          </div>
+
           <motion.div
-            style={{ display: "flex", flexWrap: "wrap" }}
+            style={{ display: "flex", flexWrap: "wrap", paddingTop: "20px" }}
             variants={container}
             initial="hidden"
             animate="show"
           >
-            {data.allChecProduct.nodes.map((product, i) => (
+            {data.allProductsCreated.nodes.map((product, i) => (
               <ProductCard
                 product={product}
                 key={i}

@@ -1,8 +1,12 @@
+import { navigate } from "gatsby"
 import React from "react"
 
 export const CardCategory = ({ data }) => {
   return (
-    <div className="ag-courses_item">
+    <div
+      onClick={() => navigate(`/category/${data.id}`)}
+      className="ag-courses_item"
+    >
       <a href="#" className="ag-courses-item_link">
         <div className="ag-courses-item_bg"></div>
 

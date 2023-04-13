@@ -1,25 +1,58 @@
 import React from "react"
 import { UilAngleRightB } from "@iconscout/react-unicons"
+import Commerce from "@chec/commerce.js"
+import { Link, navigate } from "gatsby"
+import { motion } from "framer-motion"
+import { useEffect } from "react"
 
-export const CardDark = ({slideNext}) => {
+export const CardDark = ({ slideNext, product, addToCart }) => {
+  const commerce = new Commerce(
+    "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
+  )
+  useEffect(() => {
+    commerce.cart.retrieve().then()
+  }, [])
+
+  const item = {
+    hidden: { opacity: 0, scale: 0 },
+    show: { opacity: 1, scale: 1 },
+  }
+
+  const addCard = ({ id, qt }) => {
+    commerce.cart
+      .add(id, 1)
+      .then(response => console.log("aqui------------>", response))
+    let prod = { id: id, img: product.image.url }
+    addToCart(prod)
+  }
+
   return (
-    <div className="blog-slider">
+    <motion.div variants={item} className="blog-slider">
       <div className="blog-slider__wrp swiper-wrapper">
         <div className="blog-slider__item swiper-slide">
           <div className="blog-slider__img">
             <img
-              src="https://www.pngmart.com/files/7/SSD-PNG-Background-Image.png"
+              onClick={() => navigate(`/product/${product?.id}/`)}
+              src={
+                product?.image?.url
+                  ? product.image.url
+                  : "https://cdn.pixabay.com/photo/2015/03/27/00/09/puzzle-693865_1280.jpg"
+              }
               alt=""
             />
           </div>
           <div className="blog-slider__content">
-            <div className="blog-slider__title">SSD San Disk</div>
-            <div className="blog-slider__text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Recusandae voluptate repellendus magni illo ea animi..
-            </div>
-            <a href="#" className="blog-slider__button">
-              ADD TO CART
+            <div className="blog-slider__title">{product?.name}</div>
+            <div
+              dangerouslySetInnerHTML={{ __html: product?.description }}
+              className="blog-slider__text"
+            />
+            <a
+              href="#"
+              onClick={() => addCard(product)}
+              className="blog-slider__button"
+            >
+              Agregar al carrito
             </a>
           </div>
         </div>
@@ -28,6 +61,6 @@ export const CardDark = ({slideNext}) => {
       <div onClick={slideNext} className="btn-next">
         <UilAngleRightB />
       </div>
-    </div>
+    </motion.div>
   )
 }
