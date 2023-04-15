@@ -1,21 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
-* {
-  box-sizing: border-box;
-}
+
 
 .blog-slider {
   width: 95%;
   position: relative;
-  max-width: 800px;
-  margin-left: 6%;
+  max-width: 70vw;
+  margin-left: 70px;
   background: #070f35;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 25px;
   border-radius: 10px;
-  height: 400px;
+  height: 350px;
   transition: all 0.3s;
   margin-bottom: 5%;
+
   .btn-next {
     position: absolute;
     cursor: pointer;
@@ -30,6 +29,7 @@
     background: #05f29b;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     font-size: 20px;
+
     svg {
       font-weight: bold;
       height: 80%;
@@ -39,8 +39,8 @@
   }
 
   @media screen and (max-width: 992px) {
-    max-width: 680px;
-    height: 400px;
+    max-width: 580px;
+    height: 350px;
   }
 
   @media screen and (max-width: 768px) {
@@ -71,7 +71,8 @@
 
       .blog-slider__content {
         color: white;
-        > * {
+
+        >* {
           opacity: 1;
           transform: none;
 
@@ -85,14 +86,18 @@
     }
   }
 
+  .contents-btns {
+    display: flex;
+  }
+
   &__img {
     // width: 40%;
-    width: 300px;
+    width: 250px;
     flex-shrink: 0;
-    height: 300px;
+    height: 250px;
     background-image: linear-gradient(147deg, #05f29b 0%, #05f2f2 74%);
     box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
-    border-radius: 20px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,7 +165,7 @@
       padding: 0;
     }
 
-    > * {
+    >* {
       opacity: 1;
       transform: translateY(25px);
       transition: all 0.4s;
@@ -190,7 +195,8 @@
   &__button {
     display: inline-flex;
     background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
-    padding: 15px 35px;
+    font-weight: 400;
+    padding: 10px 20px;
     border-radius: 50px;
     color: #fff;
     box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
@@ -205,7 +211,27 @@
     }
   }
 
-  .swiper-container-horizontal > .swiper-pagination-bullets,
+  &__button__plus {
+    display: inline-flex;
+    margin-left: 20px;
+    background-image: linear-gradient(147deg, #05f29b 0%, #05f29b 74%);
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: rgb(41, 40, 40);
+    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    text-decoration: none;
+    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 1px;
+
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+  }
+
+  .swiper-container-horizontal>.swiper-pagination-bullets,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
     bottom: 10px;

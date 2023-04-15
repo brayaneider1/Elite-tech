@@ -15,7 +15,7 @@ const CartProduct = ({ item, deleteProduct, setCart }) => {
   } = item
   const [qtUpdate, setQtUpdate] = useState(quantity)
 
- /*  const formatNumber = num => {
+  /*  const formatNumber = num => {
     let priceT = raw * qtUpdate
     return new Intl.NumberFormat("de-DE", {
       style: "currency",
@@ -27,22 +27,16 @@ const CartProduct = ({ item, deleteProduct, setCart }) => {
   } */
 
   const upQuantity = () => {
-    console.log("aqui");
     setQtUpdate(qtUpdate + 1)
     commerce.cart.update(id, { quantity: qtUpdate + 1 }).then(response => {
-      console.log("🚀 ~ file: CartProduct.js:33 ~ commerce.cart.update ~ response:", response)
-      commerce.cart.retrieve().then(cart => {
-       
-      })
+      commerce.cart.retrieve().then(cart => {})
     })
   }
 
   const downQuantity = () => {
     setQtUpdate(qtUpdate - 1)
     commerce.cart.update(id, { quantity: quantity - 1 }).then(response => {
-      commerce.cart.retrieve().then(cart => {
-        
-      })
+      commerce.cart.retrieve().then(cart => {})
     })
   }
 
@@ -81,7 +75,7 @@ const CartProduct = ({ item, deleteProduct, setCart }) => {
         </div>
 
         <div className="cart-product-quantity">
-          <h5 className="mb-0">${formatNumber(raw,qtUpdate)}</h5>
+          <h5 className="mb-0">${formatNumber(raw, qtUpdate)}</h5>
         </div>
 
         <div className="cart-product-delete" onClick={() => deleteProduct(id)}>

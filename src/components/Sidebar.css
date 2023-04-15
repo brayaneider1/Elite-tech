@@ -59,6 +59,9 @@
 .menuItem:hover{
   color: #05F29B;
 }
+.menuItem:active{
+  color: white;
+}
 
 .menuItem:hover {
   cursor: pointer;
@@ -127,7 +130,6 @@
     top: 1rem;
     right: 10px;
     background: #ffffff;
-    color: #070F35;
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;

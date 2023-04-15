@@ -4,14 +4,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { UilAngleDown, UilAngleUp } from "@iconscout/react-unicons"
 import { Link, navigate } from "gatsby"
 const SubMenu = ({ item, index, nodes }) => {
-  console.log("🚀 ~ file: SubMenu.js:7 ~ SubMenu ~ item:", nodes)
   const [selected, setSelected] = useState(0)
   const [subnav, setSubnav] = useState(false)
 
   const showSubnav = e => {
     e.preventDefault()
     setSubnav(!subnav)
-    console.log("aqi==>", subnav)
   }
   const menuAnimation = {
     hidden: {
@@ -82,10 +80,15 @@ const DropdownLink = styled(motion.div)`
   align-items: center;
   text-decoration: none;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 500;
   &:hover {
-    background: #632ce4;
+    background: #f0f8ff00;
     cursor: pointer;
+    color: #05f29b;
+  }
+  &:focus {
+    color: white;
   }
 `
 

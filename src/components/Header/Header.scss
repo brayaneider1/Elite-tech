@@ -46,11 +46,19 @@
   width: 100%;
   padding: 20px 30px 20px 0;
   color: white;
+  &_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &_title {
     width: 70%;
+    font-size: 20px;
+    font-family: sans-serif;
     color: white;
     font-weight: bold;
     padding-left: 4px;
+    padding-right: 40px;
     input {
       width: 50%;
       margin-right: 10px;
@@ -184,5 +192,18 @@
 
   .ant-layout-header {
     background: transparent;
+  }
+
+  .button_log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #5855d6;
+    padding: 6px 25px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid transparent;
+
   }
 }

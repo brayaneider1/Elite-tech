@@ -47,10 +47,23 @@ const createPagesProducts = (createPage, graphql) => {
                   id
                   name
                   description
+                  products {
+                    name
+                    image {
+                      url
+                    }
+                    description
+                    permalink
+                    price {
+                      formatted
+                    }
+                    id
+                  }
                 }
                 created
                 description
                 id
+
                 image {
                   id
                   url
@@ -61,13 +74,18 @@ const createPagesProducts = (createPage, graphql) => {
                   raw
                 }
                 sku
+                inventory {
+                  available
+                }
+                images {
+                  id
+                }
               }
             }
           }
         }
       `).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           reject(result.errors)
         }
         const products = result.data?.allChecProduct.edges
@@ -108,7 +126,7 @@ const createPagesCategories = (createPage, graphql) => {
                     formatted
                   }
                 }
-                assets{
+                assets {
                   url
                 }
               }
@@ -117,7 +135,6 @@ const createPagesCategories = (createPage, graphql) => {
         }
       `).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           reject(result.errors)
         }
         const categories = result.data?.allChecCategory.edges

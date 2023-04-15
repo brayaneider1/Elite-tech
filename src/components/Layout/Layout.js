@@ -8,11 +8,11 @@ const Layout = ({ children }) => {
   const sidebarVariants = {
     true: {
       left: "224px",
-      transition: { duration: 0.5 }
+      transition: { duration: 0.5 },
     },
     false: {
       left: "10px",
-      transition: { duration: 0.5 }
+      transition: { duration: 0.5 },
     },
   }
   return (
@@ -21,12 +21,13 @@ const Layout = ({ children }) => {
         <Sidebar setExpaned={setExpaned} expanded={expanded} />
 
         <motion.div
+          style={{ width: expanded ? "82%" : "100%" }}
           className="content-main"
           variants={sidebarVariants}
           animate={expanded ? `${expanded}` : `${expanded}`}
         >
           {children}
-          <a href="https://wa.me/573175607784">
+          <a className="float-container" href="https://wa.me/573175607784">
             <img className="whatsapp" src={whatsapp} alt="" />
           </a>
         </motion.div>
