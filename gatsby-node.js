@@ -47,10 +47,23 @@ const createPagesProducts = (createPage, graphql) => {
                   id
                   name
                   description
+                  products {
+                    name
+                    image {
+                      url
+                    }
+                    description
+                    permalink
+                    price {
+                      formatted
+                    }
+                    id
+                  }
                 }
                 created
                 description
                 id
+
                 image {
                   id
                   url
@@ -61,6 +74,12 @@ const createPagesProducts = (createPage, graphql) => {
                   raw
                 }
                 sku
+                inventory {
+                  available
+                }
+                images {
+                  id
+                }
               }
             }
           }
@@ -107,7 +126,7 @@ const createPagesCategories = (createPage, graphql) => {
                     formatted
                   }
                 }
-                assets{
+                assets {
                   url
                 }
               }

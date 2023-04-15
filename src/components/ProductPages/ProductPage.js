@@ -5,6 +5,9 @@ import Commerce from "@chec/commerce.js"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import Layout from "../Layout/Layout"
+import { ProductCard } from "../ProductCard/ProductCard"
+import Notification from "../Notification/Notification"
+import { HeaderC } from "../Header/Header"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -41,7 +44,9 @@ export default function ProductPage({
   },
   data,
 }) {
-  console.log("🚀 ~ file: ProductPage.js:43 ~ pageResources:", data)
+  const [quantity, setQuantity] = useState(0)
+  const [notifications, setNotifications] = useState([])
+  console.log("🚀 ~ file: ProductPage.js:43 ~ pageResources:", pageContext)
   const [product, setProduct] = useState({})
   console.log("🚀 ~ file: ProductPage.js:15 ~ product:", product)
   const commerce = new Commerce(
@@ -53,11 +58,9 @@ export default function ProductPage({
       .then(product => setProduct(product.data[0]))
   }, [])
 
-  const recortarString = strg => {
-    let a = strg?.replace("<p>", "")
-    let b = a?.replace("</p>", "")
-    return b
-  }
+  useEffect(() => {
+    commerce.cart.retrieve().then()
+  }, [])
 
   useEffect(() => {
     const imgs = document.querySelectorAll(".img-select a")
@@ -85,8 +88,42 @@ export default function ProductPage({
     window.addEventListener("resize", slideImage)
   }, [])
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4,
+      },
+    },
+  }
+
+  const add = arr => {
+    setNotifications([...notifications, arr])
+    setTimeout(() => {
+      setNotifications(
+        notifications.splice(
+          notifications.findIndex(i => i === arr),
+          1
+        )
+      )
+    }, 1500)
+  }
+
+  const addCard = ({ id, qt }) => {
+    commerce.cart
+      .add(id, quantity)
+      .then(response => console.log("aqui------------>", response))
+    let prod = { id: id, img: product.image.url }
+    add(prod)
+  }
+
   return (
     <Layout>
+
+      <Notification notifications={notifications} />
+      <HeaderC />
+
       <div className="product-page">
         <div className="cardP-wrapper">
           <div className="cardP">
@@ -115,7 +152,7 @@ export default function ProductPage({
                   />
                 </div>
               </div>
-              <div className="img-select">
+              {/*  <div className="img-select">
                 <div className="img-item">
                   <a href="#" data-id="1">
                     <img
@@ -148,7 +185,7 @@ export default function ProductPage({
                     />
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="product-content">
               <h2 className="product-title">{product?.name}</h2>
@@ -158,7 +195,10 @@ export default function ProductPage({
                 <i className="fas fa-star"></i>
                 <i className="fas fa-star"></i>
                 <i className="fas fa-star-half-alt"></i>
-                <span>4.7(21)</span>
+                <p className="stock">
+                  Stock disponible:
+                  <span>{product?.inventory?.available}</span>
+                </p>
               </div>
 
               <div className="product-price">
@@ -181,17 +221,50 @@ export default function ProductPage({
                   className="blog-slider__text"
                 />
               </div>
+              <div className="wrap-add">
+                <div className="input-quantity">
+                  <span onClick={() => setQuantity(quantity - 1)}>-</span>
+                  <input value={quantity} />
+                  <span onClick={() => setQuantity(quantity + 1)}>+</span>
+                </div>
 
-              <a
-                href="#"
-                onClick={() => addCard(product)}
-                className="blog-slider__button"
-              >
-                Agregar al carrito
-              </a>
+                <a
+                  href="#"
+                  onClick={() => addCard(product)}
+                  className="blog-slider__button"
+                >
+                  Agregar al carrito
+                </a>
+              </div>
             </div>
           </div>
         </div>
+
+        <div
+          className="header_title"
+          style={{ width: "100%", textAlign: "center" }}
+        >
+          Productos relacionados
+        </div>
+
+        <motion.div
+          style={{ display: "flex", flexWrap: "wrap", paddingTop: "20px" }}
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          {Array.isArray(product?.categories) &&
+            pageContext?.categories[0]?.products?.map((product, i) => (
+              <div>
+                <ProductCard
+                  product={product}
+                  key={i}
+                  addToCart={add}
+                  notifications={notifications}
+                />
+              </div>
+            ))}
+        </motion.div>
       </div>
     </Layout>
   )

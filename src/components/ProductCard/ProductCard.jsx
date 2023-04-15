@@ -11,11 +11,7 @@ export const ProductCard = ({ product, addToCart, notifications }) => {
     commerce.cart.retrieve().then()
   }, [])
 
-  const recortarString = strg => {
-    let a = strg?.replace("<p>", "")
-    let b = a?.replace("</p>", "")
-    return b
-  }
+
   const item = {
     hidden: { opacity: 0, scale: 0 },
     show: { opacity: 1, scale: 1 },

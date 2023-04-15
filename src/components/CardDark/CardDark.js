@@ -47,6 +47,7 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
               dangerouslySetInnerHTML={{ __html: product?.description }}
               className="blog-slider__text"
             />
+            <div className="contents-btns">
             <a
               href="#"
               onClick={() => addCard(product)}
@@ -54,6 +55,15 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
             >
               Agregar al carrito
             </a>
+            <a
+              href="#"
+              onClick={() => navigate(`/product/${product?.id}/`)}
+              className="blog-slider__button__plus"
+            >
+              Ver detalles
+            </a>
+            </div>
+           
           </div>
         </div>
       </div>

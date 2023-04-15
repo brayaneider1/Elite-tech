@@ -19,7 +19,7 @@ import { useRef } from "react"
 
 export const pageQuery = graphql`
   query MyQuery {
-    allProductsCreated:allChecProduct(sort: {created: ASC}) {
+    allProductsCreated: allChecProduct(sort: { created: ASC }) {
       nodes {
         name
         image {
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
       }
     }
 
-     allProductsSort:allChecProduct(sort: {sort_order: DESC}) {
+    allProductsSort: allChecProduct(sort: { sort_order: DESC }) {
       nodes {
         name
         image {
@@ -78,19 +78,16 @@ const IndexPage = ({ data }) => {
       },
     },
   }
-  const customeSlider =useRef();
+  const customeSlider = useRef()
 
   const settings = {
     dots: true,
     infinite: true,
-    autoplay:true,
+    autoplay: true,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
   }
-
-  console.log("holi", process.env.CLIENT_ID)
-  useEffect(() => {}, [notifications])
 
   const add = arr => {
     setNotifications([...notifications, arr])
@@ -104,13 +101,9 @@ const IndexPage = ({ data }) => {
     }, 1500)
   }
 
-
-
   const gotoNext = () => {
     customeSlider.current.slickNext()
   }
-
-  console.log(data)
 
   return (
     <Auth0Provider
@@ -121,9 +114,9 @@ const IndexPage = ({ data }) => {
       }}
     >
       <Layout>
+        <HeaderC />
         <Notification notifications={notifications} />
         <div className="container-ovf">
-          <HeaderC />
           <div
             className="header_title"
             style={{ width: "100%", textAlign: "center" }}
@@ -131,9 +124,13 @@ const IndexPage = ({ data }) => {
             Más vendidos
           </div>
           <div className="best-seller">
-            <Slider  {...settings} ref={customeSlider}>
+            <Slider {...settings} ref={customeSlider}>
               {data.allProductsSort.nodes.map(product => (
-                <CardDark addToCart={add} product={product} slideNext={gotoNext} />
+                <CardDark
+                  addToCart={add}
+                  product={product}
+                  slideNext={gotoNext}
+                />
               ))}
             </Slider>
           </div>
@@ -144,7 +141,7 @@ const IndexPage = ({ data }) => {
             Categorías
           </div>
 
-          <div className="wrapper category">
+          <div className="wrapper category pr-5">
             {data.allChecCategory.nodes.map((item, i) => (
               <CardCategory data={item} key={i} />
             ))}
