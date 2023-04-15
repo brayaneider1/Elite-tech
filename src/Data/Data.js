@@ -3,42 +3,62 @@ import {
   UilEstate,
   UilClipboardAlt,
   UilHeart,
-  UilShoppingCartAlt ,
-  UilShoppingBasket ,
-  UilUserCircle 
-} from "@iconscout/react-unicons";
+  UilShoppingCartAlt,
+  UilShoppingBasket,
+  UilUserCircle,
+  UilApps,
+  UilAngleDoubleDown ,
+  UilBold 
+} from "@iconscout/react-unicons"
 
 // Analytics Cards imports
-import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
+import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons"
 
 // Recent Card Imports
-import img1 from "../imgs/img1.png";
-import img2 from "../imgs/img2.png";
-import img3 from "../imgs/img3.png";
+import img1 from "../imgs/img1.png"
+import img2 from "../imgs/img2.png"
+import img3 from "../imgs/img3.png"
 
 // Sidebar Data
 export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Inico",
+    subNav: false,
+    link: false,
   },
   {
-    icon: UilHeart ,
+    icon: UilApps,
+    iconOpened: UilBold,
+    heading: "Categorias",
+    link: false,
+    subNav: true,
+  },
+  {
+    icon: UilHeart,
     heading: "Favoritos",
+    subNav: false,
+    link: false,
   },
   {
-    icon: UilShoppingCartAlt ,
+    icon: UilShoppingCartAlt,
     heading: "Carrito",
+    subNav: false,
+    link: "/app/cart/",
   },
   {
-    icon: UilShoppingBasket ,
-    heading: 'Mis compras'
+    icon: UilShoppingBasket,
+    heading: "Mis compras",
+    subNav: false,
+    link: false,
   },
   {
-    icon: UilUserCircle ,
-    heading: 'Perfil'
+    icon: UilUserCircle,
+    subNav: false,
+    heading: "Perfil",
+    link: false,
   },
-];
+]
 
 // Analytics Cards Data
 export const cardsData = [
@@ -91,7 +111,7 @@ export const cardsData = [
       },
     ],
   },
-];
+]
 
 // Recent Update Card Data
 export const UpdatesData = [
@@ -113,4 +133,4 @@ export const UpdatesData = [
     noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
     time: "2 hours ago",
   },
-];
+]

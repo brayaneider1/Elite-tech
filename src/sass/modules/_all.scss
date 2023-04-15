@@ -3,7 +3,17 @@
 @import "./../../components/InputComponent/InputComponent.scss";
 @import "./../../components/CardDark/CardDark.scss";
 @import "./../../components/ProductCard/ProductCard.scss";
+@import "./../../components/Cart/cart.scss";
+@import "./../../components/CartProduct/cartProduct.scss";
+@import "./../../components/ProductPages/productPage.scss";
+@import "./../../components/CategoryPages/categoryPage.scss";
+@import "./../../components/CardCategory/CardCategory.scss";
+@import "./../../components/Pay/pay.scss";
 
 //pages
-@import "./../../pages/styles/index.scss";
+@import "./../../sass/pages/categories.scss";
+    
+
+//templates
+
 

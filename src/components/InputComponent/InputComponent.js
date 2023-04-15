@@ -4,7 +4,7 @@ export const InputComponent = () => {
     return (
         <div className='input-component'>
 
-            <input placeholder='Buscar productos' />
+            <input placeholder='Buscá un producto' />
         </div>
     )
 }
