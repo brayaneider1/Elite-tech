@@ -1,12 +1,15 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 module.exports = {
   siteMetadata: {
     title: `Elite tech`,
     description: `A simple bootstrap 5 and Sass starter for Gatsby. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@r-ichard`,
+  },
+  flags: {
+    DEV_SSR: true,
   },
   plugins: [
     `gatsby-plugin-image`,

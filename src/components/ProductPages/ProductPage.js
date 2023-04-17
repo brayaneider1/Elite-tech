@@ -84,8 +84,9 @@ export default function ProductPage({
         -(imgId - 1) * displayWidth
       }px)`
     }
-
-    window.addEventListener("resize", slideImage)
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", slideImage)
+    }
   }, [])
 
   const container = {
@@ -120,7 +121,6 @@ export default function ProductPage({
 
   return (
     <Layout>
-
       <Notification notifications={notifications} />
       <HeaderC />
 

@@ -22,6 +22,14 @@ const Sidebar = ({expanded, setExpaned}) => {
     }
   `)
 
+
+var Window
+if (typeof window !== 'undefined') {
+  Window=window
+
+}
+
+
   const sidebarVariants = {
     true: {
       left: "0",
@@ -43,7 +51,7 @@ const Sidebar = ({expanded, setExpaned}) => {
       <motion.div
         className="sidebar"
         variants={sidebarVariants}
-        animate={window.innerWidth <= 768 ? `${expanded}` : `${expanded}`}
+        animate={Window?.innerWidth <= 768 ? `${expanded}` : `${expanded}`}
       >
         {/* logo */}
         <div className="logo">

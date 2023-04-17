@@ -7,9 +7,7 @@ import LottieEmpy from "../../common/Lotties/empty.json"
 
 import Lottie from "lottie-react"
 
-export default function CategoryPage({
-  pageResources: { json: { pageContext } = {} },
-}) {
+export default function CategoryPage({ pageContext }) {
   const [notifications, setNotifications] = useState([])
 
   const container = {

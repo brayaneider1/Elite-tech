@@ -105,12 +105,17 @@ const IndexPage = ({ data }) => {
     customeSlider.current.slickNext()
   }
 
+  var Window
+  if (typeof window !== "undefined") {
+    Window = window
+  }
+
   return (
     <Auth0Provider
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: window.location.origin,
+        redirect_uri: Window.location.origin,
       }}
     >
       <Layout>
