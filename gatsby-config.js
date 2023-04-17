@@ -43,7 +43,7 @@ module.exports = {
     {
       resolve: "@chec/gatsby-source-chec",
       options: {
-        publicKey: process.env.CHEC_PUBLIC_KEY,
+        publicKey: process.env.GATSBY_CHEC_PUBLIC_KEY,
       },
     },
   ],

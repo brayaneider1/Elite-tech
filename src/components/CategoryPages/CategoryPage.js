@@ -8,9 +8,7 @@ import LottieEmpy from "../../common/Lotties/empty.json"
 import Lottie from "lottie-react"
 
 export default function CategoryPage({
-  pageResources: {
-    json: { pageContext },
-  },
+  pageResources: { json: { pageContext } = {} },
 }) {
   const [notifications, setNotifications] = useState([])
 
@@ -71,7 +69,11 @@ export default function CategoryPage({
             ))}
           </motion.div>
         ) : (
-          <Lottie className="content-lottie" animationData={LottieEmpy} loop={true} />
+          <Lottie
+            className="content-lottie"
+            animationData={LottieEmpy}
+            loop={true}
+          />
         )}
       </div>
     </Layout>
