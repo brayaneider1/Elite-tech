@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import "./Sidebar.css"
 import Logo from "../imgs/logo.png"
 import { UilSignOutAlt } from "@iconscout/react-unicons"
-import { SidebarData } from "../Data/Data"
 import { UilBars } from "@iconscout/react-unicons"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import SubMenu from "./SubMenu/SubMenu"
+import { SidebarData } from "../Data/Data"
 
 const Sidebar = ({expanded, setExpaned}) => {
   const {

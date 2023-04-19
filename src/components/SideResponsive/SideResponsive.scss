@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+
+
+.side-responsive {
+    z-index: 100;
+
+    .sidebar {
+        position: fixed;
+        width: 240px;
+        left: -240px;
+        height: 100%;
+        background: #070f35;
+        transition: all .5s ease;
+    }
+
+    .sidebar header {
+        font-size: 28px;
+        color: white;
+        line-height: 70px;
+        text-align: center;
+        user-select: none;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .sidebar a {
+        display: block;
+        height: auto;
+        width: 100%;
+        color: white;
+        line-height: 50px;
+        padding-left: 30px;
+        box-sizing: border-box;
+        border-bottom: 0.1px solid black;
+        border-top: 0.1px solid rgba(255, 255, 255, .1);
+        border-left: 5px solid transparent;
+        transition: all .5s ease;
+        text-decoration: none;
+    }
+
+    .dropdown-items {
+        display: block;
+        height: auto;
+        width: 100%;
+        color: white;
+        padding-left: 30px;
+        box-sizing: border-box;
+        border-bottom: 0.1px solid black;
+        border-top: 0.1px solid rgba(255, 255, 255, .1);
+        border-left: 5px solid transparent;
+        transition: all .5s ease;
+        text-decoration: none;
+
+    }
+
+    a.active,
+    a:hover {
+        border-left: 5px solid #7af5cb;
+        color: #7af5cb;
+    }
+
+    .sidebar a svg {
+        font-size: 23px;
+
+    }
+
+
+    .link-menu {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 15px;
+        }
+    }
+
+    .sidebar a span {
+        text-transform: uppercase;
+    }
+
+    #check {
+        display: none;
+    }
+
+    label #btn,
+    label #cancel {
+        position: absolute;
+        cursor: pointer;
+        color: rgb(0, 0, 0);
+        border-radius: 5px;
+        border: 1px solid #05f29b;
+        margin: 20px 30px;
+        font-size: 22px;
+        background: #05f29b;
+        height: 35px;
+        width: 35px;
+        text-align: center;
+        line-height: 45px;
+        transition: all .5s ease;
+    }
+
+    label #cancel {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #check:checked~.sidebar {
+        left: 0;
+    }
+
+    #check:checked~label #btn {
+        margin-left: 245px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #check:checked~label #cancel {
+        margin-left: 245px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media(max-width : 860px) {
+        .sidebar {
+            height: auto;
+            width: 70px;
+            left: 0;
+            margin: 100px 0;
+        }
+
+        header,
+        #btn,
+        #cancel {
+            display: none;
+        }
+
+        span {
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .sidebar a {
+            height: 60px;
+        }
+
+        .sidebar a i {
+            margin-left: -10px;
+        }
+
+        a:hover {
+            width: 200px;
+            background: inherit;
+        }
+
+        .sidebar a:hover span {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    /* Don't Forget to Subscribe our Channel[CodingNepal] */
+
+
+}

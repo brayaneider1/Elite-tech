@@ -6,6 +6,7 @@ import Notification from "../Notification/Notification"
 import LottieEmpy from "../../common/Lotties/empty.json"
 
 import Lottie from "lottie-react"
+import { HeaderC } from "../Header/Header"
 
 export default function CategoryPage({ pageContext }) {
   const [notifications, setNotifications] = useState([])
@@ -32,6 +33,7 @@ export default function CategoryPage({ pageContext }) {
   }
   return (
     <Layout>
+      <HeaderC/>
       <Notification notifications={notifications} />
       <div className="container-category">
         <div className="banner-example">

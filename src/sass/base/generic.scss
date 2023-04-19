@@ -2,6 +2,12 @@
   backdrop-filter: blur(3px);
 }
 
+.linked{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .best-seller {
   display: block;
   position: relative;
@@ -11,8 +17,10 @@
 }
 
 .container-ovf {
-  max-height: 100vh;
+  max-height: 90vh;
   overflow: auto;
+  padding: 2% 5%;
+
 }
 
 .customModal {
@@ -173,15 +181,12 @@ input[type="number"] {
   display: flex;
   height: 100%;
   width: 100%;
-  gap: 16px;
-
   .content-main {
     position: relative;
-    left: 224px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 82%;
+    width: 100%;
     .whatsapp{
       position: fixed;
       width: 70px;

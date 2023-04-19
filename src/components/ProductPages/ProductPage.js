@@ -38,12 +38,7 @@ export const pageQuery = graphql`
   }
 `
 
-export default function ProductPage({
-  pageResources: {
-    json: { pageContext },
-  },
-  data,
-}) {
+export default function ProductPage({ pageContext }) {
   const [quantity, setQuantity] = useState(0)
   const [notifications, setNotifications] = useState([])
   console.log("🚀 ~ file: ProductPage.js:43 ~ pageResources:", pageContext)
@@ -125,6 +120,8 @@ export default function ProductPage({
       <HeaderC />
 
       <div className="product-page">
+        <div className="container-ovf">
+
         <div className="cardP-wrapper">
           <div className="cardP">
             <div className="product-imgs">
@@ -265,6 +262,7 @@ export default function ProductPage({
               </div>
             ))}
         </motion.div>
+        </div>
       </div>
     </Layout>
   )

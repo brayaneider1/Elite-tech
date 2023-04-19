@@ -3,9 +3,9 @@
 
 .category {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  padding-top: 20px;
+  padding: 20px 10%;
 
   .ag-format-container {
     width: 1142px;
@@ -41,6 +41,7 @@
     display: block;
     padding: 15px 10px;
     background-color: #121212;
+    text-decoration: none;
 
     overflow: hidden;
 
@@ -64,7 +65,7 @@
     overflow: hidden;
 
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: #FFF;
 
     z-index: 2;
@@ -72,7 +73,7 @@
   }
 
   .ag-courses-item_date-box {
-    font-size: 18px;
+    font-size: 13px;
     color: #FFF;
 
     z-index: 2;
