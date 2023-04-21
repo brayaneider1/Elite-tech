@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
 .customOverlay {
   backdrop-filter: blur(3px);
 }
@@ -306,6 +308,8 @@ input[type="number"] {
 
 body {
   background: #030926;
+  font-family: 'Poppins', sans-serif;
+
 }
 .App {
   /* padding: 0.5rem 3.5rem; */
@@ -319,4 +323,16 @@ body {
 }
 .float-container{
   z-index: 100;
+}
+
+.ant-drawer-wrapper-body {
+  background-color: #2a2b38 !important;
+  color: white;
+
+}
+
+.ant-drawer-header-title{
+  button,.ant-drawer-title {
+    color: white !important;
+  }
 }

@@ -85,12 +85,12 @@
     label #cancel {
         position: absolute;
         cursor: pointer;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         border-radius: 5px;
-        border: 1px solid #05f29b;
+        border: 1px solid #070f35;
         margin: 20px 30px;
         font-size: 22px;
-        background: #05f29b;
+        background: #070f35;
         height: 35px;
         width: 35px;
         text-align: center;
@@ -101,6 +101,8 @@
     label #cancel {
         opacity: 0;
         visibility: hidden;
+        background: #101844;
+
     }
 
     #check:checked~.sidebar {

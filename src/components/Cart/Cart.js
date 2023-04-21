@@ -7,9 +7,10 @@ import Backdrop from "@mui/material/Backdrop"
 import Box from "@mui/material/Box"
 import Modal from "@mui/material/Modal"
 import Fade from "@mui/material/Fade"
-import Button from "@mui/material/Button"
+import {Drawer } from 'antd';
 import Typography from "@mui/material/Typography"
 import { HeaderC } from "../Header/Header"
+import { FormCheckout } from "../FormCheckout/FormCheckout"
 
 const style = {
   position: "absolute",
@@ -29,30 +30,42 @@ const style = {
 
 const Cart = () => {
   const [open, setOpen] = React.useState(false)
+  const [openDrawer, setOpenDrawer] = useState(false);
+
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
   const [productInCart, setProductInCart] = useState([])
   const [updateCart, setUpdateCart] = useState(false)
   const [checkout, setCheckout] = useState(false)
+  const [cart, setCart] = useState({})
+
   const commerce = new Commerce(
     "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
   )
 
   useEffect(() => {
     commerce.cart.contents().then(items => setProductInCart(items))
+    commerce.cart.retrieve().then(cart => {
+      setCart(cart)
+    })
   }, [updateCart])
 
   const Delete = id => {
     commerce.cart.remove(id).then(response => {
       setUpdateCart(!updateCart)
     })
+    
   }
 
+
+  const handleDrawer=()=>{
+    setOpenDrawer(!openDrawer)
+  }
   return (
     <div>
-      <div className="container-cart">
         <HeaderC />
+      <div className="container-cart">
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -81,6 +94,10 @@ const Cart = () => {
             </Box>
           </Fade>
         </Modal>
+
+        <Drawer  title="Completar compra" placement="right" onClose={handleDrawer} open={openDrawer}>
+        <FormCheckout cart={cart}/>
+      </Drawer>
         <section className="cart">
           <div className="cart-title">
             <h2>Carrito De Compras</h2>
@@ -95,7 +112,7 @@ const Cart = () => {
             ) : (
               <Pay setCheckout={setCheckout} />
             )}
-            <CartCheckout setCheckout={handleOpen} />
+            <CartCheckout cart={cart} setCheckout={handleDrawer} />
           </div>
         </section>
       </div>
