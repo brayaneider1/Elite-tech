@@ -181,13 +181,14 @@ export const FormCheckout = ({ cart }) => {
                       </span>
 
                       <ReactWhatsapp
+                      className="wrappper-wp-btn"
                         number="573175607784"
                         message={`Hola Elite,he realizado una compra por el valor de:  *${
                           cart?.subtotal.formatted_with_symbol
                         }* 
 
                         ---------------Detalle de compra------------
-                        ${cart?.line_items?.for(
+                        ${cart?.line_items?.map(
                           item =>
                             "*" +
                             item.name +

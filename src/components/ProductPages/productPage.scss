@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
 .product-page {
-    /* padding: 3%; */
     max-height: 100%;
     width: 100%;
     overflow: auto;
@@ -43,6 +42,7 @@
         .blog-slider__button {
             font-weight: 400;
             padding: 10px 20px;
+            width: 200px;
 
         }
     }
@@ -263,11 +263,43 @@
         color: #fff;
     }
 
-    @media screen and (min-width: 992px) {
+    @media screen and (max-width: 992px) {
+        .product-title{
+            font-size: 2rem;
+            line-height: 40px;
+        }
+        .wrap-add{
+            flex-direction: column !important;
+            align-items: flex-start;
+
+            a{
+                margin-top: 20px;
+            }
+ 
+         }
         .cardP {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 1.5rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .product-imgs {
+                .img-display {
+                    width: 300px;
+                    height: 300px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+
+
+    @media screen and (min-width: 992px) {
+
+      
+        .cardP {
+            display: flex;
+            padding: 0 10%;
         }
 
         .cardP-wrapper {

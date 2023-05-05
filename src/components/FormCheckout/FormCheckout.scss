@@ -199,6 +199,11 @@
     backface-visibility: hidden;
   }
 
+  .wrappper-wp-btn{
+    background: transparent;
+    border: 1px solid transparent;
+  }
+
   .card-back {
     transform: rotateY(180deg);
   }
