@@ -1,35 +1,34 @@
 .container-category {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding-bottom: 20px;
-  max-height: 100%;
+  max-height: 100vh;
   overflow: auto;
+  padding: 2% 4%;
+
   h2 {
     padding: 10px;
     color: aliceblue;
     font-size: 40px;
   }
 
-  .card{
-    margin: 0 30px 0 0; 
+  .card {
+    margin: 0 30px 0 0;
   }
-  &_content{
+
+  &_content {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 
   }
 
- 
+
 }
 
 /* To make the parallax effect easy to view I added a large top and bottom margin, delete these or tweak them to your liking */
 
 .bannerItem {
   width: 100%;
-  margin-top: 55px; /* white above banner - delete it */
+  /* white above banner - delete it */
 }
 
 .banner-header {
@@ -64,14 +63,15 @@
   height: 200px !important;
   /*   background-image: url("http://source.unsplash.com/1500x500/?adventure");
  */
-  border-radius: 6px; /* rounded corners */
-  background-color: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.458) 0%,
-    #05f3c7(255, 255, 255, 0.4) 100%
-  );
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  border-radius: 6px;
+  /* rounded corners */
+  background-color: linear-gradient(to top,
+      rgba(0, 0, 0, 0.458) 0%,
+      #05f3c7(255, 255, 255, 0.4) 100%);
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
   background-size: cover;
   image-repeat: none;
   max-height: 0%;
@@ -103,16 +103,19 @@
   font-weight: 500;
   border-radius: 0px;
 }
+
 .btn.btn-outline:hover {
   background-color: black;
   border-color: black;
   color: #fff;
 }
+
 .btn.btn-outline.a {
   background-color: black;
   border-color: black;
   color: #fff;
 }
+
 .btn.btn-outline:active {
   font-weight: 300;
   font-size: 20px;
@@ -120,9 +123,9 @@
 }
 
 
-.content-lottie{
-    width: 50vw;
-    height: 70vw;
-    overflow: hidden;
-    margin: auto;
+.content-lottie {
+  width: 50vw;
+  height: 70vw;
+  overflow: hidden;
+  margin: auto;
 }

@@ -1,4 +1,3 @@
-import env from "react-dotenv"
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 import AliceCarousel from "react-alice-carousel"
@@ -85,6 +84,7 @@ const IndexPage = ({ data }) => {
     infinite: true,
     autoplay: true,
     speed: 1000,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
   }
@@ -105,12 +105,17 @@ const IndexPage = ({ data }) => {
     customeSlider.current.slickNext()
   }
 
+  var Window
+  if (typeof window !== "undefined") {
+    Window = window
+  }
+
   return (
     <Auth0Provider
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: window.location.origin,
+        redirect_uri: Window?.location.origin,
       }}
     >
       <Layout>
@@ -136,12 +141,17 @@ const IndexPage = ({ data }) => {
           </div>
           <div
             className="header_title"
-            style={{ width: "100%", textAlign: "center" }}
+            style={{
+              width: "100%",
+              textAlign: "center",
+              paddingTop: "30px",
+              paddingBottom: "20px",
+            }}
           >
             Categorías
           </div>
 
-          <div className="wrapper category pr-5">
+          <div className="wrapper category">
             {data.allChecCategory.nodes.map((item, i) => (
               <CardCategory data={item} key={i} />
             ))}

@@ -6,12 +6,9 @@ import Notification from "../Notification/Notification"
 import LottieEmpy from "../../common/Lotties/empty.json"
 
 import Lottie from "lottie-react"
+import { HeaderC } from "../Header/Header"
 
-export default function CategoryPage({
-  pageResources: {
-    json: { pageContext },
-  },
-}) {
+export default function CategoryPage({ pageContext }) {
   const [notifications, setNotifications] = useState([])
 
   const container = {
@@ -36,6 +33,7 @@ export default function CategoryPage({
   }
   return (
     <Layout>
+      <HeaderC/>
       <Notification notifications={notifications} />
       <div className="container-category">
         <div className="banner-example">
@@ -71,7 +69,11 @@ export default function CategoryPage({
             ))}
           </motion.div>
         ) : (
-          <Lottie className="content-lottie" animationData={LottieEmpy} loop={true} />
+          <Lottie
+            className="content-lottie"
+            animationData={LottieEmpy}
+            loop={true}
+          />
         )}
       </div>
     </Layout>

@@ -29,31 +29,34 @@ const SubMenu = ({ item, index, nodes }) => {
   return (
     <>
       <Link
-        className={selected === item.index ? "menuItem active" : "menuItem"}
         to={item.link ? item.link : "/"}
         onClick={item.subNav ? e => showSubnav(e) : () => {}}
       >
-        <item.icon />
-        <span>{item.heading}</span>
-        {item.subNav && (
-          <motion.div
-            animate={
-              subnav
-                ? {
-                    rotate: -90,
-                  }
-                : { rotate: 0 }
-            }
-          >
-            <UilAngleDown />
-          </motion.div>
-        )}
+        <div className="link-menu">
+          <item.icon />
+          <span>{item.heading}</span>
+          {item.subNav && (
+            <motion.div
+            style={{marginLeft:'20px'}}
+              animate={
+                subnav
+                  ? {
+                      rotate: 0,
+                    }
+                  : { rotate: -90 }
+              }
+            >
+              <UilAngleDown />
+            </motion.div>
+          )}
+        </div>
       </Link>
       <AnimatePresence>
         {item.subNav === true &&
           subnav &&
           nodes.map((item, i) => (
             <DropdownLink
+            className="dropdown-items"
               key={i}
               variants={menuAnimation}
               initial={"hidden"}
@@ -70,14 +73,15 @@ const SubMenu = ({ item, index, nodes }) => {
 }
 
 const SidebarLabel = styled(motion.span)`
-  margin-left: 30px;
+  margin-left: 0px;
 `
 
 const DropdownLink = styled(motion.div)`
-  height: 60px;
+  height: auto;
   padding-left: 3rem;
   display: flex;
   align-items: center;
+  padding: 6px 0;
   text-decoration: none;
   color: white;
   font-size: 12px;
