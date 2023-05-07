@@ -4,18 +4,8 @@ import { formatNumber } from "../../common/utils/format"
 import img from "../../imgs/shopping-gdf9022597_1280.png"
 import { getCurrentDate } from "../../common/functions/getCurrentate"
 
-const CartCheckout = ({ setCheckout }) => {
-  const commerce = new Commerce(
-    "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
-  )
-  const [cart, setCart] = useState({})
-  console.log("🚀 ~ file: CartCheckout.js:11 ~ CartCheckout ~ cart:", cart)
-
-  useEffect(() => {
-    commerce.cart.retrieve().then(cart => {
-      setCart(cart)
-    })
-  }, [])
+const CartCheckout = ({ setCheckout,cart }) => {
+ 
 
 
   

@@ -11,7 +11,7 @@ const App = () => (
     <Router basepath="/app" style={{ width: "100%" }}>
       <Cart path="/cart" />
       <ProductPage path="/product/:id" />
-      <CategoryPage path="/category/:name/:id"/>
+      <CategoryPage path="/category/:id"/>
     </Router>
   </Layout>
 )

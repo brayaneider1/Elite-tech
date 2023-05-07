@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
 .customOverlay {
   backdrop-filter: blur(3px);
+}
+
+.linked{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .best-seller {
@@ -11,8 +19,10 @@
 }
 
 .container-ovf {
-  max-height: 100vh;
+  max-height: 90vh;
   overflow: auto;
+  padding: 2% 5%;
+
 }
 
 .customModal {
@@ -173,15 +183,12 @@ input[type="number"] {
   display: flex;
   height: 100%;
   width: 100%;
-  gap: 16px;
-
   .content-main {
     position: relative;
-    left: 224px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 82%;
+    width: 100%;
     .whatsapp{
       position: fixed;
       width: 70px;
@@ -301,6 +308,8 @@ input[type="number"] {
 
 body {
   background: #030926;
+  font-family: 'Poppins', sans-serif;
+
 }
 .App {
   /* padding: 0.5rem 3.5rem; */
@@ -314,4 +323,16 @@ body {
 }
 .float-container{
   z-index: 100;
+}
+
+.ant-drawer-wrapper-body {
+  background-color: #2a2b38 !important;
+  color: white;
+
+}
+
+.ant-drawer-header-title{
+  button,.ant-drawer-title {
+    color: white !important;
+  }
 }

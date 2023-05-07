@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import "./Sidebar.css"
 import Logo from "../imgs/logo.png"
 import { UilSignOutAlt } from "@iconscout/react-unicons"
-import { SidebarData } from "../Data/Data"
 import { UilBars } from "@iconscout/react-unicons"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import SubMenu from "./SubMenu/SubMenu"
+import { SidebarData } from "../Data/Data"
 
 const Sidebar = ({expanded, setExpaned}) => {
   const {
@@ -21,6 +21,14 @@ const Sidebar = ({expanded, setExpaned}) => {
       }
     }
   `)
+
+
+var Window
+if (typeof window !== 'undefined') {
+  Window=window
+
+}
+
 
   const sidebarVariants = {
     true: {
@@ -43,7 +51,7 @@ const Sidebar = ({expanded, setExpaned}) => {
       <motion.div
         className="sidebar"
         variants={sidebarVariants}
-        animate={window.innerWidth <= 768 ? `${expanded}` : `${expanded}`}
+        animate={Window?.innerWidth <= 768 ? `${expanded}` : `${expanded}`}
       >
         {/* logo */}
         <div className="logo">
