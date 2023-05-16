@@ -33,13 +33,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-bootstrap-5`,
-        short_name: `gb5-starter`,
+        name: `Elite tech`,
+        short_name: `elite-tech`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/elite-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
