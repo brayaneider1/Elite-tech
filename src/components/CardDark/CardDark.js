@@ -55,12 +55,27 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
             >
               Agregar al carrito
             </a>
+
+            <a
+              href="#"
+              onClick={() => addCard(product)}
+              className="blog-slider__button2"
+            >
+              Agregar
+            </a>
             <a
               href="#"
               onClick={() => navigate(`/product/${product?.id}/`)}
               className="blog-slider__button__plus"
             >
               Ver detalles
+            </a>
+            <a
+              href="#"
+              onClick={() => navigate(`/product/${product?.id}/`)}
+              className="blog-slider__button__plus2"
+            >
+              Ver
             </a>
             </div>
            

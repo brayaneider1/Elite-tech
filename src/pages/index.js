@@ -15,6 +15,8 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useRef } from "react"
+import { Footer } from "../components/Footer/Footer"
+import SliderComponent from "../components/Brands/Brand"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -130,8 +132,9 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="best-seller">
             <Slider {...settings} ref={customeSlider}>
-              {data.allProductsSort.nodes.map(product => (
+              {data.allProductsSort.nodes.map((product,index) => (
                 <CardDark
+                key={index}
                   addToCart={add}
                   product={product}
                   slideNext={gotoNext}
@@ -152,19 +155,21 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="wrapper category">
-            {data.allChecCategory.nodes.map((item, i) => (
-              <CardCategory data={item} key={i} />
-            ))}
+             <div className="angry-grid">
+              {data.allChecCategory.nodes.map((item, index) => (
+                <CardCategory data={item} index={index} />
+              ))}
+            </div> 
           </div>
           <div
             className="header_title"
             style={{ width: "100%", textAlign: "center" }}
-          >
+            >
             Ultimos agregados
           </div>
 
           <motion.div
-            style={{ display: "flex", flexWrap: "wrap", paddingTop: "20px" }}
+          className="product-container"
             variants={container}
             initial="hidden"
             animate="show"
@@ -178,6 +183,8 @@ const IndexPage = ({ data }) => {
               />
             ))}
           </motion.div>
+          <SliderComponent/>
+          <Footer />
         </div>
       </Layout>
     </Auth0Provider>

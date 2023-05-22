@@ -4,6 +4,7 @@ import whatsapp from "../../images/whatsapp-alt.svg"
 import { motion } from "framer-motion"
 import { SideResponsive } from "../SideResponsive/SideResponsive"
 import ReactWhatsapp from "react-whatsapp"
+import { Footer } from "../Footer/Footer"
 
 const Layout = ({ children }) => {
   const [expanded, setExpaned] = useState(true)

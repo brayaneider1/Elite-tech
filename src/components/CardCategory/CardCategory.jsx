@@ -1,130 +1,39 @@
 import { navigate } from "gatsby"
 import React from "react"
+import "./CardItem.scss"
 
-export const CardCategory = ({ data }) => {
+export const CardCategory = ({ data, key }) => {
+  const image = data?.assets[0].url ?? ""
   return (
-/*     <div
-      onClick={() => navigate(`/category/${data.id}`)}
-      className="ag-courses_item"
-    >
-      <a href="#" className="ag-courses-item_link">
-        <div className="ag-courses-item_bg"></div>
+    <div id={`item-${key}`} className="category-card">
+      <div className="card-some">
+        <div className="GameImg">
+          <div className="Gfooter">
+            <div className="SmallIcon"></div>
+            <span className="Descripion">{data.description.slice(0,100)  }{data.description.length > 100 && "..." } </span>
+            <button   onClick={() => navigate(`/category/${data.id}`)} class="button-cl"> Productos </button>
+          </div>
+          <img src={image} className="GameIcon" />
 
-        <div className="ag-courses-item_title">{data?.name}</div>
-
-        <div className="ag-courses-item_date-box">
-          Productos:
-          <span className="ag-courses-item_date">
-            &nbsp; {data.products.length}
-          </span>
+          <span className="Name">{data.name}</span>
         </div>
-      </a>
+      </div>
+    </div>
+    /*     <div className="cardCategory product-card">
+        <div className="product-image">
+          <img
+            className="image"
+            src={image}
+          />
+        </div>
+        <div className="product-details">
+          <h1>Canada Goose</h1>
+          <p>
+            Great product title for a great product and all of the extra things
+            a product might need to make it fill an entire card.
+          </p>
+          <button>SHOP NOW</button>
+        </div>
     </div> */
-
-
-
-    <section className="section">
-  <h1>Nom Nom Gallery</h1>
-  <div className="grid">
-    <div className="item">
-      <div className="item__details">
-        jelly-o brownie sweet
-      </div>
-    </div>
-    <div className="item item--large">
-      <div className="item__details">
-        Muffin jelly gingerbread 
-      </div>
-    </div>
-    <div className="item item--medium">
-      <div className="item__details">
-        sesame snaps chocolate
-      </div>
-    </div>
-    <div className="item item--large">
-      <div className="item__details">
-        Oat cake
-      </div>
-    </div>
-    <div className="item item--full">
-      <div className="item__details">
-         jujubes cheesecake
-      </div>
-    </div>
-    <div className="item item--medium">
-      <div className="item__details">
-        Dragée pudding brownie
-      </div>
-    </div>
-    <div className="item item--large">
-      <div className="item__details">
-        Oat cake
-      </div>
-    </div>
-    <div className="item">
-      <div className="item__details">
-        powder toffee
-      </div>
-    </div>
-    <div className="item item--medium">
-      <div className="item__details">
-        pudding cheesecake
-      </div>
-    </div>
-    <div className="item item--large">
-      <div className="item__details">
-        toffee bear claw 
-      </div>
-    </div>
-    <div className="item">
-      <div className="item__details">
-        cake cookie croissant
-      </div>
-    </div>
-    <div className="item item--medium">
-      <div className="item__details">
-        liquorice sweet roll
-      </div>
-    </div>
-    <div className="item item--medium">
-      <div className="item__details">
-        chocolate marzipan
-      </div>
-    </div>
-    <div className="item item--large">
-      <div className="item__details">
-        danish dessert lollipop
-      </div>
-    </div>
-    <div className="item">
-      <div className="item__details">
-        sugar plum dragée
-      </div>
-    </div>
-  </div>
-</section>
   )
-}
-
-{
-  /* <div className="col" ontouchstart="this.classList.toggle('hover');">
-<div className="container">
-  <div
-    className="front"
-    style={{
-      backgroundImage:
-      `url(${data?.assets[0]?.url})`,
-    }}
-  >
-    <div className="inner">
-      <p>{data?.name}</p>
-    </div>
-  </div>
-  <div className="back">
-    <div className="inner">
-      <p>{data.description}</p>
-    </div>
-  </div>
-</div>
-</div> */
 }

@@ -33,20 +33,20 @@ export const SidebarData = [
     heading: "Categorias",
     link: false,
     subNav: true,
-  },
+  },/* 
   {
     icon: UilHeart,
     heading: "Favoritos",
     subNav: false,
     link: false,
-  },
+  }, */
   {
     icon: UilShoppingCartAlt,
     heading: "Carrito",
     subNav: false,
     link: "/app/cart/",
   },
-  {
+/*   {
     icon: UilShoppingBasket,
     heading: "Mis compras",
     subNav: false,
@@ -57,7 +57,7 @@ export const SidebarData = [
     subNav: false,
     heading: "Perfil",
     link: false,
-  },
+  }, */
 ]
 
 // Analytics Cards Data
