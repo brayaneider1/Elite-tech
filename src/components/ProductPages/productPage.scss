@@ -132,6 +132,22 @@
         color: #ffc107;
     }
 
+    .product-review{
+        background: transparent;
+        border-radius: 5px;
+        border: 1px solid aquamarine;
+        display: flex;
+        padding: 5px 10px ;
+        width: fit-content;
+        margin: 20px 0;
+        font-size: 12px;
+        font-weight: 500;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+
     .product-rating span {
         font-weight: 600;
         color: white;
@@ -303,7 +319,7 @@
         }
 
         .cardP-wrapper {
-            height: 100vh;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
