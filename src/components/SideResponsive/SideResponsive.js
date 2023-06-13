@@ -23,7 +23,7 @@ export const SideResponsive = () => {
   return (
     <div className="side-responsive">
       <input type="checkbox" id="check" />
-      <label for="check">
+      <label htmlFor="check">
         <UilListUl id="btn" />
         <UilTimes id="cancel" />
       </label>

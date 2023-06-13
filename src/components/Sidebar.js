@@ -8,7 +8,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import SubMenu from "./SubMenu/SubMenu"
 import { SidebarData } from "../Data/Data"
 
-const Sidebar = ({expanded, setExpaned}) => {
+const Sidebar = ({ expanded, setExpaned }) => {
   const {
     allChecCategory: { nodes },
   } = useStaticQuery(graphql`
@@ -22,30 +22,24 @@ const Sidebar = ({expanded, setExpaned}) => {
     }
   `)
 
-
-var Window
-if (typeof window !== 'undefined') {
-  Window=window
-
-}
-
+  var Window
+  if (typeof window !== "undefined") {
+    Window = window
+  }
 
   const sidebarVariants = {
     true: {
       left: "0",
-      transition: { duration: 0.4 }
+      transition: { duration: 0.4 },
     },
     false: {
       left: "-60%",
-      transition: { duration: 0.4 }
+      transition: { duration: 0.4 },
     },
   }
   return (
     <>
-      <div
-        className="bars"
-        onClick={() => setExpaned(!expanded)}
-      >
+      <div className="bars" onClick={() => setExpaned(!expanded)}>
         <UilBars />
       </div>
       <motion.div
@@ -53,7 +47,6 @@ if (typeof window !== 'undefined') {
         variants={sidebarVariants}
         animate={Window?.innerWidth <= 768 ? `${expanded}` : `${expanded}`}
       >
-        {/* logo */}
         <div className="logo">
           <img src={Logo} alt="logo" />
         </div>

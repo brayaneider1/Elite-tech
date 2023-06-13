@@ -1,10 +1,9 @@
 import React from 'react'
 
-export const InputComponent = () => {
+export const InputComponent = (props) => {
     return (
         <div className='input-component'>
-
-            <input placeholder='Buscá un producto' />
+            <input placeholder='Buscá un producto' {...props} />
         </div>
     )
 }

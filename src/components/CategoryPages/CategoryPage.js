@@ -7,6 +7,7 @@ import LottieEmpy from "../../common/Lotties/empty.json"
 
 import Lottie from "lottie-react"
 import { HeaderC } from "../Header/Header"
+import { Footer } from "../Footer/Footer"
 
 export default function CategoryPage({ pageContext }) {
   const [notifications, setNotifications] = useState([])
@@ -75,7 +76,9 @@ export default function CategoryPage({ pageContext }) {
             loop={true}
           />
         )}
+      <Footer />
       </div>
+
     </Layout>
   )
 }

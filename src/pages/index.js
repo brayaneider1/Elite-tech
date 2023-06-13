@@ -1,6 +1,5 @@
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
-import AliceCarousel from "react-alice-carousel"
 import Layout from "../components/Layout/Layout"
 import { Auth0Provider } from "@auth0/auth0-react"
 import React, { useState, useEffect } from "react"
@@ -15,6 +14,8 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useRef } from "react"
+import { Footer } from "../components/Footer/Footer"
+import SliderComponent from "../components/Brands/Brand"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -119,7 +120,7 @@ const IndexPage = ({ data }) => {
       }}
     >
       <Layout>
-        <HeaderC />
+        <HeaderC products={data.allProductsSort} />
         <Notification notifications={notifications} />
         <div className="container-ovf">
           <div
@@ -130,8 +131,9 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="best-seller">
             <Slider {...settings} ref={customeSlider}>
-              {data.allProductsSort.nodes.map(product => (
+              {data.allProductsSort.nodes.map((product, index) => (
                 <CardDark
+                  key={index}
                   addToCart={add}
                   product={product}
                   slideNext={gotoNext}
@@ -152,9 +154,11 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="wrapper category">
-            {data.allChecCategory.nodes.map((item, i) => (
-              <CardCategory data={item} key={i} />
-            ))}
+            <div className="angry-grid">
+              {data.allChecCategory.nodes.map((item, index) => (
+                <CardCategory data={item} index={index} />
+              ))}
+            </div>
           </div>
           <div
             className="header_title"
@@ -164,7 +168,7 @@ const IndexPage = ({ data }) => {
           </div>
 
           <motion.div
-            style={{ display: "flex", flexWrap: "wrap", paddingTop: "20px" }}
+            className="product-container"
             variants={container}
             initial="hidden"
             animate="show"
@@ -178,6 +182,8 @@ const IndexPage = ({ data }) => {
               />
             ))}
           </motion.div>
+          <SliderComponent />
+          <Footer />
         </div>
       </Layout>
     </Auth0Provider>

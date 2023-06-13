@@ -4,6 +4,15 @@
   max-width: 1400px;
 }
 
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+
+
+}
+
 .card {
   position: relative;
   width: 200px;
@@ -12,7 +21,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 4px 14px 15px -3px rgba(82, 79, 79, 0.071);
-  margin: 0 10px 10px 0;
+  margin: 20px 25px 10px 0;
 }
 
 .card::before {
@@ -102,4 +111,76 @@
 .mouse {
   height: 150px;
   width: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .product-container {
+
+    justify-content: center;
+  }
+  .category-card{
+    padding: 10px;
+  }
+
+  .card {
+    margin: 10px 4px;
+    width: 130px;
+    height: 200px;
+  }
+
+  .mouse{
+    height: 110px;
+    width: 115px;
+  }
+  .price{
+    padding-bottom: 5px;
+  }
+
+
+
+  .card .contentBox .buy {
+
+    position: relative;
+    top: 0px;
+    opacity: 1;
+    padding:5px 10px;
+    font-size: 10px;
+    margin-top: 0;
+    color: #000000;
+    text-decoration: none;
+    background: #05f29b;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.5s;
+  }
+
+  .card .contentBox .price {
+    font-size: 10px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.card .contentBox h3 {
+  padding: 0 0 6px 0;
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 0 0 6px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+
+
 }

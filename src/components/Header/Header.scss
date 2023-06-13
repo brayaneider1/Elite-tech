@@ -10,10 +10,11 @@
   align-items: center;
   box-sizing: border-box;
   justify-content: space-between;
-  // border: 1px solid;
   margin-left: 2%;
+
   .contentNotificationItem {
     max-width: 100%;
+
     p {
       max-width: 100%;
       min-width: 30%;
@@ -23,19 +24,19 @@
       display: -webkit-box;
       overflow: hidden;
     }
+
     h1 {
       font-size: rem;
       color: #5855d6;
     }
   }
+
   .imgNotification {
     max-width: 50px;
     max-height: 50px;
     min-width: 50px;
     min-height: 50px;
     border-radius: 50%;
-
-    // margin-left: -50px;
   }
 }
 
@@ -46,11 +47,13 @@
   width: 100%;
   padding: 20px 30px 20px 10vw;
   color: white;
-  &_head{
+
+  &_head {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   &_title {
     width: 70%;
     font-size: 20px;
@@ -58,12 +61,14 @@
     color: white;
     font-weight: bold;
     padding-left: 4px;
-    padding-right: 40px;
-    input {
-      width: 50%;
-      margin-right: 10px;
-    }
+    margin: auto 20px;
+
   }
+
+  .input-component {
+    width: 100%;
+  }
+
   &_options {
     width: 30%;
     display: flex;
@@ -93,9 +98,11 @@
         color: #5855d6;
         font-size: large;
       }
+
       :hover {
         cursor: pointer;
       }
+
       .mainItem {
         display: flex;
         flex-direction: column;
@@ -105,6 +112,7 @@
         .item0 {
           color: $orange-color;
         }
+
         .item1 {
           max-width: 100%;
           max-height: 20px;
@@ -150,14 +158,17 @@
       filter: drop-shadow(2px 3px 10px rgba(0, 0, 0, 0.25));
       color: white;
       margin: 0 5%;
+
       :hover {
         cursor: pointer;
       }
+
       svg {
         margin-top: 25%;
         margin-left: 25%;
         position: absolute;
       }
+
       .svgClose {
         color: #5855d6;
       }
@@ -176,11 +187,13 @@
         align-items: center;
       }
     }
+
     .more {
       height: 100%;
       color: #9592a6;
       font-size: 35px;
     }
+
     img {
       border-radius: 50%;
       width: 35px;
@@ -194,7 +207,7 @@
     background: transparent;
   }
 
-  .button_log{
+  .button_log {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,6 +217,40 @@
     font-weight: 600;
     color: white;
     border: 1px solid transparent;
+  }
+}
 
+@media screen and (max-width: 768px) {
+  .header {
+    &_head {
+      align-items: center;
+      margin: 0 20px ;
+      .header_title{
+        margin: 0 20px ;
+      }
+    }
+
+    .input-component {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    &_options {
+      justify-content: space-between;
+      width: auto;
+
+      &-drawer-main {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .item {
+        margin: 0;
+      }
+
+      .more {
+        display: none;
+      }
+    }
   }
 }

@@ -96,6 +96,10 @@
         text-align: center;
         line-height: 45px;
         transition: all .5s ease;
+        @media screen and (max-width: 768px) {
+            margin: 20px;
+        }
+
     }
 
     label #cancel {
@@ -120,7 +124,7 @@
         opacity: 1;
         visibility: visible;
     }
-
+/* 
     @media(max-width : 860px) {
         .sidebar {
             height: auto;
@@ -159,7 +163,7 @@
             opacity: 1;
             visibility: visible;
         }
-    }
+    } */
 
     /* Don't Forget to Subscribe our Channel[CodingNepal] */
 

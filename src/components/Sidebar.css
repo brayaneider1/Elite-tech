@@ -102,7 +102,7 @@
   } */
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .sidebar {
     position: fixed;
     z-index: 9;
@@ -144,4 +144,4 @@
 
 @media screen and (max-width: 660px) {
 
-}
+} */

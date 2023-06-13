@@ -4,7 +4,7 @@ import { formatNumber } from "../../common/utils/format"
 
 const CartProduct = ({ item, deleteProduct, setCart }) => {
   const commerce = new Commerce(
-    "pk_test_50010f2f8ded5a64ca30f1916fd8e1ce336c17aa36543"
+    "pk_test_51875911a995a6bd1faee1b9b71f652fccac0c6474a16"
   )
   const {
     product_name,

@@ -11,11 +11,16 @@
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 25px;
   border-radius: 10px;
-  height: 350px;
+  height: 100%;
   transition: all 0.3s;
   margin-bottom: 5%;
   margin: auto;
-
+  &__button2 {
+  display: none;
+  }
+  &__button__plus2 {
+    display: none;
+  }
   .btn-next {
     position: absolute;
     cursor: pointer;
@@ -90,6 +95,7 @@
 
   .contents-btns {
     display: flex;
+    padding-bottom: 30px;
   }
 
   &__img {
@@ -152,10 +158,8 @@
   &__content {
     // width: 60%;
     padding-right: 25px;
+    width: 100%;
 
-    @media screen and (max-width: 992px) {
-      // width: 55%;
-    }
 
     @media screen and (max-width: 768px) {
       margin-top: -80px;
@@ -292,4 +296,81 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 768px) {
+.blog-slider{
+  margin: 50px auto 0 auto;
+  max-width: 95%;
+  min-height: 100%;
+  height: 100%;
+  padding-bottom: 40px;
+  .btn-next{
+    height: 20px;
+    width: 20px;
+    right: 0px;
+
+  }
+  &__img{
+    height: 130px;
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  &__title {
+
+    font-size: 18px;
+  }
+
+  &__text {
+    font-size: 12px;
+
+
+  }
+
+  &__button {
+    display: none;
+  }
+  .contents-btns{
+    justify-content: space-between;
+
+  }
+
+  
+  &__button2 {
+    display: inline-flex;
+    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #fff;
+    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    text-decoration: none;
+    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 1px;  }
+
+  &__button__plus {
+  display: none;
+  }
+  
+  &__button__plus2 {
+    display: inline-flex;
+    background-image: linear-gradient(147deg, #05f29b 0%, #05f29b 74%);
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: rgb(41, 40, 40);
+    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    text-decoration: none;
+    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 1px;    }
+}
+
 }

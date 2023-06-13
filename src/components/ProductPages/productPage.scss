@@ -99,6 +99,7 @@
         position: relative;
         color: white;
         margin: 1rem 0;
+        text-align: center;
     }
 
     .product-title::after {
@@ -130,6 +131,22 @@
 
     .product-rating {
         color: #ffc107;
+    }
+
+    .product-review{
+        background: transparent;
+        border-radius: 5px;
+        border: 1px solid aquamarine;
+        display: flex;
+        padding: 5px 10px ;
+        width: fit-content;
+        margin: 20px 0;
+        font-size: 12px;
+        font-weight: 500;
+        a{
+            color: white;
+            text-decoration: none;
+        }
     }
 
     .product-rating span {
@@ -303,7 +320,7 @@
         }
 
         .cardP-wrapper {
-            height: 100vh;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
