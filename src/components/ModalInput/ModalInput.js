@@ -3,26 +3,14 @@ import "./ModalInput.scss";
 import { InputComponent } from "../InputComponent/InputComponent";
 import { FaSearch } from "react-icons/fa";
 import { useStaticQuery, graphql } from "gatsby";
+import {  navigate } from "gatsby"
 
-export const ModalInput = () => {
+export const ModalInput = ({products}) => {
   const [showModal, setShowModal] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const inputRef = useRef(null);
 
-  const { allProductsSort } = useStaticQuery(graphql`
-    query MyQuery {
-      allChecProduct {
-        nodes {
-          id
-          name
-          image {
-            url
-          }
-          description
-        }
-      }
-    }
-  `);
+
 
   const openModal = () => {
     setShowModal(true);
@@ -34,7 +22,7 @@ export const ModalInput = () => {
 
   const handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase();
-    const filteredResults = allProductsSort.nodes.filter((product) =>
+    const filteredResults = products.nodes.filter((product) =>
       product.name.toLowerCase().includes(searchTerm)
     );
     setSearchResults(filteredResults);
@@ -68,7 +56,7 @@ export const ModalInput = () => {
             <InputComponent key="input-search" onChange={handleSearch} />
             <ul className="search-results">
               {searchResults.map((product) => (
-                <li key={product.id}>
+                <li  onClick={() => navigate(`/product/${product?.id}/`)} key={product.id}>
                   <img src={product.image.url} alt={product.name} />
                   {product.name}
                 </li>

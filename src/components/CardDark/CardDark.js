@@ -1,7 +1,7 @@
 import React from "react"
 import { UilAngleRightB } from "@iconscout/react-unicons"
 import Commerce from "@chec/commerce.js"
-import { Link, navigate } from "gatsby"
+import {  navigate } from "gatsby"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
 

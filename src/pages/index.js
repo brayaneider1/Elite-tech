@@ -120,7 +120,7 @@ const IndexPage = ({ data }) => {
       }}
     >
       <Layout>
-        <HeaderC />
+        <HeaderC products={data.allProductsSort} />
         <Notification notifications={notifications} />
         <div className="container-ovf">
           <div
