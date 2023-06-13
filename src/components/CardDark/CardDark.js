@@ -44,7 +44,7 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
           <div className="blog-slider__content">
             <div className="blog-slider__title">{product?.name}</div>
             <div
-              dangerouslySetInnerHTML={{ __html: product?.description }}
+              dangerouslySetInnerHTML={{ __html: product?.description.slice(0,250)+" ..." }}
               className="blog-slider__text"
             />
             <div className="contents-btns">

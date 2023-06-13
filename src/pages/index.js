@@ -1,6 +1,5 @@
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
-import AliceCarousel from "react-alice-carousel"
 import Layout from "../components/Layout/Layout"
 import { Auth0Provider } from "@auth0/auth0-react"
 import React, { useState, useEffect } from "react"
@@ -132,9 +131,9 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="best-seller">
             <Slider {...settings} ref={customeSlider}>
-              {data.allProductsSort.nodes.map((product,index) => (
+              {data.allProductsSort.nodes.map((product, index) => (
                 <CardDark
-                key={index}
+                  key={index}
                   addToCart={add}
                   product={product}
                   slideNext={gotoNext}
@@ -155,21 +154,21 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="wrapper category">
-             <div className="angry-grid">
+            <div className="angry-grid">
               {data.allChecCategory.nodes.map((item, index) => (
                 <CardCategory data={item} index={index} />
               ))}
-            </div> 
+            </div>
           </div>
           <div
             className="header_title"
             style={{ width: "100%", textAlign: "center" }}
-            >
+          >
             Ultimos agregados
           </div>
 
           <motion.div
-          className="product-container"
+            className="product-container"
             variants={container}
             initial="hidden"
             animate="show"
@@ -183,7 +182,7 @@ const IndexPage = ({ data }) => {
               />
             ))}
           </motion.div>
-          <SliderComponent/>
+          <SliderComponent />
           <Footer />
         </div>
       </Layout>

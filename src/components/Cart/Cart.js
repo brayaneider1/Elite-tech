@@ -7,16 +7,18 @@ import Backdrop from "@mui/material/Backdrop"
 import Box from "@mui/material/Box"
 import Modal from "@mui/material/Modal"
 import Fade from "@mui/material/Fade"
-import {Drawer } from 'antd';
+import { Drawer } from "antd"
 import Typography from "@mui/material/Typography"
 import { HeaderC } from "../Header/Header"
 import { FormCheckout } from "../FormCheckout/FormCheckout"
+import LottieEmpy from "../../common/Lotties/empty.json"
+import Lottie from "lottie-react"
 
 const style = {
   position: "absolute",
   top: "20%",
   right: "0",
-  height:'90%',
+  height: "90%",
   borderRadius: "10px",
   transform: "translate(-50%, -50%)",
   width: 400,
@@ -30,9 +32,7 @@ const style = {
 
 const Cart = () => {
   const [open, setOpen] = React.useState(false)
-  const [openDrawer, setOpenDrawer] = useState(false);
-
-  const handleOpen = () => setOpen(true)
+  const [openDrawer, setOpenDrawer] = useState(false)
   const handleClose = () => setOpen(false)
 
   const [productInCart, setProductInCart] = useState([])
@@ -55,16 +55,14 @@ const Cart = () => {
     commerce.cart.remove(id).then(response => {
       setUpdateCart(!updateCart)
     })
-    
   }
 
-
-  const handleDrawer=()=>{
+  const handleDrawer = () => {
     setOpenDrawer(!openDrawer)
   }
   return (
     <div>
-        <HeaderC />
+      <HeaderC />
       <div className="container-cart">
         <Modal
           aria-labelledby="transition-modal-title"
@@ -95,24 +93,41 @@ const Cart = () => {
           </Fade>
         </Modal>
 
-        <Drawer  title="Completar compra" placement="right" onClose={handleDrawer} open={openDrawer}>
-        <FormCheckout cart={cart}/>
-      </Drawer>
+        <Drawer
+          title="Completar compra"
+          placement="right"
+          onClose={handleDrawer}
+          open={openDrawer}
+        >
+          <FormCheckout cart={cart} />
+        </Drawer>
         <section className="cart">
           <div className="cart-title">
             <h2>Carrito De Compras</h2>
           </div>
           <div className="cart-container">
-            {checkout === false ? (
-              <div className="cart-container-product">
-                {productInCart.map((item, i) => (
-                  <CartProduct item={item} key={i} deleteProduct={Delete} />
-                ))}
-              </div>
+            {Array.isArray(productInCart) && productInCart.length > 0 ? (
+              <>
+                {checkout === false ? (
+                  <div className="cart-container-product">
+                    {productInCart.map((item, i) => (
+                      <CartProduct item={item} key={i} deleteProduct={Delete} />
+                    ))}
+                  </div>
+                ) : (
+                  <Pay setCheckout={setCheckout} />
+                )}
+                <CartCheckout cart={cart} setCheckout={handleDrawer} />
+              </>
             ) : (
-              <Pay setCheckout={setCheckout} />
+              <div className="empty-cart-message">
+                <Lottie
+            className="content-lottie"
+            animationData={LottieEmpy}
+            loop={true}
+          />
+              </div>
             )}
-            <CartCheckout cart={cart} setCheckout={handleDrawer} />
           </div>
         </section>
       </div>

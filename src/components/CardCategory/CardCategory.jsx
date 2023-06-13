@@ -11,7 +11,7 @@ export const CardCategory = ({ data, key }) => {
           <div className="Gfooter">
             <div className="SmallIcon"></div>
             <span className="Descripion">{data.description.slice(0,100)  }{data.description.length > 100 && "..." } </span>
-            <button   onClick={() => navigate(`/category/${data.id}`)} class="button-cl"> Productos </button>
+            <button   onClick={() => navigate(`/category/${data.id}`)} className="button-cl"> Productos </button>
           </div>
           <img src={image} className="GameIcon" />
 

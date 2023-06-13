@@ -123,6 +123,7 @@ export default function ProductPage({ pageContext }) {
 
       <div className="product-page">
         <div className="container-ovf">
+          <h2 className="product-title">{product?.name}</h2>
           <div className="cardP-wrapper">
             <div className="cardP">
               <div className="product-imgs">
@@ -152,7 +153,6 @@ export default function ProductPage({ pageContext }) {
                 </div>
               </div>
               <div className="product-content">
-                <h2 className="product-title">{product?.name}</h2>
                 <div className="product-rating">
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
@@ -212,12 +212,14 @@ export default function ProductPage({ pageContext }) {
             </div>
           </div>
 
-          <div
-            className="header_title"
-            style={{ width: "100%", textAlign: "center" }}
-          >
-            Productos relacionados
-          </div>
+          {product?.categories && (
+            <div
+              className="header_title"
+              style={{ width: "100%", textAlign: "center" }}
+            >
+              Productos relacionados
+            </div>
+          )}
 
           <motion.div
             style={{ display: "flex", flexWrap: "wrap", paddingTop: "20px" }}
