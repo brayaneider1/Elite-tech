@@ -61,7 +61,7 @@ const Cart = () => {
     setOpenDrawer(!openDrawer)
   }
   return (
-    <div>
+    <div className="cart-c">
       <HeaderC />
       <div className="container-cart">
         <Modal

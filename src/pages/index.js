@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { motion } from "framer-motion"
 import Layout from "../components/Layout/Layout"
 import { Auth0Provider } from "@auth0/auth0-react"
@@ -10,12 +10,13 @@ import Notification from "../components/Notification/Notification"
 import { ProductCard } from "../components/ProductCard/ProductCard"
 import { CardCategory } from "../components/CardCategory/CardCategory"
 import Slider from "react-slick"
-
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useRef } from "react"
 import { Footer } from "../components/Footer/Footer"
 import SliderComponent from "../components/Brands/Brand"
+import { Loading } from "../components/Loading/Loading"
+import { BsArrowRightShort } from "react-icons/bs"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -78,6 +79,15 @@ const IndexPage = ({ data }) => {
       },
     },
   }
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2500)
+  }, [])
+
   const customeSlider = useRef()
 
   const settings = {
@@ -119,73 +129,84 @@ const IndexPage = ({ data }) => {
         redirect_uri: Window?.location.origin,
       }}
     >
-      <Layout>
-        <HeaderC products={data.allProductsSort} />
-        <Notification notifications={notifications} />
-        <div className="container-ovf">
-          <div
-            className="header_title"
-            style={{ width: "100%", textAlign: "center" }}
-          >
-            Más vendidos
-          </div>
-          <div className="best-seller">
-            <Slider {...settings} ref={customeSlider}>
-              {data.allProductsSort.nodes.map((product, index) => (
-                <CardDark
-                  key={index}
-                  addToCart={add}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Layout>
+          <HeaderC />
+          <Notification notifications={notifications} />
+          <div className="container-ovf">
+            <div
+              className="header_title"
+              style={{ width: "100%", textAlign: "center" }}
+            >
+              Más vendidos
+            </div>
+            <div className="best-seller">
+              <Slider {...settings} ref={customeSlider}>
+                {data.allProductsSort.nodes.map((product, index) => (
+                  <CardDark
+                    key={index}
+                    addToCart={add}
+                    product={product}
+                    slideNext={gotoNext}
+                  />
+                ))}
+              </Slider>
+            </div>
+            <div
+              className="header_title"
+              style={{
+                width: "100%",
+                textAlign: "center",
+                paddingTop: "30px",
+                paddingBottom: "20px",
+              }}
+            >
+              Categorías
+            </div>
+
+            <div className="wrapper category">
+              <div className="angry-grid">
+                {data.allChecCategory.nodes.map((item, index) => (
+                  <CardCategory
+                    key={index}
+                    data={item}
+                    id={item?.id}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="Links">
+              <span className="header_title">Ultimos agregados</span>
+              <div className="view-more">
+                <Link to="/">Ver más</Link>
+                <BsArrowRightShort />
+              </div>
+            </div>
+
+            <motion.div
+              className="product-container"
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
+              {data.allProductsCreated.nodes.map((product, i) => (
+                <ProductCard
                   product={product}
-                  slideNext={gotoNext}
+                  key={i}
+                  addToCart={add}
+                  notifications={notifications}
                 />
               ))}
-            </Slider>
+            </motion.div>
+            <SliderComponent />
+            <Footer />
           </div>
-          <div
-            className="header_title"
-            style={{
-              width: "100%",
-              textAlign: "center",
-              paddingTop: "30px",
-              paddingBottom: "20px",
-            }}
-          >
-            Categorías
-          </div>
-
-          <div className="wrapper category">
-            <div className="angry-grid">
-              {data.allChecCategory.nodes.map((item, index) => (
-                <CardCategory data={item} index={index} />
-              ))}
-            </div>
-          </div>
-          <div
-            className="header_title"
-            style={{ width: "100%", textAlign: "center" }}
-          >
-            Ultimos agregados
-          </div>
-
-          <motion.div
-            className="product-container"
-            variants={container}
-            initial="hidden"
-            animate="show"
-          >
-            {data.allProductsCreated.nodes.map((product, i) => (
-              <ProductCard
-                product={product}
-                key={i}
-                addToCart={add}
-                notifications={notifications}
-              />
-            ))}
-          </motion.div>
-          <SliderComponent />
-          <Footer />
-        </div>
-      </Layout>
+        </Layout>
+      )}
     </Auth0Provider>
   )
 }

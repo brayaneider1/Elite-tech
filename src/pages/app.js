@@ -1,18 +1,22 @@
-import * as React from "react"
+import React, { lazy, Suspense } from "react"
 import { Link } from "gatsby"
 import { Router } from "@reach/router"
 import Layout from "../components/Layout/Layout"
-import Cart from "../components/Cart/Cart"
-import ProductPage from "../components/ProductPages/ProductPage"
-import CategoryPage from "../components/CategoryPages/CategoryPage"
+import { Loading } from "../components/Loading/Loading"
+
+const Cart = lazy(() => import("../components/Cart/Cart"))
+const ProductPage = lazy(() => import("../components/ProductPages/ProductPage"))
+const CategoryPage = lazy(() => import("../components/CategoryPages/CategoryPage"))
 
 const App = () => (
   <Layout>
-    <Router basepath="/app" style={{ width: "100%" }}>
-      <Cart path="/cart" />
-      <ProductPage path="/product/:id" />
-      <CategoryPage path="/category/:id"/>
-    </Router>
+    <Suspense fallback={<Loading />}>
+      <Router basepath="/app" style={{ width: "100%" }}>
+        <Cart path="/cart" />
+        <ProductPage path="/product/:id" />
+        <CategoryPage path="/category/:id" />
+      </Router>
+    </Suspense>
   </Layout>
 )
 

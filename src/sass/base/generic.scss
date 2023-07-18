@@ -4,7 +4,7 @@
   backdrop-filter: blur(3px);
 }
 
-.linked{
+.linked {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,22 +38,26 @@
     height: auto;
     @include btn-round(white, $secondary-color, normal, 10px, null);
   }
+
   &.btn_accent_blue {
     margin: 20px auto;
     height: auto;
     @include btn-round(white, $blueAccent-color, normal, 10px, null);
   }
+
   &.btn_accent_orange {
     margin: 20px auto;
     height: auto;
     @include btn-round(white, $orange-color, normal, 10px, null);
   }
 }
+
 .btn-save {
   margin: 20px auto;
   height: auto;
   @include btn-round(white, $secondary-color, normal, 15px, null);
 }
+
 .ant-space-vertical {
   width: 100%;
 }
@@ -81,7 +85,7 @@ th,
 }
 
 .pivoted {
-  margin: 3% !important ;
+  margin: 3% !important;
 }
 
 input[type="date"] {
@@ -93,18 +97,22 @@ input[type="date"] {
   margin-bottom: 5px;
   padding: 5px 10px;
 }
+
 .ant-steps-item-process .ant-steps-item-icon {
   background: $secondary-color;
   color: $secondary-color;
   border-color: $secondary-color;
 }
+
 .ant-steps-item-title::after {
   background-color: $secondary-color !important;
 }
+
 .ant-steps-item-finish .ant-steps-item-icon {
   span {
     color: $secondary-color;
   }
+
   color: $secondary-color;
   border-color: $secondary-color;
 }
@@ -136,6 +144,7 @@ input[type="date"] {
 .ant-btn {
   border-radius: 35rem;
 }
+
 .ant-btn-primary {
   background-color: $blueAccent-color;
   width: 24%;
@@ -147,15 +156,18 @@ input[type="date"] {
   width: auto;
   display: flex;
   justify-content: center;
+
   &-content {
     width: fit-content;
 
     position: relative;
     border-radius: 20px !important;
   }
+
   &-header {
     border-radius: 40px 40px 0 0;
   }
+
   &-footer {
     padding: 0 !important;
     border-top: 1px solid transparent;
@@ -184,13 +196,24 @@ input[type="number"] {
   display: flex;
   height: 100%;
   width: 100%;
+
   .content-main {
     position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    .whatsapp{
+
+    &--expanded {
+      filter: blur(10px);
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .whatsapp {
       position: fixed;
       width: 70px;
       right: 8px;
@@ -207,6 +230,7 @@ input[type="number"] {
     right: 0;
     border-radius: 30px;
   }
+
   li {
     display: flex;
     align-items: center;
@@ -235,20 +259,24 @@ input[type="number"] {
 
 .pagination {
   margin: auto;
+
   .ant-pagination {
     &-prev {
       min-width: 25px;
       height: 25px;
     }
+
     &-next {
       min-width: 25px;
       height: 25px;
     }
+
     &-item {
       border-radius: 5px;
       font-size: 13px;
       min-width: 25px;
       height: 25px;
+
       &-link {
         border-radius: 5px;
         font-size: 13px;
@@ -258,12 +286,15 @@ input[type="number"] {
 
       &:hover {
         border-color: $orange-color !important;
+
         a {
           color: $orange-color !important;
         }
       }
+
       &-active {
         border-color: $orange-color !important;
+
         a {
           color: $orange-color !important;
         }
@@ -313,6 +344,29 @@ body {
   font-family: 'Poppins', sans-serif;
 
 }
+
+.Links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .view-more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+      text-decoration: none;
+      font-weight: 200;
+      color: #05f2c7;
+
+    }
+    svg{
+      color: #05f2c7;
+      font-size: 30px;
+    }
+  }
+}
+
 .App {
   /* padding: 0.5rem 3.5rem; */
   color: var(--black);
@@ -323,7 +377,8 @@ body {
   justify-content: center;
   font-family: "Inter", sans-serif;
 }
-.float-container{
+
+.float-container {
   z-index: 100;
 }
 
@@ -333,8 +388,10 @@ body {
 
 }
 
-.ant-drawer-header-title{
-  button,.ant-drawer-title {
+.ant-drawer-header-title {
+
+  button,
+  .ant-drawer-title {
     color: white !important;
   }
 }

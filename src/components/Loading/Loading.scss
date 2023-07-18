@@ -2,12 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     left: 0;
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 100;
-    background-color: rgba(160, 167, 175, 0.94);
+    background-color: rgba(5, 1, 44, 0.196);
 
     div{
         width: 35%;

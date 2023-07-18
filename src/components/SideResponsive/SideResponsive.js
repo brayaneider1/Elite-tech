@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import SubMenu from "../SubMenu/SubMenu"
 
-export const SideResponsive = () => {
+export const SideResponsive = ({ setSideExpaned, sideExpanded }) => {
   const {
     allChecCategory: { nodes },
   } = useStaticQuery(graphql`
@@ -20,10 +20,18 @@ export const SideResponsive = () => {
     }
   `)
 
+  const onHanldeSide = () => {
+    setSideExpaned(!sideExpanded)
+  }
+
   return (
     <div className="side-responsive">
-      <input type="checkbox" id="check" />
-      <label htmlFor="check">
+      <input
+        onClick={onHanldeSide}
+        type="checkbox"
+        id="check"
+      />
+      <label  htmlFor="check">
         <UilListUl id="btn" />
         <UilTimes id="cancel" />
       </label>

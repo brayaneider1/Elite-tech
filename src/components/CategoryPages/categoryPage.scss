@@ -19,22 +19,29 @@
     flex-wrap: wrap;
     width: 100%;
     margin-bottom: 100px;
-
   }
-
-
 }
 
-/* To make the parallax effect easy to view I added a large top and bottom margin, delete these or tweak them to your liking */
-
 .bannerItem {
-  width: 100%;
-  /* white above banner - delete it */
+  font-family: 'Montserrat', sans-serif !important;
+  position: relative;
+  background: #333;
+  text-align: center;
+  height: 300px !important;
+  border-radius: 6px;
+  background-color: linear-gradient(to top, rgba(0, 0, 0, 0.458) 0%, #05f3c7(255, 255, 255, 0.4) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  image-repeat: none;
+  max-height: 0%;
+  margin-bottom: 20px;
 }
 
 .banner-header {
+  font-family: 'Montserrat', sans-serif !important;
   margin: 0;
-  color: #fff;
+  color: #f2f2f2;
   padding-top: 0px;
   font-size: 42px;
   font-family: lato;
@@ -43,56 +50,27 @@
   padding-bottom: 10px;
 }
 
-
 .banner-text {
+  font-family: 'Montserrat', sans-serif !important;
   margin: 0;
-  color: #fff;
+  color: #f2f2f2;
   font-family: lato;
   font-weight: 500;
   font-size: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-transform: capitalize;
-
-
+  padding: 20px 20%;
 }
 
-.bannerItem {
-  position: relative;
-  background: #333;
-  text-align: center;
-  height: 200px !important;
-  /*   background-image: url("http://source.unsplash.com/1500x500/?adventure");
- */
+.content {
+  background: #102770b3;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border-radius: 6px;
-  /* rounded corners */
-  background-color: linear-gradient(to top,
-      rgba(0, 0, 0, 0.458) 0%,
-      #05f3c7(255, 255, 255, 0.4) 100%);
-  background-position: center;
-  /* Center the image */
-  background-repeat: no-repeat;
-  /* Do not repeat the image */
-  background-size: cover;
-  image-repeat: none;
-  max-height: 0%;
-  margin-bottom: 20px;
-
-  .content {
-    background: #0f665643;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 6px;
-  }
 }
 
-
-
-/* button CSS */
 .btn.btn-outline {
   margin-top: 10px;
   background-color: transparent;
@@ -123,10 +101,11 @@
   color: #fff;
 }
 
-
 .content-lottie {
   width: 50vw;
   height: 70vw;
   overflow: hidden;
   margin: auto;
 }
+
+/* Resto de estilos CSS... */

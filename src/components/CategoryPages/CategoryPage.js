@@ -34,14 +34,19 @@ export default function CategoryPage({ pageContext }) {
   }
   return (
     <Layout>
-      <HeaderC/>
+      <HeaderC />
       <Notification notifications={notifications} />
+
       <div className="container-category">
         <div className="banner-example">
           <div id="banner">
             <div
               style={{
-                backgroundImage: `url("${pageContext?.assets[0]?.url}")`,
+                backgroundImage: `url("${
+                  pageContext?.assets[0]?.url
+                    ? pageContext?.assets[0]?.url
+                    : "https://cdn.pixabay.com/photo/2017/07/10/23/45/cubes-2492010_1280.jpg"
+                }")`,
               }}
               className=" bannerItem"
             >
@@ -76,9 +81,8 @@ export default function CategoryPage({ pageContext }) {
             loop={true}
           />
         )}
-      <Footer />
+        <Footer />
       </div>
-
     </Layout>
   )
 }

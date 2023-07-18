@@ -8,15 +8,18 @@ import { Footer } from "../Footer/Footer"
 
 const Layout = ({ children }) => {
   const [expanded, setExpaned] = useState(true)
+  const [sideExpanded, setSideExpaned] = useState(false)
 
   return (
     <div className="content-AppGlass">
       <div className="AppGlass">
-        <SideResponsive />
-        {/*         <Sidebar setExpaned={setExpaned} expanded={expanded} />
-         */}
+        <SideResponsive
+          setSideExpaned={setSideExpaned}
+          sideExpanded={sideExpanded}
+        />
+
         <motion.div
-          className="content-main"
+          className={`content-main${sideExpanded ? "--expanded" : ""}`}
           animate={expanded ? `${expanded}` : `${expanded}`}
         >
           {children}

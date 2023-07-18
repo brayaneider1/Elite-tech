@@ -138,7 +138,6 @@ const createPagesCategories = (createPage, graphql) => {
           reject(result.errors)
         }
         const categories = result.data?.allChecCategory.edges
-        console.log("🚀 ~ file: gatsby-node.js:141 ~ returnnewPromise ~ categories:", categories)
         categories.forEach(category => {
           createPage({
             path: `/category/${category.node.id}/`,

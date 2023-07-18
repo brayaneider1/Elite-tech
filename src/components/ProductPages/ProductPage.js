@@ -41,9 +41,7 @@ export const pageQuery = graphql`
 export default function ProductPage({ pageContext }) {
   const [quantity, setQuantity] = useState(0)
   const [notifications, setNotifications] = useState([])
-  console.log("🚀 ~ file: ProductPage.js:43 ~ pageResources:", pageContext)
   const [product, setProduct] = useState({})
-  console.log("🚀 ~ file: ProductPage.js:15 ~ product:", product)
   const commerce = new Commerce(
     "pk_test_51875911a995a6bd1faee1b9b71f652fccac0c6474a16"
   )
@@ -114,7 +112,6 @@ export default function ProductPage({ pageContext }) {
     let prod = { id: id, img: product.image.url }
     add(prod)
   }
-  console.log("🚀 ~ file: ProductPage.js:136 ~ ProductPage ~ product:", product)
 
   return (
     <Layout>

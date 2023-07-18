@@ -2,7 +2,7 @@
   max-height: 98vh;
   overflow: auto;
   padding:3% ;
-  width: 100%;
+  width: 100vw;
   padding-bottom: 10%;
   @media (max-width: 768px) {
     // Estilos específicos para pantallas con un ancho máximo de 768px
@@ -10,6 +10,9 @@
     padding: 2%;
   
 
+}
+.cart-c{
+  width: 100vw;
 }
 .cart {
   display: flex;

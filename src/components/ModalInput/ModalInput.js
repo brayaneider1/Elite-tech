@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import {  navigate } from "gatsby"
 
 export const ModalInput = ({products}) => {
+  console.log("🚀 ~ file: ModalInput.js:9 ~ ModalInput ~ products:", products)
   const [showModal, setShowModal] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const inputRef = useRef(null);

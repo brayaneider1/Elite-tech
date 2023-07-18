@@ -1,9 +1,10 @@
 import React from "react"
 import { UilAngleRightB } from "@iconscout/react-unicons"
 import Commerce from "@chec/commerce.js"
-import {  navigate } from "gatsby"
+import { navigate } from "gatsby"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
+import parse from "html-react-parser"
 
 export const CardDark = ({ slideNext, product, addToCart }) => {
   const commerce = new Commerce(
@@ -26,6 +27,8 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
     addToCart(prod)
   }
 
+  const descriptionHtml= parse(product?.description)
+
   return (
     <motion.div variants={item} className="blog-slider">
       <div className="blog-slider__wrp swiper-wrapper">
@@ -43,42 +46,40 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
           </div>
           <div className="blog-slider__content">
             <div className="blog-slider__title">{product?.name}</div>
-            <div
-              dangerouslySetInnerHTML={{ __html: product?.description.slice(0,250)+" ..." }}
-              className="blog-slider__text"
-            />
-            <div className="contents-btns">
-            <a
-              href="#"
-              onClick={() => addCard(product)}
-              className="blog-slider__button"
-            >
-              Agregar al carrito
-            </a>
-
-            <a
-              href="#"
-              onClick={() => addCard(product)}
-              className="blog-slider__button2"
-            >
-              Agregar
-            </a>
-            <a
-              href="#"
-              onClick={() => navigate(`/product/${product?.id}/`)}
-              className="blog-slider__button__plus"
-            >
-              Ver detalles
-            </a>
-            <a
-              href="#"
-              onClick={() => navigate(`/product/${product?.id}/`)}
-              className="blog-slider__button__plus2"
-            >
-              Ver
-            </a>
+            <div className="blog-slider__text">
+              {descriptionHtml}
             </div>
-           
+            <div className="contents-btns">
+              <a
+                href="#"
+                onClick={() => addCard(product)}
+                className="blog-slider__button"
+              >
+                Agregar al carrito
+              </a>
+
+              <a
+                href="#"
+                onClick={() => addCard(product)}
+                className="blog-slider__button2"
+              >
+                Agregar
+              </a>
+              <a
+                href="#"
+                onClick={() => navigate(`/product/${product?.id}/`)}
+                className="blog-slider__button__plus"
+              >
+                Ver detalles
+              </a>
+              <a
+                href="#"
+                onClick={() => navigate(`/product/${product?.id}/`)}
+                className="blog-slider__button__plus2"
+              >
+                Ver
+              </a>
+            </div>
           </div>
         </div>
       </div>

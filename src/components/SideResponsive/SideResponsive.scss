@@ -31,10 +31,16 @@
         padding-left: 30px;
         box-sizing: border-box;
         border-bottom: 0.1px solid black;
-        border-top: 0.1px solid rgba(255, 255, 255, .1);
+        border-top: 0.1px solid rgba(255, 255, 255, 0.1);
         border-left: 5px solid transparent;
-        transition: all .5s ease;
+        transition: all 0.5s ease;
         text-decoration: none;
+    }
+
+    .hWCEps{
+        padding-left: 70px !important;
+        padding: 12px 0px 27px 0px;
+        font-size: 15px;
     }
 
     .dropdown-items {
@@ -96,6 +102,7 @@
         text-align: center;
         line-height: 45px;
         transition: all .5s ease;
+
         @media screen and (max-width: 768px) {
             margin: 20px;
         }
@@ -124,48 +131,5 @@
         opacity: 1;
         visibility: visible;
     }
-/* 
-    @media(max-width : 860px) {
-        .sidebar {
-            height: auto;
-            width: 70px;
-            left: 0;
-            margin: 100px 0;
-        }
-
-        header,
-        #btn,
-        #cancel {
-            display: none;
-        }
-
-        span {
-            position: absolute;
-            margin-left: 23px;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .sidebar a {
-            height: 60px;
-        }
-
-        .sidebar a i {
-            margin-left: -10px;
-        }
-
-        a:hover {
-            width: 200px;
-            background: inherit;
-        }
-
-        .sidebar a:hover span {
-            opacity: 1;
-            visibility: visible;
-        }
-    } */
-
-    /* Don't Forget to Subscribe our Channel[CodingNepal] */
-
 
 }

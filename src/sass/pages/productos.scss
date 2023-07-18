@@ -1,0 +1,137 @@
+
+.market {
+  display: flex; /* Configura el elemento <body> para usar un diseño de caja flexible */
+  flex-direction: column; /* Establece la dirección del flujo de elementos hijos a vertical */
+  width: 100vw; /* Establece el ancho del cuerpo para que ocupe toda la ventana */
+  min-height: 100%; /* Establece la altura mínima del cuerpo para que ocupe al menos toda la ventana */
+  padding: 10px; /* Agrega un espacio interno de 10 píxeles alrededor del contenido del cuerpo */
+  background-color: #f3f4f600; /* Establece el color de fondo del cuerpo en gris claro */
+  color: #374151; /* Establece el color de texto del cuerpo en gris oscuro */
+}
+
+h1 {
+  font-size: 3rem;
+  color: white; /* Establece el tamaño de fuente del encabezado <h1> a 3 rem */
+}
+
+.flex-container {
+  display: flex; /* Configura el elemento con la clase .flex-container para usar un diseño de caja flexible */
+  flex-direction: column; /* Establece la dirección del flujo de elementos hijos a vertical */
+  justify-content: space-between; /* Distribuye el espacio verticalmente entre los elementos hijos */
+  align-items: flex-end; /* Alinea los elementos hijos en la posición flex-end en el eje transversal */
+  margin-top: 6px; /* Agrega un espacio superior de 6 píxeles al elemento con la clase .flex-container */
+}
+
+.count {
+  font-size: 0.875rem; /* Establece el tamaño de fuente del texto con la clase .count a 0.875 rem */
+  font-weight: 600; /* Establece el grosor de la fuente del texto con la clase .count a 600 (seminegrita) */
+}
+
+.button {
+  position: relative; /* Establece la posición del botón como relativa con respecto a su contenedor */
+  font-size: 0.875rem; /* Establece el tamaño de fuente del botón a 0.875 rem */
+  outline: none; /* Elimina el contorno al enfocar el botón */
+  margin-top: 4px; /* Agrega un espacio superior de 4 píxeles al botón */
+}
+
+.button-inner {
+  display: flex; /* Configura el elemento interno del botón para usar un diseño de caja flexible */
+  align-items: center; /* Alinea los elementos hijos en el centro verticalmente */
+  justify-content: space-between; /* Distribuye el espacio horizontalmente entre los elementos hijos */
+  width: 160px; /* Establece el ancho del botón interno a 160 píxeles */
+  height: 40px; /* Establece la altura del botón interno a 40 píxeles */
+  padding: 10px; /* Agrega un espacio interno de 10 píxeles alrededor del botón interno */
+  border: 2px solid #D1D5DB; /* Establece un borde de 2 píxeles sólido de color gris claro alrededor del botón interno */
+  border-radius: 0.375rem; /* Establece el radio de borde del botón interno a 0.375 rem (6 píxeles) */
+  background-color: transparent; /* Establece el color de fondo del botón interno como transparente */
+  &:hover {
+    background-color: #D1D5DB; /* Establece el color de fondo del botón interno en gris claro al pasar el cursor sobre él */
+  }
+}
+
+.button-label {
+  font-weight: 500; /* Establece el grosor de la fuente del texto con la clase .button-label a 500 (normal) */
+}
+
+.button-icon {
+  width: 16px; /* Establece el ancho del ícono del botón a 16 píxeles */
+  height: 16px; /* Establece la altura del ícono del botón a 16 píxeles */
+}
+
+.dropdown {
+  z-index: 10; /* Establece la propiedad z-index del menú desplegable a 10 */
+  display: flex; /* Configura el menú desplegable para usar un diseño de caja flexible */
+  flex-direction: column; /* Establece la dirección del flujo de elementos hijos a vertical */
+  align-items: flex-start; /* Alinea los elementos hijos en la posición inicial en el eje transversal */
+  hidden: true; /* Oculta el menú desplegable de forma predeterminada */
+  width: 100%; /* Establece el ancho del menú desplegable al 100% del ancho de su contenedor */
+  padding-bottom: 1px; /* Agrega un espacio inferior de 1 píxel al menú desplegable */
+  background-color: #FFFFFF; /* Establece el color de fondo del menú desplegable en blanco */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Agrega una sombra al menú desplegable */
+  border-radius: 0.375rem; /* Establece el radio de borde del menú desplegable a 0.375 rem (6 píxeles) */
+  group-focus: flex; /* Muestra el menú desplegable cuando su grupo padre está enfocado */
+}
+
+.dropdown-item {
+  width: 100%; /* Establece el ancho de los elementos del menú desplegable al 100% del ancho del menú */
+  padding: 4px 16px; /* Agrega un espacio interno de 4 píxeles en la parte superior e inferior y 16 píxeles en los lados de los elementos del menú desplegable */
+  text-align: left; /* Alinea el texto a la izquierda en los elementos del menú desplegable */
+  &:hover {
+    background-color: #EDF2F7; /* Establece el color de fondo de los elementos del menú desplegable en gris claro al pasar el cursor sobre ellos */
+  }
+}
+
+.product-grid {
+  display: grid; /* Configura el contenedor de la cuadrícula para usar un diseño de cuadrícula */
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); /* Crea columnas de tamaño automático que se ajustan al tamaño del contenedor de la cuadrícula */
+  gap: 6px; /* Establece el espacio entre las celdas de la cuadrícula en 6 píxeles */
+  width: 100%; /* Establece el ancho de la cuadrícula al 100% del ancho de su contenedor */
+  margin-top: 6px; /* Agrega un espacio superior de 6 píxeles a la cuadrícula de productos */
+}
+
+.product-tile {
+  height: 16rem; /* Establece la altura de los elementos de producto a 16 rem */
+  border-radius: 0.375rem; /* Establece el radio de borde de los elementos de producto a 0.375 rem (6 píxeles) */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra a los elementos de producto */
+  background-color: #FFFFFF; /* Establece el color de fondo de los elementos de producto en blanco */
+}
+
+.product-info {
+  display: flex; /* Configura el contenedor de información del producto para usar un diseño de caja flexible */
+  align-items: center; /* Alinea los elementos hijos en el centro verticalmente */
+  justify-content: space-between; /* Distribuye el espacio horizontalmente entre los elementos hijos */
+  margin-top: 0.75rem; /* Agrega un espacio superior de 0.75 rem al contenedor de información del producto */
+}
+
+.product-name {
+  font-weight: 500; /* Establece el grosor de la fuente del nombre del producto a 500 (normal) */
+}
+
+.product-store {
+  display: flex; /* Configura el contenedor de la tienda del producto para usar un diseño de caja flexible */
+  align-items: center; /* Alinea los elementos hijos en el centro verticalmente */
+}
+
+.product-store-label {
+  font-size: 0.75rem; /* Establece el tamaño de fuente de la etiqueta de la tienda del producto a 0.75 rem */
+  font-weight: 500; /* Establece el grosor de la fuente de la etiqueta de la tienda del producto a 500 (normal) */
+  color: #4B5563; /* Establece el color de texto de la etiqueta de la tienda del producto en gris medio */
+}
+
+.product-store-name {
+  font-size: 0.75rem; /* Establece el tamaño de fuente del nombre de la tienda del producto a 0.75 rem */
+  font-weight: 500; /* Establece el grosor de la fuente del nombre de la tienda del producto a 500 (normal) */
+  margin-left: 0.25rem; /* Agrega un espacio izquierdo de 0.25 rem al nombre de la tienda del producto */
+  color: #6366F1; /* Establece el color de texto del nombre de la tienda del producto en azul */
+}
+
+.product-price {
+  display: flex; /* Configura el contenedor del precio del producto para usar un diseño de caja flexible */
+  align-items: center; /* Alinea los elementos hijos en el centro verticalmente */
+  height: 2rem; /* Establece la altura del contenedor del precio del producto a 2 rem */
+  background-color: #A5B4FC; /* Establece el color de fondo del contenedor del precio del producto en índigo claro */
+  color: #6366F1; /* Establece el color de texto del contenedor del precio del producto en azul */
+  font-size: 0.875rem; /* Establece el tamaño de fuente del precio del producto a 0.875 rem */
+  padding: 0 0.5rem; /* Agrega un espacio interno de 0.5 rem a los lados del precio del producto */
+  border-radius: 0.375rem; /* Establece el radio de borde del contenedor del precio del producto a 0.375 rem (6 píxeles) */
+}

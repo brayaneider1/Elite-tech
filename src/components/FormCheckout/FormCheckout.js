@@ -13,7 +13,6 @@ import BancolombiaImg from "../../imgs/bancolombia.png"
 import ReactWhatsapp from "react-whatsapp"
 
 export const FormCheckout = ({ cart }) => {
-  console.log("🚀 ~ file: FormCheckout.js:16 ~ FormCheckout ~ cart:", cart)
   const form = useForm({
     mode: "onChange", // I want to change it to onBlur
   })
