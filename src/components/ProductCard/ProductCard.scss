@@ -8,6 +8,7 @@
 .product-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   padding-top: 20px;
 
 
@@ -15,13 +16,13 @@
 
 .card {
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 220px;
+  height: 330px;
   background: #181f40;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 4px 14px 15px -3px rgba(82, 79, 79, 0.071);
-  margin: 20px 25px 10px 0;
+  margin: 20px 25px 20px 0;
 }
 
 .card::before {

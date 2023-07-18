@@ -40,21 +40,18 @@ export default function CategoryPage({ pageContext }) {
       <div className="container-category">
         <div className="banner-example">
           <div id="banner">
-            <div
-              style={{
-                backgroundImage: `url("${
-                  pageContext?.assets[0]?.url
-                    ? pageContext?.assets[0]?.url
-                    : "https://cdn.pixabay.com/photo/2017/07/10/23/45/cubes-2492010_1280.jpg"
-                }")`,
-              }}
-              className=" bannerItem"
-            >
-              <div className="content">
-                <span className="banner-header">{pageContext?.name}</span>
-                <div className="banner-text">{pageContext?.description}</div>
-              </div>
+            <div className="content">
+              <span className="banner-header">{pageContext?.name}</span>
+              <div className="banner-text">{pageContext?.description}</div>
             </div>
+            <img
+    className="banner-background"
+    src={
+                pageContext?.assets[0]?.url
+                  ? pageContext?.assets[0]?.url
+                  : "https://cdn.pixabay.com/photo/2017/07/10/23/45/cubes-2492010_1280.jpg"
+              }
+            />
           </div>
         </div>
 
