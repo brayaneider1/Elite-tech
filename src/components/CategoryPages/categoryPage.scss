@@ -23,6 +23,7 @@
   }
 }
 
+/* Estilos base para todas las pantallas */
 .bannerItem {
   font-family: 'Montserrat', sans-serif !important;
   position: relative;
@@ -60,6 +61,53 @@
   font-size: 20px;
   padding: 20px 20%;
 }
+
+/* Estilos para pantallas de hasta 768px de ancho (tablets y teléfonos en orientación vertical) */
+@media screen and (max-width: 768px) {
+  .bannerItem {
+    height: 200px;
+  }
+
+  .banner-header {
+    font-size: 32px;
+  }
+
+  .banner-text {
+    font-size: 18px;
+    padding: 10px 5%;
+  }
+
+  .container-category {
+
+
+
+
+    .card {
+      margin: 0 20px 40px 0;
+    }
+
+    &_content {
+      justify-content: space-between;
+    }
+  }
+}
+
+/* Estilos para pantallas de hasta 576px de ancho (teléfonos en orientación vertical) */
+@media screen and (max-width: 576px) {
+  .bannerItem {
+    height: 150px;
+  }
+
+  .banner-header {
+    font-size: 28px;
+  }
+
+  .banner-text {
+    font-size: 16px;
+    padding: 10px 5%;
+  }
+}
+
 
 .content {
   background: #102770b3;
