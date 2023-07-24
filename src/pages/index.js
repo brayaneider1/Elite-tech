@@ -135,7 +135,7 @@ const IndexPage = ({ data }) => {
         <Layout>
           <HeaderC />
           <Notification notifications={notifications} />
-          <div className="container-ovf">
+          <div className=" custom-container container-ovf">
             <div
               className="header_title"
               style={{ width: "100%", textAlign: "center" }}

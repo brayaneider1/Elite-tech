@@ -14,17 +14,23 @@ const importAll = r => {
 const images = importAll(
   require.context("../../imgs/brands/", false, /\.(png|jpe?g|svg)$/)
 )
-const imageNames = ["Asus.png", "Adata.png", "hp.png","intel.png","crucial.png","Kingston.png","Lenovo.jpg"]
-
+const imageNames = [
+  "Asus.png",
+  "Adata.png",
+  "hp.png",
+  "intel.png",
+  "crucial.png",
+  "Kingston.png",
+  "Lenovo.jpg",
+]
 
 const SliderComponent = () => {
- 
   const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
     speed: 2000,
-    arrows:false,
+    arrows: false,
     autoplaySpeed: 2000,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -46,16 +52,16 @@ const SliderComponent = () => {
 
   return (
     <div className="slider-container">
+      <span className="slider-container__title">Nuestras marcas</span>
       <Slider {...settings}>
         {imageNames.map(imageName => (
-            <div className="slider-item">
-          <img
-            key={imageName}
-            src={images[imageName]}
-            alt={imageName.replace(".png", "")}
-          />
-            </div>
-
+          <div className="slider-item">
+            <img
+              key={imageName}
+              src={images[imageName]}
+              alt={imageName.replace(".png", "")}
+            />
+          </div>
         ))}
       </Slider>
     </div>

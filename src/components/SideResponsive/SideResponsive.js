@@ -26,18 +26,13 @@ export const SideResponsive = ({ setSideExpaned, sideExpanded }) => {
 
   return (
     <div className="side-responsive">
-      <input
-        onClick={onHanldeSide}
-        type="checkbox"
-        id="check"
-      />
-      <label  htmlFor="check">
+      <input onClick={onHanldeSide} type="checkbox" id="check" />
+      <label htmlFor="check">
         <UilListUl id="btn" />
         <UilTimes id="cancel" />
       </label>
       <div className="sidebar">
         <header>
-          {" "}
           <div className="logo">
             <img src={Logo} alt="logo" />
           </div>

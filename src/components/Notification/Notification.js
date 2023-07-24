@@ -4,7 +4,7 @@ import React from "react"
 const Notification = ({ notifications }) => {
   return (
     <div className="notification">
-      <ul>
+      <ul className="notification-list">
         <AnimatePresence initial={false}>
           {notifications.map((e, i) => (
             <motion.li
@@ -13,13 +13,15 @@ const Notification = ({ notifications }) => {
               initial={{ opacity: 0, y: 50, scale: 0.3 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+              className="notification-item"
             >
-              <img src={e.img} alt="" srcset="" width="50px" />
-              <p>
-                Añadiendo Producto:
-                <br />
-                <p>{e.id}</p>
-              </p>
+              <div className="notification-image-container">
+                <img src={e.img} alt="" className="notification-image" />
+              </div>
+              <div className="notification-text">
+                <p className="notification-title">Añadiendo Producto:</p>
+                <p className="notification-id">{e.id}</p>
+              </div>
             </motion.li>
           ))}
         </AnimatePresence>
@@ -28,4 +30,4 @@ const Notification = ({ notifications }) => {
   )
 }
 
-export default Notification
+export default Notification;

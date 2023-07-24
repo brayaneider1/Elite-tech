@@ -1,38 +1,79 @@
+/* ===== Variables ===== */
+$yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+$orange: #fca61f;
+$black: #242d49;
+$gray: #788097;
+$purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+$pink: #ff919d;
+$glass: rgba(255, 255, 255, 0.54);
+$boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+$smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+$activeItem: #f799a354;
+
+$primary-color: #030926;
+$secondary-color: #05f2c7;
+$blueAccent-color: #05f2c7;
+$orange-color: #fca61f;
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
+/* Reset and General Styles */
+body {
+  background: $primary-color;
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Overlay */
 .customOverlay {
   backdrop-filter: blur(3px);
 }
 
+/* Linked Class */
 .linked {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Best Seller Class */
 .best-seller {
   display: block;
   position: relative;
   padding-top: 20px;
-
-
 }
 
+/* Container Overflow Class */
 .container-ovf {
   max-height: 90vh;
-  overflow: auto;
   padding: 2% 5%;
   width: 100%;
-
 }
 
+/* Custom Modal Class */
 .customModal {
   max-width: 500px;
   border-radius: 20px;
   width: 100%;
 }
 
+/* Button Styles */
+.btn-save {
+  margin: 20px auto;
+  height: auto;
+  @include btn-round(white, $secondary-color, normal, 15px, null);
+}
+
 .ant-btn {
+  border-radius: 35rem;
+
+  &-primary {
+    background-color: $blueAccent-color;
+    width: 24%;
+    border-radius: 35rem;
+    border: none;
+  }
+
   &.btn_blue {
     margin: 20px auto;
     height: auto;
@@ -52,16 +93,7 @@
   }
 }
 
-.btn-save {
-  margin: 20px auto;
-  height: auto;
-  @include btn-round(white, $secondary-color, normal, 15px, null);
-}
-
-.ant-space-vertical {
-  width: 100%;
-}
-
+/* Table Styles */
 th,
 .tdBefore {
   font-weight: normal;
@@ -88,6 +120,7 @@ th,
   margin: 3% !important;
 }
 
+/* Input Styles */
 input[type="date"] {
   border-color: transparent !important;
   border-right-width: 1px !important;
@@ -98,6 +131,7 @@ input[type="date"] {
   padding: 5px 10px;
 }
 
+/* Ant Design Steps Styles */
 .ant-steps-item-process .ant-steps-item-icon {
   background: $secondary-color;
   color: $secondary-color;
@@ -117,6 +151,7 @@ input[type="date"] {
   border-color: $secondary-color;
 }
 
+/* Ant Design Layout Styles */
 .ant-layout {
   height: 100% !important;
 }
@@ -126,6 +161,7 @@ input[type="date"] {
   background: $primary-color;
 }
 
+/* Error Text Styles */
 .text-error {
   color: $orange-color;
   font-size: 12px;
@@ -133,6 +169,7 @@ input[type="date"] {
   align-self: flex-end;
 }
 
+/* Responsive Table Styles */
 @media screen and (max-width: 40em) {
   .responsiveTable tbody tr {
     border: 1px solid #0000002e !important;
@@ -141,17 +178,7 @@ input[type="date"] {
   }
 }
 
-.ant-btn {
-  border-radius: 35rem;
-}
-
-.ant-btn-primary {
-  background-color: $blueAccent-color;
-  width: 24%;
-  border-radius: 35rem;
-  border: none;
-}
-
+/* Ant Modal Styles */
 .ant-modal {
   width: auto;
   display: flex;
@@ -159,7 +186,6 @@ input[type="date"] {
 
   &-content {
     width: fit-content;
-
     position: relative;
     border-radius: 20px !important;
   }
@@ -174,6 +200,7 @@ input[type="date"] {
   }
 }
 
+/* Input Number Styles for Firefox */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -185,6 +212,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/* Glass App Styles */
 .content-AppGlass {
   display: flex;
   flex-direction: column;
@@ -198,11 +226,11 @@ input[type="number"] {
   width: 100%;
 
   .content-main {
+    overflow: auto;
     position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     &--expanded {
       filter: blur(10px);
@@ -222,28 +250,7 @@ input[type="number"] {
   }
 }
 
-.notification {
-  ul {
-    color: rgb(81, 9, 86);
-    position: fixed;
-    z-index: 99;
-    right: 0;
-    border-radius: 30px;
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    list-style: none;
-    padding: 5px;
-    background-color: white;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 7px;
-  }
-}
-
+/* Media Queries */
 @media screen and (max-width: 1200px) {
   .AppGlass {
     grid-template-columns: 10% auto;
@@ -257,6 +264,7 @@ input[type="number"] {
   }
 }
 
+/* Pagination Styles */
 .pagination {
   margin: auto;
 
@@ -303,7 +311,7 @@ input[type="number"] {
   }
 }
 
-/* ===== Scrollbar CSS ===== */
+/* Scrollbar Styles */
 /* Firefox */
 * {
   scrollbar-width: auto;
@@ -325,73 +333,26 @@ input[type="number"] {
   border: 3px solid #ffffff37;
 }
 
-:root {
-  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
-  --orange: #fca61f;
-  --black: #242d49;
-  --gray: #788097;
-  --purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
-  --pink: #ff919d;
-  --glass: rgba(255, 255, 255, 0.54);
-  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
-  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
-  --activeItem: #f799a354;
-}
-
-body {
-  background: #030926;
-  text-transform: capitalize;
-  font-family: 'Poppins', sans-serif;
-
-}
-
 .Links {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .view-more{
+  .view-more {
     display: flex;
     justify-content: center;
     align-items: center;
-    a{
+
+    a {
       text-decoration: none;
       font-weight: 200;
       color: #05f2c7;
 
     }
-    svg{
+
+    svg {
       color: #05f2c7;
       font-size: 30px;
     }
-  }
-}
-
-.App {
-  /* padding: 0.5rem 3.5rem; */
-  color: var(--black);
-  background: #030926;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Inter", sans-serif;
-}
-
-.float-container {
-  z-index: 100;
-}
-
-.ant-drawer-wrapper-body {
-  background-color: #2a2b38 !important;
-  color: white;
-
-}
-
-.ant-drawer-header-title {
-
-  button,
-  .ant-drawer-title {
-    color: white !important;
   }
 }
