@@ -5,6 +5,7 @@ import { navigate } from "gatsby"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
 import parse from "html-react-parser"
+import { FaCartPlus, FaEye } from "react-icons/fa"
 
 export const CardDark = ({ slideNext, product, addToCart }) => {
   const commerce = new Commerce(
@@ -55,7 +56,8 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
                 onClick={() => addCard(product)}
                 className="blog-slider__button"
               >
-                Agregar al carrito
+                
+                <FaCartPlus/> Agregar
               </a>
 
               <a
@@ -70,7 +72,7 @@ export const CardDark = ({ slideNext, product, addToCart }) => {
                 onClick={() => navigate(`/product/${product?.id}/`)}
                 className="blog-slider__button__plus"
               >
-                Ver detalles
+                <FaEye/> Más
               </a>
               <a
                 href="#"

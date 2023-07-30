@@ -45,7 +45,9 @@ body {
 
 /* Container Overflow Class */
 .container-ovf {
+  margin: auto;
   max-height: 90vh;
+  max-width: 1400px;
   padding: 2% 5%;
   width: 100%;
 }
@@ -241,12 +243,32 @@ input[type="number"] {
       width: 100%;
     }
 
+
     .whatsapp {
       position: fixed;
-      width: 70px;
-      right: 8px;
-      bottom: 8px;
+      width: 60px;
+      right: 15px;
+      bottom: 20px;
+      transition: transform 0.3s ease-in-out;
+      animation: floating 3s ease-in-out infinite;
+
     }
+
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
   }
 }
 
@@ -311,6 +333,31 @@ input[type="number"] {
   }
 }
 
+.Links{
+  display: flex;
+  justify-content: space-between;
+
+.view-more{
+  display: flex;
+  align-items: center;
+}
+  
+.header_title{
+padding-left: 0;
+margin: 0;
+}
+  a{
+    text-decoration: none;
+    color: #05f2c7;
+    font-weight: 600;
+  }
+  svg{
+    color: #05f2c7;
+    font-size: 20px;
+    margin: auto 5px;
+  }
+}
+
 /* Scrollbar Styles */
 /* Firefox */
 * {
@@ -331,28 +378,4 @@ input[type="number"] {
   background-color: #05f2c7;
   border-radius: 10px;
   border: 3px solid #ffffff37;
-}
-
-.Links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .view-more {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      text-decoration: none;
-      font-weight: 200;
-      color: #05f2c7;
-
-    }
-
-    svg {
-      color: #05f2c7;
-      font-size: 30px;
-    }
-  }
 }

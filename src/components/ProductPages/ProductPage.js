@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 import Commerce from "@chec/commerce.js"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import Layout from "../Layout/Layout"
 import { ProductCard } from "../ProductCard/ProductCard"
 import Notification from "../Notification/Notification"
-import { HeaderC } from "../Header/Header"
+import { ProductCardDetail } from "../ProductDetail/ProductDetail"
+import { Loading } from "../Loading/Loading"
+import { ProductComponent } from "../Product/Product"
+import { Footer } from "../Footer/Footer"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -42,6 +43,7 @@ export default function ProductPage({ pageContext }) {
   const [quantity, setQuantity] = useState(0)
   const [notifications, setNotifications] = useState([])
   const [product, setProduct] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   const commerce = new Commerce(
     "pk_test_51875911a995a6bd1faee1b9b71f652fccac0c6474a16"
   )
@@ -113,131 +115,58 @@ export default function ProductPage({ pageContext }) {
     add(prod)
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2500)
+  }, [])
+
   return (
-    <Layout>
-      <Notification notifications={notifications} />
-      <HeaderC />
+    <div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Layout>
+          <div className="container-ovf">
+            <Notification notifications={notifications} />
+            <ProductCardDetail
+              product={product}
+              quantity={quantity}
+              setQuantity={setQuantity}
+              addCard={addCard}
+            />
 
-      <div className="product-page">
-        <div className="container-ovf">
-          <h2 className="product-title">{product?.name}</h2>
-          <div className="cardP-wrapper">
-            <div className="cardP">
-              <div className="product-imgs">
-                <div className="img-display">
-                  <div className="img-showcase">
-                    <img
-                      src={
-                        product?.image?.url
-                          ? product.image.url
-                          : "https://cdn.pixabay.com/photo/2015/03/27/00/09/puzzle-693865_1280.jpg"
-                      }
-                      alt="shoe image"
-                    />
-                    <img
-                      src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg"
-                      alt="shoe image"
-                    />
-                    <img
-                      src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg"
-                      alt="shoe image"
-                    />
-                    <img
-                      src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg"
-                      alt="shoe image"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="product-content">
-                <div className="product-rating">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star-half-alt"></i>
-                  <p className="stock">
-                    Stock disponible:
-                    <span>{product?.inventory?.available}</span>
-                  </p>
-                </div>
+            {pageContext?.categories[0]?.products?.length > 0 && (
+              <h2 className="related-title" >Productos Relacionados</h2>
+            )}
 
-                <div className="product-price">
-                  <p className="last-price">
-                    Antes:
-                    <span>
-                      {parseInt(product?.price?.formatted) -
-                        (parseInt(product?.price?.formatted) * 5) / 100}
-                    </span>
-                  </p>
-                  <p className="new-price">
-                    Ahora:{" "}
-                    <span>{product?.price?.formatted_with_code} (5%)</span>
-                  </p>
-                </div>
-
-                <div className="product-review">
-                  <a target="_blank" href={product?.thank_you_url}>
-                    Pagina oficial del producto
-                  </a>
-                </div>
-
-                <div className="product-detail">
-                  <h2>Descripción: </h2>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: product?.description }}
-                    className="blog-slider__text"
-                  />
-                </div>
-
-                <div className="wrap-add">
-                  <div className="input-quantity">
-                    <span onClick={() => setQuantity(quantity - 1)}>-</span>
-                    <input value={quantity} />
-                    <span onClick={() => setQuantity(quantity + 1)}>+</span>
-                  </div>
-
-                  <a
-                    href="#"
-                    onClick={() => addCard(product)}
-                    className="blog-slider__button"
-                  >
-                    Agregar al carrito
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {product?.categories && (
-            <div
-              className="header_title"
-              style={{ width: "100%", textAlign: "center" }}
+            <motion.div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                paddingTop: "20px",
+                justifyContent: "space-between",
+              }}
+              variants={container}
+              initial="hidden"
+              animate="show"
             >
-              Productos relacionados
-            </div>
-          )}
-
-          <motion.div
-            style={{ display: "flex", flexWrap: "wrap", paddingTop: "20px" }}
-            variants={container}
-            initial="hidden"
-            animate="show"
-          >
-            {Array.isArray(product?.categories) &&
-              pageContext?.categories[0]?.products?.map((product, i) => (
-                <div>
-                  <ProductCard
-                    product={product}
-                    key={i}
-                    addToCart={add}
-                    notifications={notifications}
-                  />
-                </div>
-              ))}
-          </motion.div>
-        </div>
-      </div>
-    </Layout>
+              {Array.isArray(product?.categories) &&
+                pageContext?.categories[0]?.products?.map((product, i) => (
+                  <div>
+                    <ProductComponent
+                      product={product}
+                      key={i}
+                      addToCart={add}
+                      notifications={notifications}
+                    />
+                  </div>
+                ))}
+            </motion.div>
+            <Footer />
+          </div>
+        </Layout>
+      )}
+    </div>
   )
 }

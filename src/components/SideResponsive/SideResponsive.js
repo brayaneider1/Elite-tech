@@ -1,6 +1,7 @@
 import React from "react"
 import Logo from "../../imgs/logo.png"
 import { UilListUl, UilTimes } from "@iconscout/react-unicons"
+import {TfiMenu} from "react-icons/tfi"
 import { SidebarData } from "../../Data/Data"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
@@ -26,13 +27,18 @@ export const SideResponsive = ({ setSideExpaned, sideExpanded }) => {
 
   return (
     <div className="side-responsive">
-      <input onClick={onHanldeSide} type="checkbox" id="check" />
-      <label htmlFor="check">
-        <UilListUl id="btn" />
+      <input
+        onClick={onHanldeSide}
+        type="checkbox"
+        id="check"
+      />
+      <label  htmlFor="check">
+        <TfiMenu id="btn" />
         <UilTimes id="cancel" />
       </label>
       <div className="sidebar">
         <header>
+          {" "}
           <div className="logo">
             <img src={Logo} alt="logo" />
           </div>

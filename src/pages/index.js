@@ -17,6 +17,7 @@ import { Footer } from "../components/Footer/Footer"
 import SliderComponent from "../components/Brands/Brand"
 import { Loading } from "../components/Loading/Loading"
 import { BsArrowRightShort } from "react-icons/bs"
+import { ProductComponent } from "../components/Product/Product"
 
 export const pageQuery = graphql`
   query MyQuery {
@@ -93,7 +94,7 @@ const IndexPage = ({ data }) => {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     speed: 1000,
     arrows: false,
     slidesToShow: 1,
@@ -133,15 +134,8 @@ const IndexPage = ({ data }) => {
         <Loading />
       ) : (
         <Layout>
-          <HeaderC />
           <Notification notifications={notifications} />
           <div className=" custom-container container-ovf">
-            <div
-              className="header_title"
-              style={{ width: "100%", textAlign: "center" }}
-            >
-              Más vendidos
-            </div>
             <div className="best-seller">
               <Slider {...settings} ref={customeSlider}>
                 {data.allProductsSort.nodes.map((product, index) => (
@@ -194,14 +188,16 @@ const IndexPage = ({ data }) => {
               animate="show"
             >
               {data.allProductsCreated.nodes.map((product, i) => (
-                <ProductCard
-                  product={product}
-                  key={i}
-                  addToCart={add}
-                  notifications={notifications}
-                />
+                <ProductComponent 
+                product={product}
+                key={i}
+                addToCart={add}
+                notifications={notifications}
+      />
               ))}
             </motion.div>
+
+         
             <SliderComponent />
             <Footer />
           </div>

@@ -34,7 +34,6 @@ export default function CategoryPage({ pageContext }) {
   }
   return (
     <Layout>
-      <HeaderC />
       <Notification notifications={notifications} />
 
       <div className="container-category">
@@ -45,11 +44,10 @@ export default function CategoryPage({ pageContext }) {
               <div className="banner-text">{pageContext?.description}</div>
             </div>
             <img
-    className="banner-background"
-    src={
-                pageContext?.assets[0]?.url
-                  ? pageContext?.assets[0]?.url
-                  : "https://cdn.pixabay.com/photo/2017/07/10/23/45/cubes-2492010_1280.jpg"
+              className="banner-background"
+              src={
+                pageContext?.assets[0]?.url ||
+                "https://cdn.pixabay.com/photo/2017/07/10/23/45/cubes-2492010_1280.jpg"
               }
             />
           </div>

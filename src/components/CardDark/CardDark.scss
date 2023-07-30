@@ -97,23 +97,23 @@
 
   .contents-btns {
     display: flex;
+    justify-content: flex-end;
     padding-bottom: 30px;
   }
 
   &__img {
-    // width: 40%;
     width: 250px;
     flex-shrink: 0;
+    position: relative;
     height: 250px;
-    background-image: linear-gradient(147deg, $blueAccent-color 0%, $secondary-color 74%);
-    box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
-    border-radius: 15px;
+    border-radius: 10px 5% 5% 5px;
+    background: white;
+    box-shadow: -12px -11px 0px 0px #2e2648;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-80px);
-
     overflow: hidden;
+    margin-right: 40px;
 
     &:after {
       content: "";
@@ -128,14 +128,18 @@
     }
 
     img {
-      width: 90%;
-      height: 90%;
+      width: 100%;
+      height: 80%;
+      height: 100%;
+      background: white;
       margin: auto;
-      object-fit: contain;
-      position: relative;
+      object-position: left;
+      object-fit: cover;
+      position: absolute;
       z-index: 1;
       opacity: 1;
-      border-radius: 20px;
+      top: 0;
+      left: 0;
       transition: all 0.3s;
     }
 
@@ -203,17 +207,20 @@
 
   &__button {
     display: inline-flex;
-    background-image: linear-gradient(147deg, $orange-color 0%, $secondary-color 74%);
-    font-weight: 400;
+    background: #05f29b;
     padding: 10px 20px;
     border-radius: 50px;
-    color: #fff;
-    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    color: #040d36;
+    box-shadow: 0px 14px 80px rgba(9, 8, 8, 0.4);
     text-decoration: none;
     font-weight: 500;
     justify-content: center;
     text-align: center;
     letter-spacing: 1px;
+
+    svg {
+      margin-right: 10px;
+    }
 
     @media screen and (max-width: 576px) {
       width: 100%;
@@ -223,17 +230,22 @@
   &__button__plus {
     display: inline-flex;
     margin-left: 20px;
-    background-image: linear-gradient(147deg, $blueAccent-color 0%, $blueAccent-color 74%);
+    background-image: linear-gradient(147deg, #05f2c7 0%, #05f2c7 74%);
     font-weight: 400;
     padding: 10px 20px;
     border-radius: 50px;
     color: rgb(41, 40, 40);
-    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    box-shadow: 0px 14px 80px rgba(57, 57, 57, 0.4);
     text-decoration: none;
     font-weight: 500;
     justify-content: center;
     text-align: center;
     letter-spacing: 1px;
+    letter-spacing: 1px;
+
+    svg {
+      margin-right: 10px;
+    }
 
     @media screen and (max-width: 576px) {
       width: 100%;
@@ -313,6 +325,7 @@
       height: 28px;
       width: 28px;
       right: -6px;
+
       svg {
         width: 100%;
         height: 100%;

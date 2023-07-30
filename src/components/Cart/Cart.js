@@ -62,7 +62,6 @@ const Cart = () => {
   }
   return (
     <div className="cart-c">
-      <HeaderC />
       <div className="container-cart">
         <Modal
           aria-labelledby="transition-modal-title"

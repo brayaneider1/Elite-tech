@@ -71,6 +71,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 2;
+  margin-top: 80%;
 }
 
 .card .contentBox h3 {
@@ -110,8 +111,13 @@
 }
 
 .mouse {
-  height: 150px;
-  width: 150px;
+  position: absolute;
+  height: 166px;
+  top: 0;
+  top: 0px;
+  left: 0;
+  border-radius: 0 0 50%;
+  width: 171px;
 }
 
 @media screen and (max-width: 768px) {
@@ -119,7 +125,8 @@
 
     justify-content: center;
   }
-  .category-card{
+
+  .category-card {
     padding: 10px;
   }
 
@@ -129,11 +136,12 @@
     height: 200px;
   }
 
-  .mouse{
+  .mouse {
     height: 110px;
     width: 115px;
   }
-  .price{
+
+  .price {
     padding-bottom: 5px;
   }
 
@@ -144,7 +152,7 @@
     position: relative;
     top: 0px;
     opacity: 1;
-    padding:5px 10px;
+    padding: 5px 10px;
     font-size: 10px;
     margin-top: 0;
     color: #000000;
@@ -161,26 +169,27 @@
     color: white;
     font-weight: 700;
     letter-spacing: 1px;
-}
-.card .contentBox h3 {
-  padding: 0 0 6px 0;
-  font-size: 10px;
-  color: white;
-  text-align: center;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+  }
 
-.card .contentBox {
-  position: relative;
-  padding: 0 0 6px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 2;
-}
+  .card .contentBox h3 {
+    padding: 0 0 6px 0;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card .contentBox {
+    position: relative;
+    padding: 0 0 6px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+  }
 
 
 

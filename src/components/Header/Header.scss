@@ -41,18 +41,44 @@
 }
 
 .header {
+  max-width: 1400px;
+  padding: 2% 5%;
+  margin: auto;
   background: transparent;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 30px 20px 10vw;
   color: white;
 
   &_head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex: 1;
+    justify-content: flex-end;
+    margin-right: 50px;
   }
+
+  .Logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 28px;
+      margin: auto;
+      margin-left: 30px;
+    }
+
+    svg {
+      cursor: pointer;
+      font-size: 28px;
+      margin-right: 20px;
+
+    }
+  }
+
+
+
 
   &_title {
     width: 70%;
@@ -67,10 +93,10 @@
 
   .input-component {
     width: 100%;
+    flex: 1;
   }
 
   &_options {
-    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -224,9 +250,10 @@
   .header {
     &_head {
       align-items: center;
-      margin: 0 20px ;
-      .header_title{
-        margin: 0 20px ;
+      margin: 0 20px;
+
+      .header_title {
+        margin: 0 20px;
       }
     }
 

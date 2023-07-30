@@ -6,6 +6,7 @@
 
     .sidebar {
         position: fixed;
+        top: 0;
         width: 240px;
         left: -240px;
         height: 100%;
@@ -37,24 +38,26 @@
         text-decoration: none;
     }
 
-    .hWCEps{
-        padding-left: 70px !important;
-        padding: 12px 0px 27px 70px !important;
-        font-size: 15px !important;
-    }
+   
 
     .dropdown-items {
-        display: block;
+        display: table;
         height: auto;
         width: 100%;
         color: white;
-        padding-left: 30px;
+        padding: 10px 0;
         box-sizing: border-box;
         border-bottom: 0.1px solid black;
         border-top: 0.1px solid rgba(255, 255, 255, .1);
         border-left: 5px solid transparent;
         transition: all .5s ease;
         text-decoration: none;
+
+        span{
+            padding: 12px 0px 27px 40px !important;
+            font-size: 15px !important;
+            margin: 20px 0;
+        }
 
     }
 
@@ -95,6 +98,7 @@
         border-radius: 5px;
         border: 1px solid #070f35;
         margin: 20px 30px;
+        top: 5px;
         font-size: 22px;
         background: #070f35;
         height: 35px;
@@ -104,7 +108,9 @@
         transition: all .5s ease;
 
         @media screen and (max-width: 768px) {
-            margin: 20px;
+            margin:0 10px;
+            top: 10px;
+
         }
 
     }

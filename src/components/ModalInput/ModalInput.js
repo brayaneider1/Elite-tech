@@ -6,13 +6,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from "gatsby"
 
 export const ModalInput = ({ products }) => {
-  console.log("🚀 ~ file: ModalInput.js:9 ~ ModalInput ~ products:", products)
   const [showModal, setShowModal] = useState(false)
   const [searchResults, setSearchResults] = useState([])
   const inputRef = useRef(null)
 
   const openModal = () => {
-    setShowModal(true)
+    console.log('asdd');
+    setShowModal(!showModal)
   }
 
   const closeModal = () => {
@@ -43,8 +43,8 @@ export const ModalInput = ({ products }) => {
 
   return (
     <div key="1" className="input-container">
-      <div className="input-icon" onClick={openModal} ref={inputRef}>
-        <InputComponent key="Input-first" />
+      <div className="input-icon" onClick={()=>openModal()}>
+        <InputComponent key="Input-first2"  />
       </div>
       <div onClick={openModal} ref={inputRef} className="search-icon">
         <FaSearch />
