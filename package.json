@@ -47,6 +47,7 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-lazy-load": "^4.0.1",
+    "react-paginate": "^8.2.0",
     "react-slick": "^0.29.0",
     "react-whatsapp": "^0.3.0",
     "sass": "1.49.11",

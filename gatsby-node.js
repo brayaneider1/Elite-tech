@@ -29,6 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   await createPagesCategories(createPage, graphql)
   await createPagesProducts(createPage, graphql)
+  await createCartPage(createPage) 
 }
 
 const createPagesProducts = (createPage, graphql) => {
@@ -147,5 +148,17 @@ const createPagesCategories = (createPage, graphql) => {
         })
       })
     )
+  })
+}
+
+const createCartPage = createPage => {
+  const pageCart = path.resolve("./src/components/Cart/Cart.js")
+
+  createPage({
+    path: "/cart", // La ruta completa con el basepath
+    component: pageCart,
+    context: {
+      // Puedes agregar cualquier contexto adicional que necesites para la página de carrito
+    },
   })
 }

@@ -45,7 +45,7 @@ export const HeaderC = ({handleExpanded}) => {
         {auth ? (
           <button onClick={() => loginWithRedirect()}>login</button>
         ) : (
-          <button onClick={() => navigate(`/app/cart/`)} className="button_log">
+          <button onClick={() => navigate(`/cart`)} className="button_log">
             <UilShoppingCartAlt />
           </button>
         )}

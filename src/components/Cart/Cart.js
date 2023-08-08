@@ -9,12 +9,12 @@ import Modal from "@mui/material/Modal"
 import Fade from "@mui/material/Fade"
 import { Drawer } from "antd"
 import Typography from "@mui/material/Typography"
-import { HeaderC } from "../Header/Header"
 import { FormCheckout } from "../FormCheckout/FormCheckout"
 import LottieEmpy from "../../common/Lotties/empty.json"
 import Lottie from "lottie-react"
 import { Loading } from "../Loading/Loading"
 import { Footer } from "../Footer/Footer"
+import Layout from "../Layout/Layout"
 
 const style = {
   position: "absolute",
@@ -32,7 +32,7 @@ const style = {
   p: 4,
 }
 
-const Cart = () => {
+export default function Cart({ pageContext }) {
   const [open, setOpen] = React.useState(false)
   const [openDrawer, setOpenDrawer] = useState(false)
   const handleClose = () => setOpen(false)
@@ -76,85 +76,88 @@ const Cart = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="cart-c container-ovf">
-          <div className="container-cart">
-            <Modal
-              aria-labelledby="transition-modal-title"
-              aria-describedby="transition-modal-description"
-              open={open}
-              onClose={handleClose}
-              closeAfterTransition
-              slots={{ backdrop: Backdrop }}
-              slotProps={{
-                backdrop: {
-                  timeout: 500,
-                },
-              }}
-            >
-              <Fade in={open}>
-                <Box sx={style}>
-                  <Typography
-                    id="transition-modal-title"
-                    variant="h6"
-                    component="h2"
-                  >
-                    Metodos de pago
-                  </Typography>
-                  <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor
-                    ligula.
-                  </Typography>
-                </Box>
-              </Fade>
-            </Modal>
+        <Layout>
+          <div className="cart-c container-ovf">
+            <div className="container-cart">
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                slots={{ backdrop: Backdrop }}
+                slotProps={{
+                  backdrop: {
+                    timeout: 500,
+                  },
+                }}
+              >
+                <Fade in={open}>
+                  <Box sx={style}>
+                    <Typography
+                      id="transition-modal-title"
+                      variant="h6"
+                      component="h2"
+                    >
+                      Metodos de pago
+                    </Typography>
+                    <Typography
+                      id="transition-modal-description"
+                      sx={{ mt: 2 }}
+                    >
+                      Duis mollis, est non commodo luctus, nisi erat porttitor
+                      ligula.
+                    </Typography>
+                  </Box>
+                </Fade>
+              </Modal>
 
-            <Drawer
-              title="Completar compra"
-              placement="right"
-              onClose={handleDrawer}
-              open={openDrawer}
-            >
-              <FormCheckout cart={cart} />
-            </Drawer>
-            <section className="cart">
-              <div className="cart-title">
-                <h2>Carrito De Compras</h2>
-              </div>
-              <div className="cart-container">
-                {Array.isArray(productInCart) && productInCart.length > 0 ? (
-                  <>
-                    {checkout === false ? (
-                      <div className="cart-container-product">
-                        {productInCart.map((item, i) => (
-                          <CartProduct
-                            item={item}
-                            key={i}
-                            deleteProduct={Delete}
-                          />
-                        ))}
-                      </div>
-                    ) : (
-                      <Pay setCheckout={setCheckout} />
-                    )}
-                    <CartCheckout cart={cart} setCheckout={handleDrawer} />
-                  </>
-                ) : (
-                  <div className="empty-cart-message">
-                    <Lottie
-                      className="content-lottie"
-                      animationData={LottieEmpy}
-                      loop={true}
-                    />
-                  </div>
-                )}
-              </div>
-            </section>
+              <Drawer
+                title="Completar compra"
+                placement="right"
+                onClose={handleDrawer}
+                open={openDrawer}
+              >
+                <FormCheckout cart={cart} />
+              </Drawer>
+              <section className="cart">
+                <div className="cart-title">
+                  <h2>Carrito De Compras</h2>
+                </div>
+                <div className="cart-container">
+                  {Array.isArray(productInCart) && productInCart.length > 0 ? (
+                    <>
+                      {checkout === false ? (
+                        <div className="cart-container-product">
+                          {productInCart.map((item, i) => (
+                            <CartProduct
+                              item={item}
+                              key={i}
+                              deleteProduct={Delete}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <Pay setCheckout={setCheckout} />
+                      )}
+                      <CartCheckout cart={cart} setCheckout={handleDrawer} />
+                    </>
+                  ) : (
+                    <div className="empty-cart-message">
+                      <Lottie
+                        className="content-lottie"
+                        animationData={LottieEmpy}
+                        loop={true}
+                      />
+                    </div>
+                  )}
+                </div>
+              </section>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        </Layout>
       )}
     </div>
   )
 }
-
-export default Cart

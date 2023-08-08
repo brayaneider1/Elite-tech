@@ -64,7 +64,7 @@ const SubMenu = ({ item, index, nodes }) => {
               exit={"hidden"}
               onClick={() => navigate(`/category/${item.id}`)}
             >
-              <SidebarLabel>{item.name}</SidebarLabel>
+              <SidebarLabel>{item.name.slice(0,16)}</SidebarLabel>
             </DropdownLink>
           ))}
       </AnimatePresence>

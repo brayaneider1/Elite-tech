@@ -3,7 +3,7 @@ import React from "react"
 import "./CardItem.scss"
 
 export const CardCategory = ({ data, id }) => {
-  const image = data?.assets[0].url ?? ""
+  const image = data.assets && data.assets.length > 0 ? data.assets[0].url : ""
   return (
     <div id={`item-${id}`} className="category-card" key={id}>
       <div className="card-some">

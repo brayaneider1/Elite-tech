@@ -333,29 +333,54 @@ input[type="number"] {
   }
 }
 
-.Links{
+.Links {
   display: flex;
   justify-content: space-between;
 
-.view-more{
-  display: flex;
-  align-items: center;
-}
-  
-.header_title{
-padding-left: 0;
-margin: 0;
-}
-  a{
+  .view-more {
+    display: flex;
+    align-items: center;
+  }
+
+  .header_title {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  a {
     text-decoration: none;
     color: #05f2c7;
     font-weight: 600;
   }
-  svg{
+
+  svg {
     color: #05f2c7;
     font-size: 20px;
     margin: auto 5px;
   }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #1e2f82;
+  border-radius: 5px;
+}
+
+.pagination .active a {
+  background-color: #05f2c7;
+  border-radius: 20px;
+  color: #fff;
 }
 
 /* Scrollbar Styles */
