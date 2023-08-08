@@ -1,8 +1,7 @@
 .container-cart {
-  max-height: 98vh;
+  max-height: auto;
   overflow: auto;
   padding:3% ;
-  width: 100vw;
   padding-bottom: 10%;
   @media (max-width: 768px) {
     // Estilos específicos para pantallas con un ancho máximo de 768px
@@ -12,7 +11,8 @@
 
 }
 .cart-c{
-  width: 100vw;
+  width: 100%;
+  margin: auto;
 }
 .cart {
   display: flex;
@@ -34,7 +34,7 @@
       font-weight: 500;
       text-transform: uppercase;
     }
-  }
+    }
   &-container {
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +80,7 @@
     margin-bottom: 10px;
 
     @media (max-width: 768px) {
-      flex: 0.4 1;
+      flex: 1;
       padding: 0 1rem;
     }
     .data-container {
@@ -161,7 +161,7 @@
         font-weight: 100;
         gap: 20px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 768px) { 
           flex-direction: column;
         }
       }

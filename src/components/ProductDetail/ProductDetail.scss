@@ -18,15 +18,13 @@ $bdot5: #dfdfdf;
 $star: #fe6067;
 $discount: #fe6168;
 
-@mixin bp($bp,
-    $min-max: min-width) {
-    $em: $bp/16;
+@mixin bp($bp, $min-max: min-width) {
+    $em: calc(#{$bp} / 16 * 1em);
 
-    @media(#{$min-max}: #{$em}em) {
+    @media(#{$min-max}: $em) {
         @content;
     }
 }
-
 
 
 .product-page{

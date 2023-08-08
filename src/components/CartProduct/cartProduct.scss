@@ -10,11 +10,11 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 70px;
+    height: auto;
     background-color: transparent;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
     border-radius: 5px;
     h5 {
       color: white;

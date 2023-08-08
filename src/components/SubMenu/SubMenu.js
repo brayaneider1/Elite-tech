@@ -19,7 +19,7 @@ const SubMenu = ({ item, index, nodes }) => {
     },
     show: {
       opacity: 1,
-      height: 25,
+      height: "auto",
       transition: {
         duration: 0.3,
         when: "beforeChildren",

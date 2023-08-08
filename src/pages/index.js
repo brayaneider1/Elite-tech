@@ -162,6 +162,7 @@ const IndexPage = ({ data }) => {
 
             <div className="wrapper category">
               <div className="angry-grid">
+                
                 {data.allChecCategory.nodes.map((item, index) => (
                   <CardCategory
                     key={index}
