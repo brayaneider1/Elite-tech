@@ -11,15 +11,14 @@ const Layout = ({ children }) => {
   const [expanded, setExpaned] = useState(true)
   const [sideExpanded, setSideExpaned] = useState(false)
 
-
-  const handleExpaned=()=>{
+  const handleExpaned = () => {
     setSideExpaned(!sideExpanded)
     setExpaned(!expanded)
   }
 
   return (
     <div className="content-AppGlass">
-      <HeaderC handleExpanded={handleExpaned}/>
+      <HeaderC handleExpanded={handleExpaned} />
       <div className="AppGlass">
         <SideResponsive
           setSideExpaned={setSideExpaned}

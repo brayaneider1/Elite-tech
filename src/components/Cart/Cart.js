@@ -68,7 +68,7 @@ export default function Cart({ pageContext }) {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 2500)
+    }, 1000)
   }, [])
 
   return (

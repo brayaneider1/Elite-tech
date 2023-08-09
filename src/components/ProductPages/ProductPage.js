@@ -118,7 +118,7 @@ export default function ProductPage({ pageContext }) {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 2500)
+    }, 1000)
   }, [])
 
   return (

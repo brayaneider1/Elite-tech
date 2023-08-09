@@ -86,7 +86,7 @@ const IndexPage = ({ data }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 2500)
+    }, 1000)
   }, [])
 
   const customeSlider = useRef()
@@ -94,7 +94,7 @@ const IndexPage = ({ data }) => {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     speed: 1000,
     arrows: false,
     slidesToShow: 1,

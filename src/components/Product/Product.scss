@@ -283,10 +283,56 @@ p.prd-description {
 }
 
 .prd-card-2:hover .prd-card-content2 {
-    transform: translateY(0);
+    transform: translateY(10px);
 }
 
 .prd-card-2:hover .prd-card-description {
     opacity: 1;
     transition-delay: 0.25s;
+}
+
+@media screen and (max-width: 768px) {
+    .product-container {
+
+        justify-content: space-between;
+    }
+
+    .prd-card-2 {
+        margin: 30px auto;
+        position: relative;
+        width: 170px;
+        margin-left: 0;
+        height: 280px;
+        background-size: contain;
+        border-radius: 5px;
+        box-shadow: -2px -2px 1px 0px #05f29b, 4px 3px 0px 2px #232129;
+        overflow: hidden;
+    }
+
+    .prd-img-mask {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: -1;
+        filter: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        img {
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    .prd-card-title {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .prd-card-description{
+        font-size: 12px;
+    }
+
+    .prd-card-2:hover .prd-card-content2 {
+        transform: translateY(20px);
+    }
 }

@@ -89,7 +89,7 @@ const StorePage = ({ data }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 2500)
+    }, 1500)
   }, [])
 
   const customeSlider = useRef()
